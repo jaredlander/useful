@@ -1,6 +1,7 @@
 ## Written by Jared P. Lander
 ## See LISCENSE for copyright information
 ## make getting regex results easier
+## looks like Hadley's stringr pretty much does this already, but ok
 
 ## takes the result of a regex and extracts the desired tect
 ## @results () the return of either regexpr or gregexpr
@@ -54,6 +55,7 @@ OneRegex <- function(text, pattern, ignore.case=FALSE, perl=FALSE, fixed=FALSE, 
 
 ## same as regex but for global pattern recognition
 ## does one gregexpr for each element of text
+## results are a list
 ## @pattern (character) the regular expression pattern to search for
 ## @text (character) 
 ## @ignore.case (logical) If FALSE, the pattern matching is case sensitive and if TRUE, case is ignored during matching.
