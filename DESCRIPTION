@@ -1,0 +1,11 @@
+Package: useful
+Type: Package
+Title: A collection of handy, useful functions
+Version: 1.0
+Date: 2011-10-02
+Author: Jared P. Lander
+Maintainer: <info@jaredlander.com>
+Description: A set of little functions that have been found useful to do little odds and ends
+License: BSD, see LISCENSE
+Depends: ggplot2
+LazyLoad: yes

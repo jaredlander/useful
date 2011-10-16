@@ -33,7 +33,9 @@ subOut <- function(toAlter, specialChars=c("!", "(", ")", "-", "=", "*", "."))
 ## @specialChars: the characters to be replaced
 ## calls .subOut to do the actual work
 ## returns list of the modified vectors
-subSpecials <- function(..., specialChars=c("!", "(", ")", "-", "=", "*", "."), simplify=FALSE)
+subSpecials <- function(..., specialChars=c("!", "(", ")", "-", "=", "*", "."))
 {
-    return(llply(list(...), subOut, specialChars=specialChars))  # run .subOut on each vector, returning the resulting list
+    result <- llply(list(...), subOut, specialChars=specialChars)  # run .subOut on each vector, returning the resulting list
+    
+    return(result)
 }
