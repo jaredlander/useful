@@ -11,6 +11,7 @@ Maps a range of numbers to a given interval
 }
 \usage{
 MapToInterval(nums, start = 1, stop = 10)
+mapping(nums, start = 1, stop = 10)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -55,13 +56,16 @@ www.jaredlander.com
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{mapping}}
 }
+\alias{mapping}
 \examples{
 %##---- Should be DIRECTLY executable !! ----
 %##-- ==>  Define data, use random,
 %##--	or do  help(data=index)  for the standard data sets.
 
 MapToInterval(1:10, start=0, stop=1)
+mapping(1:10, start=0, stop=1)
 
 ## The function is currently defined as
 function(nums, start=1, stop=10)

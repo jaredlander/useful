@@ -64,34 +64,7 @@ corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 ## gets the corner for default
 ## @x (data) the data
 ## @r (numeric) the number of rows to show
-## @c (numeric) the number of columns to show
-## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
-corner.default <- function(x, r=5L, c=5L, corner="topleft", ...)
+corner.default <- function(x, r=5L, ...)
 {
-    r <- if(nrow(x) < r) nrow(x) else r
-    c <- if(nrow(x) < c) nrow(x) else c
-    
-    seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
-                 
-    return(x[seqs$rows, seqs$cols, drop=FALSE])
-}
-
-
-## method for vector
-## @x (vector) the data
-## @... other arguments pased on to other functions
-## just calls head
-corner.vector <- function(x, ...)
-{
-    head(x, ...)
-}
-
-
-## method for character
-## @x (character) the data
-## @... other arguments pased on to other functions
-## just calls head
-corner.character <- function(x, ...)
-{
-    head(x, ...)
+    head(x, n=r, ...)
 }
