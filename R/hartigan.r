@@ -22,7 +22,7 @@ PlotHartigan <- function(hartigan, title="Hartigan's Rule", linecolor="grey", li
 ## returns the number
 ComputeHartigan <- function(FitActualWSS, FitPlus1WSS, nrow)
 {
-    return(sum(FitActualWSS) / sum(FitPlus1WSS) - 1) * (nrow - length(FitActualWSS) - 1))
+    return((sum(FitActualWSS) / sum(FitPlus1WSS) - 1) * (nrow - length(FitActualWSS) - 1))
 }
 
 ## this function fits a series of kmeans and returns a data.frame listing the number of clusters and the result of applying Hartigan's Rule
@@ -31,7 +31,7 @@ ComputeHartigan <- function(FitActualWSS, FitPlus1WSS, nrow)
 ## @max.clusters (numeric) the number of clusters to try
 ## @spectral (logical) whether it is fitting using spectral methods
 ## @nstart (numeric) the number of random starts for kmeans to use
-@@ iter.max (numeric) the maximum number of iterations for kmeans before giving up on convergence
+#@@ iter.max (numeric) the maximum number of iterations for kmeans before giving up on convergence
 FitKMeans <- function(x, max.clusters=12L, spectral=FALSE, nstart=1L, iter.max=10L)
 {
 	# data.frame for keeping track of Hartigan number
