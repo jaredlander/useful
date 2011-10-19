@@ -8,6 +8,35 @@
 ## @linetype (numeric) the style of the line indicating 10
 ## @linesize (numeric) the size of the line indicating 10
 ## @minor (logical) whether the minor grid lines should be displayed
+
+#' Plot a series of Hartigan's Numbers 
+#'
+#' Displays a graphical representation of the results of \code{\link{FitKMeans}}
+#'
+#' After fitting a series of Hartigan's Numbers (see \code{\link{FitKMeans}}) this will plot the results so it is easy to visualize
+#'
+#' Displays a corner of a rectangular data set such as a data.frame or matrix.  If showing the right side or bottom, the order of the data is preserved.
+#'
+#' @aliases PlotHartigan
+#' @param hartigan The results from \code{\link{FitKMeans}}
+#' @param title Title to be used in the plot
+#' @param logical; if true a smoothed line will be fit to the points, otherwise it will be a piecewise line
+#' @param linecolor Color of the horizontal line denoting 10
+#' @param linetype Type of the horizontal line denoting 10
+#' @param linesize Size of the horizontal line denoting 10
+#' @param minor logical; if true minor grid lines will be plotted
+#' @return a ggplot object
+#' @references http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
+#' @author Jared P. Lander
+#' www.jaredlander.com
+#' @seealso \code{\link{kmeans}} \code{\link{FitKMeans}}
+#' @keywords cluster kmeans hartigan clustering
+#' @export PlotHartigan
+#' @examples
+#' data(iris)
+#' hartiganResults <- FitKMeans(iris[, -ncol(iris)])
+#' PlotHartigan(hartiganResults)
+#'
 PlotHartigan <- function(hartigan, title="Hartigan's Rule", smooth=FALSE, linecolor="grey", linetype=2L, linesize=1L, minor=TRUE)
 {
     thePlot <- ggplot(data=hartigan, aes(x=Clusters, y=Hartigan)) + 
@@ -28,12 +57,35 @@ PlotHartigan <- function(hartigan, title="Hartigan's Rule", smooth=FALSE, lineco
     return(thePlot)
 }
 
+
 ## Compute Hartigan's Rule given a kmeans cluster WSS and a k+1means cluster WSS and the number of rows in the data
 ## returns the number
+#' Compute Hartigan's Number
+#'
+#' Runs the computation found in http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
+#'
+#' Not exported, only used by \code{\link{FitKmeans}}
+#'
+#' @aliases ComputeHartigan
+#' @param FitActualWSS the WSS from a kmeans fit
+#' @param FitPlus1WSS the WSS from a kmeans fit
+#' @param nrow the number of rows in the original dataset
+#' @return The computed Hartigan Number
+#' @references http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
+#' @author Jared P. Lander
+#' www.jaredlander.com
+#' @seealso \code{\link{kmeans}} \code{\link{FitKMeans}}
+#' @keywords cluster kmeans hartigan clustering
+#' @examples
+#' data(iris)
+#' hartiganResults <- FitKMeans(iris[, -ncol(iris)])
+#' PlotHartigan(hartiganResults)
+#'
 ComputeHartigan <- function(FitActualWSS, FitPlus1WSS, nrow)
 {
     return((sum(FitActualWSS) / sum(FitPlus1WSS) - 1) * (nrow - length(FitActualWSS) - 1))
 }
+
 
 ## this function fits a series of kmeans and returns a data.frame listing the number of clusters and the result of applying Hartigan's Rule
 ## returns the data.frame of Hartigan results
@@ -43,6 +95,32 @@ ComputeHartigan <- function(FitActualWSS, FitPlus1WSS, nrow)
 ## @nstart (numeric) the number of random starts for kmeans to use
 ## @iter.max (numeric) the maximum number of iterations for kmeans before giving up on convergence
 ## @seed (numeric) the random seed to be set
+
+#' Fit a series of kmeans clusterings and compute Hartigan's Number
+#'
+#' A consecutive series of kmeans is computed with increasing k (number of centers).  Each result for k and k+1 are compared using Hartigan's Number.  If the number is greater than 10, it is noted that having k+1 clusters is of value.
+#' Given a numeric dataset this function fits a series of kmeans clusterings with increasing number of centers.  k-means is compared to k+1-means using Hartigan's Number to determine if the k+1st cluster should be added.
+#'
+#' @aliases FitKMeans
+#' @param x The data, numeric, either a matrix or data.frame
+#' @param max.clusters The maximum number of clusters that should be tried
+#' @param spectral logical; If the data being fit are eigenvectors for spectral clustering
+#' @param nstart} The number of random starts for the kmeans algorithm to use
+#' @param iter.max Maximum number of tries before the kmeans algorithm gives up on conversion
+#' @param algorithm The desired algorithm to be used for kmeans.  Options are c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen").  See \code{\link{kmeans}}
+#' @param seed If not null, the random seed will be reset before each application of the kmeans algorithm
+#' @return A data.frame consisting of columns, for the number of clusters, the Hartigan Number and whether that cluster should be added, based on Hartigan's Number.
+#' @references http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
+#' @author Jared P. Lander
+#' www.jaredlander.com
+#' @seealso \code{\link{kmeans}} \code{\link{PlotHartigan}}
+#' @keywords cluster kmeans hartigan clustering
+#' @export FitKMeans
+#' @examples
+#' data(iris)
+#' hartiganResults <- FitKMeans(iris[, -ncol(iris)])
+#' PlotHartigan(hartiganResults)
+#'
 FitKMeans <- function(x, max.clusters=12L, spectral=FALSE, nstart=1L, iter.max=10L, algorithm="Hartigan-Wong", seed=NULL)
 {
 	# data.frame for keeping track of Hartigan number

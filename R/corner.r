@@ -23,6 +23,34 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 
 
 ## S3 generic function for getting the corner of data
+
+#' Grabs a corner of a data set
+#'
+#' Display a corner section of a rectangular data set
+#'
+#' Displays a corner of a rectangular data set such as a data.frame or matrix.  If showing the right side or bottom, the order of the data is preserved.
+#'
+#' The default method reverts to simply calling \code{\link{head}}
+#'
+#' @aliases corner corner.default corner.data.frame corner.matrix
+#' @param x The data
+#' @param r Number of rows to display
+#' @param c Number of columns to display
+#' @param corner Which corner to return.  Possible values arec("topleft", "bottomleft", "topright", "bottomright").
+#' @param \dots Arguments passes on to other functions
+#' @return The part of the data set that was requested.  The size depends on r and c and the position depends on corner.
+#' @author Jared P. Lander
+#' www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}}
+#' @keywords corner head tail display subsection view
+#' @export corner corner.default corner.data.frame corner.matrix
+#' @examples
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' corner(diamonds)    # displays first 5 rows and only the first 5 columns
+#' corner(diamonds, corner="bottomleft")       # displays the last 5 rows and the first 5 columns
+#' corner(diamonds, corner="topright")       # displays the first 5 rows and the last 5 columns
+#'
 corner <- function(x, ...)
 {
     UseMethod("corner")
