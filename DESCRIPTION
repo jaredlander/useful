@@ -5,7 +5,16 @@ Version: 1.0
 Date: 2011-10-02
 Author: Jared P. Lander
 Maintainer: <info@jaredlander.com>
-Description: A set of little functions that have been found useful to do little odds and ends
+Description: A set of little functions that have been found
+    useful to do little odds and ends
 License: BSD, see LISCENSE
-Depends: ggplot2
+Depends:
+    ggplot2,
+    plyr
 LazyLoad: yes
+Collate:
+    'corner.r'
+    'hartigan.r'
+    'MapToInterval.r'
+    'regex.r'
+    'subspecials.r'
