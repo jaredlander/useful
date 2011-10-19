@@ -79,3 +79,9 @@ FitKMeans <- function(x, max.clusters=12L, spectral=FALSE, nstart=1L, iter.max=1
  
     return(hartigan)
 }
+
+# make compiled versions
+# saving for a future version when compiler is more common
+# ComputeHartigan <- cmpfun(ComputeHartigan)
+# PlotHartigan <- cmpfun(PlotHartigan)
+# FitKMeans <- cmpfun(FitKMeans)
