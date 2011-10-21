@@ -74,7 +74,7 @@ corner <- function(x, ...)
 corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
-    c <- if(nrow(x) < c) nrow(x) else c
+    c <- if(nrow(x) < c) ncol(x) else c
     
     seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
                  
@@ -90,7 +90,7 @@ corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
-    c <- if(nrow(x) < c) nrow(x) else c
+    c <- if(nrow(x) < c) ncol(x) else c
     
     seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
                  
