@@ -37,6 +37,10 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 #' The default method reverts to simply calling \code{\link{head}}
 #' 
 #' @aliases corner corner.default corner.data.frame corner.matrix
+#' @usage corner(x, ...)
+#' @usage corner.default(x, r=5L, ...)
+#' @usage corner.data.frame(x, r=5L, c=5L, corner="topleft", ...)
+#' @usage corner.matrix(x, r=5L, c=5L, corner="topleft", ...)
 #' @param x The data
 #' @param r Number of rows to display
 #' @param c Number of columns to show
@@ -74,10 +78,10 @@ corner <- function(x, ...)
 corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
-    c <- if(nrow(x) < c) ncol(x) else c
+    c <- if(ncol(x) < c) ncol(x) else c
     
     seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
-                 
+print(seqs)
     return(x[seqs$rows, seqs$cols, drop=FALSE])
 }
 
@@ -90,7 +94,7 @@ corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
-    c <- if(nrow(x) < c) ncol(x) else c
+    c <- if(ncol(x) < c) ncol(x) else c
     
     seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
                  
