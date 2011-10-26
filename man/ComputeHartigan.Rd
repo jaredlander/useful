@@ -19,7 +19,7 @@
   http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
 }
 \details{
-  Not exported, only used by \code{\link{FitKmeans}}
+  Not exported, only used by \code{\link{FitKMeans}}
 }
 \examples{
 data(iris)

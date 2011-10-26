@@ -67,7 +67,7 @@ PlotHartigan <- function(hartigan, title="Hartigan's Rule", smooth=FALSE, lineco
 #'
 #' Runs the computation found in http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
 #'
-#' Not exported, only used by \code{\link{FitKmeans}}
+#' Not exported, only used by \code{\link{FitKMeans}}
 #'
 #' @aliases ComputeHartigan
 #' @param FitActualWSS the WSS from a kmeans fit
