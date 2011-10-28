@@ -36,7 +36,8 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 #' 
 #' The default method reverts to simply calling \code{\link{head}}
 #' 
-#' @aliases corner corner.default corner.data.frame corner.matrix
+## @aliases corner corner.default corner.data.frame corner.matrix
+#' @rdname corner
 #' @usage corner(x, ...)
 #' @usage corner.default(x, r=5L, ...)
 #' @usage corner.data.frame(x, r=5L, c=5L, corner="topleft", ...)
@@ -61,9 +62,7 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 #' corner(diamonds)    # displays first 5 rows and only the first 5 columns
 #' corner(diamonds, corner="bottomleft")       # displays the last 5 rows and the first 5 columns
 #' corner(diamonds, corner="topright")       # displays the first 5 rows and the last 5 columns
-#' 
-#' 
-#' 
+#'
 corner <- function(x, ...)
 {
     UseMethod("corner")
@@ -75,13 +74,16 @@ corner <- function(x, ...)
 ## @r (numeric) the number of rows to show
 ## @c (numeric) the number of columns to show
 ## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
+#' @rdname corner
+#' @method corner data.frame
+#' @S3method corner data.frame
 corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
     c <- if(ncol(x) < c) ncol(x) else c
     
     seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
-print(seqs)
+
     return(x[seqs$rows, seqs$cols, drop=FALSE])
 }
 
@@ -91,6 +93,9 @@ print(seqs)
 ## @r (numeric) the number of rows to show
 ## @c (numeric) the number of columns to show
 ## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
+#' @rdname corner
+#' @method corner matrix
+#' @S3method corner matrix
 corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -101,10 +106,25 @@ corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
     return(x[seqs$rows, seqs$cols, drop=FALSE])
 }
 
+#' @rdname corner
+#' @method corner table
+#' @S3method corner table
+corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
+{
+    r <- if(nrow(x) < r) nrow(x) else r
+    c <- if(ncol(x) < c) ncol(x) else c
+    
+    seqs <- eval(WhichCorner(corner=corner, r=r, c=c, object="x"))
+                 
+    return(x[seqs$rows, seqs$cols, drop=FALSE])
+}
 
 ## gets the corner for default
 ## @x (data) the data
 ## @r (numeric) the number of rows to show
+#' @rdname corner
+#' @method corner default
+#' @S3method corner default
 corner.default <- function(x, r=5L, ...)
 {
     head(x, n=r, ...)

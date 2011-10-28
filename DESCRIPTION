@@ -18,3 +18,4 @@ Collate:
     'MapToInterval.r'
     'regex.r'
     'subspecials.r'
+    'useful-package.r'
