@@ -41,8 +41,8 @@
 }
 \details{
   Displays a corner of a retangular data set such as a
-  data.frame or martrix.  If showing the right side or
-  bottom, the order of the data is preserved.
+  data.frame, martrix or table.  If showing the right side
+  or bottom, the order of the data is preserved.
 
   The default method reverts to simply calling
   \code{\link{head}}
@@ -59,6 +59,9 @@ corner(diamonds, corner="topright")       # displays the first 5 rows and the la
 }
 \seealso{
   \code{\link{head}} \code{\link{tail}}
+  \code{\link{topleft}} \code{\link{topright}}
+  \code{\link{bottomleft}} \code{\link{bottomright}}
+  \code{\link{left}} \code{\link{right}}
 }
 \keyword{corner}
 \keyword{display}

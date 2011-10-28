@@ -31,7 +31,7 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 #' Display a corner section of a rectangular data set
 #' 
 #' Displays a
-#' corner of a retangular data set such as a data.frame or martrix.  If showing
+#' corner of a retangular data set such as a data.frame, martrix or table.  If showing
 #' the right side or bottom, the order of the data is preserved.
 #' 
 #' The default method reverts to simply calling \code{\link{head}}
@@ -52,7 +52,7 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 #' @return ... The part of the data set that was requested.  The size
 #' depends on r and c and the position depends on corner.
 #' @author Jared P. Lander www.jaredlander.com
-#' @seealso \code{\link{head}} \code{\link{tail}}
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{topleft}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
 #' @export corner corner.default corner.data.frame corner.matrix
 #' @keywords corner head tail display subsection view
 #' @examples
@@ -128,4 +128,192 @@ corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
 corner.default <- function(x, r=5L, ...)
 {
     head(x, n=r, ...)
+}
+
+
+#' Grabs the top left corner of a data set
+#' 
+#' Display the top left corner of a rectangular data set
+#' 
+#' Displays the top left corner of a retangular data set.
+#'
+#' This is a wrapper function for \code{\link{corner}}
+#' 
+#' @aliases topleft
+#' @rdname topleft
+#' @param x The data
+#' @param r Number of rows to display
+#' @param c Number of columns to show
+#' @param \dots Arguments passed on to other functions
+#' @return ... The top left corner of the data set that was requested.  The size depends on r and c.
+#' @author Jared P. Lander www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
+#' @export topleft
+#' @keywords corner head tail display subsection view
+#' @examples
+#' 
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' topleft(diamonds)    # displays first 5 rows and only the first 5 columns
+#' 
+topleft <- function(x, r=5L, c=5L, ...)
+{
+    corner(x, r=r, c=c, corner="topleft", ...)
+}
+
+
+
+#' Grabs the top right corner of a data set
+#' 
+#' Display the top right corner of a rectangular data set
+#' 
+#' Displays the top right corner of a retangular data set.
+#'
+#' This is a wrapper function for \code{\link{corner}}
+#' 
+#' @aliases topright
+#' @rdname topright
+#' @param x The data
+#' @param r Number of rows to display
+#' @param c Number of columns to show
+#' @param \dots Arguments passed on to other functions
+#' @return ... The top right corner of the data set that was requested.  The size depends on r and c.
+#' @author Jared P. Lander www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topleft}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
+#' @export topright
+#' @keywords corner head tail display subsection view
+#' @examples
+#' 
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' topright(diamonds)    # displays first 5 rows and only the last 5 columns
+#' 
+topright <- function(x, r=5L, c=5L, ...)
+{
+    corner(x, r=r, c=c, corner="topright", ...)
+}
+
+
+
+#' Grabs the bottom left corner of a data set
+#' 
+#' Display the bottom left corner of a rectangular data set
+#' 
+#' Displays the bottom left corner of a retangular data set.
+#'
+#' This is a wrapper function for \code{\link{corner}}
+#' 
+#' @aliases bottomleft
+#' @rdname bottomleft
+#' @param x The data
+#' @param r Number of rows to display
+#' @param c Number of columns to show
+#' @param \dots Arguments passed on to other functions
+#' @return ... The bottom left corner of the data set that was requested.  The size depends on r and c.
+#' @author Jared P. Lander www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topright}} \code{\link{topleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
+#' @export bottomleft
+#' @keywords corner head tail display subsection view
+#' @examples
+#' 
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' bottomleft(diamonds)    # displays last 5 rows and only the first 5 columns
+#' 
+bottomleft <- function(x, r=5L, c=5L, ...)
+{
+    corner(x, r=r, c=c, corner="bottomleft", ...)
+}
+
+
+
+#' Grabs the bottom right corner of a data set
+#' 
+#' Display the bottom right corner of a rectangular data set
+#' 
+#' Displays the bottom right corner of a retangular data set.
+#'
+#' This is a wrapper function for \code{\link{corner}}
+#' 
+#' @aliases bottomright
+#' @rdname bottomright
+#' @param x The data
+#' @param r Number of rows to display
+#' @param c Number of columns to show
+#' @param \dots Arguments passed on to other functions
+#' @return ... The bottom right corner of the data set that was requested.  The size depends on r and c.
+#' @author Jared P. Lander www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{topleft}} \code{\link{left}} \code{\link{right}}
+#' @export bottomright
+#' @keywords corner head tail display subsection view
+#' @examples
+#' 
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' bottomright(diamonds)    # displays last 5 rows and only the last 5 columns
+#' 
+bottomright <- function(x, r=5L, c=5L, ...)
+{
+    corner(x, r=r, c=c, corner="bottomright", ...)
+}
+
+
+
+#' Grabs the left side of a data set
+#' 
+#' Display the left side of a rectangular data set
+#' 
+#' Displays the left side of a retangular data set.
+#'
+#' This is a wrapper function for \code{\link{corner}}
+#' 
+#' @aliases left
+#' @rdname left
+#' @param x The data
+#' @param c Number of columns to show
+#' @param \dots Arguments passed on to other functions
+#' @return ... The left side of the data set that was requested.  The size depends on c.
+#' @author Jared P. Lander www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{topleft}} \code{\link{right}}
+#' @export left
+#' @keywords corner head tail display subsection view
+#' @examples
+#' 
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' left(diamonds)    # displays all rows and only the first 5 columns
+#' 
+left <- function(x, c=5L, ...)
+{
+    corner(x, r=nrow(x), c=c, corner="topleft", ...)
+}
+
+
+#' Grabs the right side of a data set
+#' 
+#' Display the right side of a rectangular data set
+#' 
+#' Displays the right side of a retangular data set.
+#'
+#' This is a wrapper function for \code{\link{corner}}
+#' 
+#' @aliases right
+#' @rdname right
+#' @param x The data
+#' @param c Number of columns to show
+#' @param \dots Arguments passed on to other functions
+#' @return ... The left side of the data set that was requested.  The size depends on c.
+#' @author Jared P. Lander www.jaredlander.com
+#' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{topleft}} \code{\link{topleft}}
+#' @export right
+#' @keywords corner head tail display subsection view
+#' @examples
+#' 
+#' data(diamonds)
+#' head(diamonds)      # displays all columns
+#' right(diamonds)    # displays all rows and only the last 5 columns
+#' 
+right <- function(x, c=5L, ...)
+{
+    corner(x, r=nrow(x), c=c, corner="topright", ...)
 }
