@@ -9,9 +9,9 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 {
     theCorners <- list(
                     topleft=sprintf("list(rows=1:%s, cols=1:%s)", r, c),
-                    bottomleft=sprintf("list(rows=nrow(%s):(nrow(%s)-%s+1), cols=1:%s)", object, object, r, c),
+                    bottomleft=sprintf("list(rows=(nrow(%s)-%s+1):nrow(%s), cols=1:%s)", object, r, object, c),
                     topright=sprintf("list(rows=1:%s, cols=(ncol(%s)-%s+1):ncol(%s))", r, object, c, object),
-                    bottomright=sprintf("list(rows=nrow(%s):(nrow(%s)-%s+1), cols=(ncol(%s)-%s+1):ncol(%s))", object, object, r, object, c, object)
+                    bottomright=sprintf("list(rows=(nrow(%s)-%s+1):nrow(%s), cols=(ncol(%s)-%s+1):ncol(%s))", object, r, object, object, c, object)
                 )
     
     return(parse(text=theCorners[[corner]]))
