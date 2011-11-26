@@ -1,3 +1,5 @@
+Version 1.1.1
+Fixed corner so that it handles showing the bottom of data correctly.
 Version 1.0
 First Build
 A collection of handy functions
