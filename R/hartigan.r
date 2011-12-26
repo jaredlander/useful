@@ -127,8 +127,11 @@ ComputeHartigan <- function(FitActualWSS, FitPlus1WSS, nrow)
 #' hartiganResults <- FitKMeans(iris[, -ncol(iris)])
 #' PlotHartigan(hartiganResults)
 #' 
-FitKMeans <- function(x, max.clusters=12L, spectral=FALSE, nstart=1L, iter.max=10L, algorithm="Hartigan-Wong", seed=NULL)
+FitKMeans <- function(x, max.clusters=12L, spectral=FALSE, nstart=1L, iter.max=10L, algorithm=c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), seed=NULL)
 {
+    # get algorithm choice
+    algorithm <- match.arg(algorithm)
+    
 	# data.frame for keeping track of Hartigan number
 	hartigan <- data.frame(Clusters=2:(max.clusters), Hartigan=NA, AddCluster=NA)
  
