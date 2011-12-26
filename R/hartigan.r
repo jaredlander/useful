@@ -139,27 +139,57 @@ FitKMeans <- function(x, max.clusters=12L, spectral=FALSE, nstart=1L, iter.max=1
  	nRowX <- nrow(x)
  	nColX <- ncol(x)
  	
-    ## could be made more efficient by fitting kmeans for each value of i one time, then comepare the consecutive pair wise results, would take mroe memory though
- 	# compute kmeans repeatedly
+    ## new algorithm
+    # in each loop build one partition
+    # compare to old partition
+    # make new partition into old partition
+    
+    # first compute partition for 1 cluster
+    if(!is.null(seed))
+    {
+        set.seed(seed=seed)
+    }
+    FitActual <- kmeans(x[, 1:(nColX - (nColX-(2-1))*spectral)], centers=2-1, nstart=nstart, iter.max=iter.max, algorithm=algorithm)
+    
+    ## now build loop
     for(i in 2:(max.clusters))
     {
-        # for k
-        if(!is.null(seed))
-        {
-            set.seed(seed=seed)
-        }
-        FitActual <- kmeans(x[, 1:(nColX - (nColX-(i-1))*spectral)], centers=i-1, nstart=nstart, iter.max=iter.max, algorithm=algorithm)
-        
-        # for k+1
+        # calculate FitPlus1, which in this case will just be i
         if(!is.null(seed))
         {
             set.seed(seed=seed)
         }
         FitPlus1 <- kmeans(x[, 1:(nColX - (nColX-(i+0))*spectral)], centers=i, nstart=nstart, iter.max=iter.max, algorithm=algorithm)
         
-        # calculate Hartigan
+        # calculate Hartigan and record in table
         hartigan[i-1, "Hartigan"] <- ComputeHartigan(FitActualWSS=FitActual$withinss, FitPlus1WSS=FitPlus1$withinss, nrow=nRowX)
+        
+        # now turn FitPlus1 into FitActual for use in the next iteration
+        FitActual <- FitPlus1
+        rm(FitPlus1); gc()          # housekeeping
     }
+    
+    ## could be made more efficient by fitting kmeans for each value of i one time, then comepare the consecutive pair wise results, would take mroe memory though
+ 	# compute kmeans repeatedly
+#     for(i in 2:(max.clusters))
+#     {
+#         # for k
+#         if(!is.null(seed))
+#         {
+#             set.seed(seed=seed)
+#         }
+#         FitActual <- kmeans(x[, 1:(nColX - (nColX-(i-1))*spectral)], centers=i-1, nstart=nstart, iter.max=iter.max, algorithm=algorithm)
+#         
+#         # for k+1
+#         if(!is.null(seed))
+#         {
+#             set.seed(seed=seed)
+#         }
+#         FitPlus1 <- kmeans(x[, 1:(nColX - (nColX-(i+0))*spectral)], centers=i, nstart=nstart, iter.max=iter.max, algorithm=algorithm)
+#         
+#         # calculate Hartigan
+#         hartigan[i-1, "Hartigan"] <- ComputeHartigan(FitActualWSS=FitActual$withinss, FitPlus1WSS=FitPlus1$withinss, nrow=nRowX)
+#     }
  
     # if Hartigan is greater than 10 then the cluster should be added
     hartigan$AddCluster <- ifelse(hartigan$Hartigan > 10, TRUE, FALSE)
