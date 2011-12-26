@@ -1,5 +1,6 @@
 Version 1.1.2
 FitKMeans uses match.arg for determing algorithmchoice
+The loop in FitKMeans now fits each partitioning once and reuses it rather than calculating twice.
 Version 1.1.1
 Fixed corner so that it handles showing the bottom of data correctly.
 Version 1.0
