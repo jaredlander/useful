@@ -1,6 +1,5 @@
 export(bottomleft)
 export(bottomright)
-export(cor2)
 export(corner)
 export(corner.data.frame)
 export(corner.default)

@@ -3,8 +3,8 @@
 \title{Fit a series of kmeans clusterings and compute Hartigan's Number}
 \usage{
   FitKMeans(x, max.clusters = 12L, spectral = FALSE, nstart
-  = 1L, iter.max = 10L, algorithm = "Hartigan-Wong", seed =
-  NULL)
+  = 1L, iter.max = 10L, algorithm = c("Hartigan-Wong",
+  "Lloyd", "Forgy", "MacQueen"), seed = NULL)
 }
 \arguments{
   \item{x}{The data, numeric, either a matrix or
