@@ -1,9 +1,1 @@
-Version 1.1.2
-FitKMeans uses match.arg for determing algorithmchoice
-The loop in FitKMeans now fits each partitioning once and reuses it rather than calculating twice.
-Version 1.1.1
-Fixed corner so that it handles showing the bottom of data correctly.
-Version 1.0
-First Build
-A collection of handy functions
-subOut, subSpecials, MapToInterval, corner, FitKMeans, PlotHartigan
+Useful is a collection of handy functions that I have collected over the years but do not have a place in an particular package.  More are added as I build.
