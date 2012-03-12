@@ -8,14 +8,14 @@
 \usage{
   corner(x, ...)
 
-  \method{corner}{data.frame} (x, r = 5L, c = 5L, corner =
-  "topleft", ...)
+  \method{corner}{data.frame} (x, r = 5L, c = 5L,
+    corner = "topleft", ...)
 
-  \method{corner}{matrix} (x, r = 5L, c = 5L, corner =
-  "topleft", ...)
+  \method{corner}{matrix} (x, r = 5L, c = 5L,
+    corner = "topleft", ...)
 
-  \method{corner}{table} (x, r = 5L, c = 5L, corner =
-  "topleft", ...)
+  \method{corner}{table} (x, r = 5L, c = 5L,
+    corner = "topleft", ...)
 
   \method{corner}{default} (x, r = 5L, ...)
 }

@@ -22,16 +22,20 @@
 #'
 compare.list <- function(a, b)
 {
+    # get length of lists
     a.length <- length(a)
     b.length <- length(b)
     
+    ## make sure lists are the same length
     if(a.length != b.length)
     {
         stop("a and b must be the same length", call.=FALSE)
     }
     
+    # build a vector to hold results
     result <- rep(FALSE, a.length)
     
+    # check identical equality
     for(i in 1:a.length)
     {
         result[i] <- identical(a[[i]], b[[i]])
@@ -39,5 +43,6 @@ compare.list <- function(a, b)
     
     rm(a, b, a.length, b.length)
     
+    # return results
     return(result)
 }

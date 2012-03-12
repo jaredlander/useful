@@ -2,8 +2,8 @@
 \alias{subOut}
 \title{Sub special characters out of a character vector.}
 \usage{
-  subOut(toAlter, specialChars = c("!", "(", ")", "-", "=",
-  "*", "."))
+  subOut(toAlter,
+    specialChars = c("!", "(", ")", "-", "=", "*", "."))
 }
 \arguments{
   \item{toAlter}{Character vector that will be altered by

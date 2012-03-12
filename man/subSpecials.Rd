@@ -2,8 +2,8 @@
 \alias{subSpecials}
 \title{Sub special characters out of character vectors.}
 \usage{
-  subSpecials(..., specialChars = c("!", "(", ")", "-",
-  "=", "*", "."))
+  subSpecials(...,
+    specialChars = c("!", "(", ")", "-", "=", "*", "."))
 }
 \arguments{
   \item{\dots}{Character vectors that will be altered by
