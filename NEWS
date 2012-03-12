@@ -1,3 +1,7 @@
+Version 1.1.3
+-----------------------------------------------------------------------------------------------------
+Add function for comparing two lists element by element
+
 Version 1.1.2
 -----------------------------------------------------------------------------------------------------
 FitKMeans uses match.arg for determing algorithmchoice

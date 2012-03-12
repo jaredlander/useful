@@ -1,5 +1,6 @@
 export(bottomleft)
 export(bottomright)
+export(compare.list)
 export(corner)
 export(corner.data.frame)
 export(corner.default)

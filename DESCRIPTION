@@ -1,7 +1,7 @@
 Package: useful
 Type: Package
 Title: A collection of handy, useful functions
-Version: 1.1.2
+Version: 1.1.3
 Date: 2011-10-02
 Author: Jared P. Lander
 Maintainer: <packages@jaredlander.com>
@@ -19,3 +19,4 @@ Collate:
     'regex.r'
     'subspecials.r'
     'useful-package.r'
+    'comparisons.r'
