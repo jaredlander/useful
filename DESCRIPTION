@@ -1,7 +1,7 @@
 Package: useful
 Type: Package
 Title: A collection of handy, useful functions
-Version: 1.1.3
+Version: 1.1.4
 Date: 2011-10-02
 Author: Jared P. Lander
 Maintainer: <packages@jaredlander.com>
@@ -20,3 +20,5 @@ Collate:
     'subspecials.r'
     'useful-package.r'
     'comparisons.r'
+    'build
+    formula.r'

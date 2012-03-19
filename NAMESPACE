@@ -1,5 +1,6 @@
 export(bottomleft)
 export(bottomright)
+export(build.formula)
 export(compare.list)
 export(corner)
 export(corner.data.frame)

@@ -1,6 +1,10 @@
+Version 1.1.4
+-----------------------------------------------------------------------------------------------------
+New function for building formulas from vectors of characters
+
 Version 1.1.3
 -----------------------------------------------------------------------------------------------------
-Add function for comparing two lists element by element
+Added function for comparing two lists element by element
 
 Version 1.1.2
 -----------------------------------------------------------------------------------------------------
