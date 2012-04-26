@@ -1,3 +1,4 @@
+export(binary.flip)
 export(bottomleft)
 export(bottomright)
 export(build.formula)
