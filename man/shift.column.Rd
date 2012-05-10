@@ -1,0 +1,44 @@
+\name{shift.column}
+\alias{shift.column}
+\title{shift.column}
+\usage{
+  shift.column(data, columns,
+    newNames = sprintf("\%s.Shifted", columns), len = 1L,
+    up = TRUE)
+}
+\arguments{
+  \item{data}{\code{\link{data.frame}}}
+
+  \item{columns}{Character vector specifying which columns
+  to shift.}
+
+  \item{newNames}{Character vector specifying new names for
+  the columns that will be created by the shift.  Must be
+  same length as \code{columns}.}
+
+  \item{len}{Integer specifying how many rows to shift the
+  data.}
+
+  \item{up}{logical indicating if rows should be shifted up
+  or down.}
+}
+\value{
+  \code{\link{data.frame}} with the specified columns
+  shifted.
+}
+\description{
+  Shift a column of data
+}
+\details{
+  Shifts a column of data up or down a certain number of
+  rows
+}
+\examples{
+myData <- data.frame(Upper=LETTERS, lower=letters)
+shift.column(data=myData, columns="lower")
+shift.column(data=myData, columns="lower", len=2)
+}
+\author{
+  Jared P. Lander
+}
+
