@@ -48,7 +48,7 @@ do.knit <- function(files)
     # if the rnw files exists and either the tex file doesn't or the tex file is old
     toRun <- ifelse(file.exists(rnw) & (!file.exists(tex) | file.info(tex)$mtime < file.info(rnw)$mtime), TRUE, FALSE)
     
-    knitVector(input=rnw, output=tex)
+    knitVector(input=rnw[toRun], output=tex[toRun])
     ## loop through and knit each chapter file if the tex file is older
     #     for(a in files[toRun])
     #     {
