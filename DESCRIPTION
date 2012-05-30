@@ -25,3 +25,4 @@ Collate:
     'binary.flip.r'
     'shiftColumn.r'
     'knitting.r'
+    'kmeans.r'
