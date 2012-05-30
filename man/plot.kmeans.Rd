@@ -1,0 +1,51 @@
+\name{plot.kmeans}
+\alias{plot.kmeans}
+\title{plot.kmeans}
+\usage{
+  \method{plot}{kmeans} (x, data, class = NULL,
+    legend.position = c("right", "bottom", "left", "top", "none"),
+    title = "K-Means Results",
+    xlab = "Principal Component 1",
+    ylab = "Principal Component 2", ...)
+}
+\arguments{
+  \item{x}{A \code{\link{kmeans}} object.}
+
+  \item{data}{The data used to kit the \code{\link{kmeans}}
+  object.}
+
+  \item{class}{Character name of the "true" classes of the
+  data.}
+
+  \item{legend.position}{Character indicating where the
+  legend should be placed.}
+
+  \item{title}{Title for the plot.}
+
+  \item{xlab}{Label for the x-axis.}
+
+  \item{ylab}{Label for the y-axis.}
+
+  \item{\dots}{Not Used.}
+}
+\value{
+  A ggplot object
+}
+\description{
+  Plot the results from a k-means object
+}
+\details{
+  Plots the results of k-means with color-coding for the
+  cluster membership.
+}
+\examples{
+k1 <- kmeans(x=iris[, 1:4], centers=3)
+plot(k1)
+}
+\author{
+  Jared P. Lander
+}
+\seealso{
+  kmeans fortify ggplot plot.kmeans
+}
+
