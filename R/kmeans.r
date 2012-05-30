@@ -55,14 +55,15 @@ fortify.kmeans <- function(model, data, ...)
 #' @S3method plot kmeans
 #' @param x A \code{\link{kmeans}} object.
 #' @param data The data used to kit the \code{\link{kmeans}} object.
+#' @param \dots Not Used.
 #' @return A ggplot object
 #' @examples
 #' 
 #' k1 <- kmeans(x=iris[, 1:4], centers=3)
 #' plot(k1)
-plot.kmeans <- function(x, data)
+plot.kmeans <- function(x, data, class=NULL, ...)
 {
     toPlot <- fortify(model=x, data=data)
     
-    ggplot(toPlot, aes(x=x, y=y, colour=Cluster)) + geom_point()
+    ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + geom_point(aes_string(shape=class)) + scale_color_discrete("Cluster")
 }
