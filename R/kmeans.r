@@ -55,15 +55,30 @@ fortify.kmeans <- function(model, data, ...)
 #' @S3method plot kmeans
 #' @param x A \code{\link{kmeans}} object.
 #' @param data The data used to kit the \code{\link{kmeans}} object.
+#' @param class Character name of the "true" classes of the data.
+#' @param legend.position Character indicating where the legend should be placed.
+#' @param title Title for the plot.
+#' @param xlab Label for the x-axis.
+#' @param ylab Label for the y-axis.
 #' @param \dots Not Used.
 #' @return A ggplot object
 #' @examples
 #' 
 #' k1 <- kmeans(x=iris[, 1:4], centers=3)
 #' plot(k1)
-plot.kmeans <- function(x, data, class=NULL, ...)
+plot.kmeans <- function(x, data, class=NULL, legend.position=c("right", "bottom", "left", "top", "none"), 
+                        title="K-Means Results",
+                        xlab="Principal Component 1", ylab="Principal Component 2", ...)
 {
+    # fortify the model and data so it is convenient to plot in ggplot
     toPlot <- fortify(model=x, data=data)
     
-    ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + geom_point(aes_string(shape=class)) + scale_color_discrete("Cluster")
+    # get the legend position
+    legend.position <- match.arg(legend.position)
+    
+    ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + 
+        geom_point(aes_string(shape=class)) + 
+        scale_color_discrete("Cluster") +
+        opts(legend.position=legend.position, title=title) +
+        labs(x=xlab, y=ylab)
 }
