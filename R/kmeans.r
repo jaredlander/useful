@@ -19,7 +19,7 @@
 #'      \item{.x}{The projected x position.}
 #'      \item{.y}{The projected y position.}
 #'      \item{.Cluster}{The cluster that point belongs to.}
-#' @example
+#' @examples
 #' 
 #' k1 <- kmeans(x=iris[, 1:4], centers=3)
 #' hold <- fortify(k1)
