@@ -10,8 +10,7 @@ Description: A set of little functions that have been found
 License: BSD
 Depends:
     ggplot2,
-    plyr,
-    knitr
+    plyr
 LazyLoad: yes
 Collate:
     'corner.r'
@@ -24,5 +23,4 @@ Collate:
     'buildFormula.r'
     'binary.flip.r'
     'shiftColumn.r'
-    'knitting.r'
     'kmeans.r'
