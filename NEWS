@@ -4,6 +4,7 @@ New function to flip 0's to 1's and 1's to 0's.
 New function to shift columns up or down in a data.frame.
 New function to knit Rnw files to TeX only if the TeX doesn't exist or is older than the Rnw.
 New functions for plotting the results of a kmeans fit.
+New functions for plotting ts and acf objects.
 
 Version 1.1.4
 -----------------------------------------------------------------------------------------------------
