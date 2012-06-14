@@ -23,4 +23,4 @@ Collate:
     'buildFormula.r'
     'binary.flip.r'
     'shiftColumn.r'
-    'kmeans.r'
+    'kmeansPlotting.r'
