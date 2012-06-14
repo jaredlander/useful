@@ -24,3 +24,4 @@ Collate:
     'binary.flip.r'
     'shiftColumn.r'
     'kmeansPlotting.r'
+    'tsPlot.r'

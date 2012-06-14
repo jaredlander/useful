@@ -1,0 +1,36 @@
+\name{ts.plotter}
+\alias{ts.plotter}
+\title{ts.plotter}
+\usage{
+  ts.plotter(data, time = NULL, title = "Series Plot",
+    xlab = "Time", ylab = "Rate")
+}
+\arguments{
+  \item{data}{A \code{\link{ts}} object to be plotted.}
+
+  \item{time}{A vector of the same length of \code{data}
+  that specifies the time component of each element of
+  \code{data}.}
+
+  \item{title}{Title of plot.}
+
+  \item{xlab}{X-axis label.}
+
+  \item{ylab}{Y-axis label.}
+}
+\value{
+  A ggplot object
+}
+\description{
+  Plot a ts object
+}
+\details{
+  Fortifies, then plots a \code{\link{ts}} object.
+}
+\examples{
+ts.plotter(sunspot.year)
+}
+\author{
+  Jared P. Lander
+}
+

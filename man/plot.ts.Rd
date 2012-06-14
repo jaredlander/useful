@@ -1,0 +1,58 @@
+\name{plot.ts}
+\alias{plot.ts}
+\title{plot.ts}
+\usage{
+  \method{plot}{ts} (x, time = NULL, acf = FALSE,
+    lag.max = NULL, na.action = na.fail, demean = TRUE,
+    title = sprintf("\%s Plot", name), xlab = "Time",
+    ylab = name)
+}
+\arguments{
+  \item{x}{a \code{\link{ts}} object.}
+
+  \item{time}{A vector of the same length of \code{x} that
+  specifies the time component of each element of
+  \code{x}.}
+
+  \item{acf}{Logical indicating if the acf and pacf should
+  be plotted.}
+
+  \item{lag.max}{maximum lag at which to calculate the acf.
+  Default is 10*log10(N/m) where N is the number of
+  observations and m the number of series. Will be
+  automatically limited to one less than the number of
+  observations in the series.}
+
+  \item{na.action}{function to be called to handle missing
+  values. na.pass can be used.}
+
+  \item{demean}{logical. Should the covariances be about
+  the sample means?}
+
+  \item{xlab}{X-axis label.}
+
+  \item{xlab}{X-axis label.}
+
+  \item{title}{Graph title.}
+}
+\value{
+  A ggplot object if \code{acf} is \code{FALSE}, otherwise
+  \code{TRUE} indicating success.
+}
+\description{
+  Plot ts object
+}
+\details{
+  Plot a ts object and, if desired, it's acf and pacf.
+}
+\examples{
+plot(sunspot.year)
+plot(sunspot.year, acf=TRUE)
+}
+\author{
+  Jared P. Lander
+}
+\seealso{
+  ts.plotter plot.acf fortify.ts
+}
+
