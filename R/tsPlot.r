@@ -174,3 +174,67 @@ plot.acf <- function(x,
         geom_linerange(aes_string(ymin=pmin(y, 0), ymax=pmax(y, 0))) +
         labs(x=xlab, y=ylab) + opts(title=title)
 }
+
+
+#' plot.ts
+#' 
+#' Plot ts object
+#' 
+#' Plot a ts object and, if desired, it's acf and pacf.
+#' 
+#' @aliases plot.ts
+#' @author Jared P. Lander
+#' @export plot.ts
+#' @S3method plot ts
+#' @method plot ts
+#' @import grid.newpage, pushViewport
+#' @return A ggplot object if \code{acf} is \code{FALSE}, otherwise \code{TRUE} indicating success.
+#' @param x a \code{\link{ts}} object.
+#' @param time A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
+#' @param acf Logical indicating if the acf and pacf should be plotted.
+#' @param lag.max maximum lag at which to calculate the acf. Default is 10*log10(N/m) where N is the number of observations and m the number of series. Will be automatically limited to one less than the number of observations in the series.
+#' @param na.action function to be called to handle missing values. na.pass can be used.
+#' @param demean logical. Should the covariances be about the sample means?
+#' @param xlab X-axis label.
+#' @param xlab X-axis label.
+#' @param title Graph title.
+#' @seealso ts.plotter plot.acf fortify.ts
+#' @examples
+#' 
+#' plot(sunspot.year)
+#' plot(sunspot.year, acf=TRUE)
+#' 
+plot.ts <- function(x, time=NULL, acf=FALSE,
+                    lag.max=NULL, na.action=na.fail, demean=TRUE, 
+                    title=sprintf("%s Plot", name), xlab="Time", ylab=name)
+{
+    # get real name of x
+    name <- as.character(match.call()[[2]])
+    
+    # build ts plot
+    tsPlot <- ts.plotter(data=x, time=time, title=title, xlab=xlab, ylab=ylab)
+    
+    # if we're not doing acf just return the ts plot
+    if(!acf)
+    {
+        return(tsPlot)
+    }
+    
+    # calculate the acf/pacf
+    theAcf <- acf(x=x, lag.max=lag.max, na.action=na.action, demean=demean, type="correlation", plot=FALSE)
+    thePacf <- acf(x=x, lag.max=lag.max, na.action=na.action, demean=demean, type="partial", plot=FALSE)
+    
+    # build plots for acf/pacf
+    acfPlot <- plot.acf(theAcf, title=NULL)
+    pacfPlot <- plot.acf(thePacf, title=NULL)
+    
+    grid.newpage()
+    pushViewport(viewport(layout=grid.layout(nrow=2, ncol=2)))
+    
+    print(tsPlot, vp=vplayout(1, 1:2))
+    print(acfPlot, vp=vplayout(2, 1))
+    print(pacfPlot, vp=vplayout(2, 2))
+    
+    #list(tsPlot, acfPlot, pacfPlot)
+    invisible(TRUE)
+}
