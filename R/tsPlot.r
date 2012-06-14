@@ -119,6 +119,7 @@ ts.plotter <- function(data, time=NULL,
 #' @examples
 #' 
 #' fortify(acf(sunspot.year, plot=FALSE))
+#' fortify(pacf(sunspot.year, plot=FALSE))
 #' 
 fortify.acf <- function(x, ...)
 {
@@ -135,6 +136,27 @@ fortify.acf <- function(x, ...)
 }
 
 
+#' plot.acf
+#' 
+#' Plot acf objects
+#' 
+#' Plot acf (and pacf) objects.
+#' 
+#' @author Jared P. Lander
+#' @aliases plot.acf
+#' @export plot.acf
+#' @S3method plot acf
+#' @method plot acf
+#' @return A ggplot object.
+#' @param x An \code{\link{acf}} object.
+#' @param xlab X-axis label.
+#' @param xlab X-axis label.
+#' @param title Graph title.
+#' @examples
+#' 
+#' plot(acf(sunspot.year, plot=FALSE))
+#' plot(pacf(sunspot.year, plot=FALSE))
+#'
 plot.acf <- function(x, 
                      xlab=x, ylab=sub("\\.", " ", y), 
                      title=sprintf("%s Plot", sub("\\.", " ", y))
