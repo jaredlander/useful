@@ -5,7 +5,7 @@
   \method{plot}{ts} (x, time = NULL, acf = FALSE,
     lag.max = NULL, na.action = na.fail, demean = TRUE,
     title = sprintf("\%s Plot", name), xlab = "Time",
-    ylab = name)
+    ylab = name, ...)
 }
 \arguments{
   \item{x}{a \code{\link{ts}} object.}
@@ -31,9 +31,11 @@
 
   \item{xlab}{X-axis label.}
 
-  \item{xlab}{X-axis label.}
+  \item{ylab}{Y-axis label.}
 
   \item{title}{Graph title.}
+
+  \item{\dots}{Further arguments.}
 }
 \value{
   A ggplot object if \code{acf} is \code{FALSE}, otherwise

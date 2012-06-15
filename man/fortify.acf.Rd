@@ -2,10 +2,13 @@
 \alias{fortify.acf}
 \title{fortify.acf}
 \usage{
-  \method{fortify}{acf} (x, ...)
+  \method{fortify}{acf} (model, data = NULL, ...)
 }
 \arguments{
-  \item{x}{An \code{\link{acf}} object.}
+  \item{model}{An \code{\link{acf}} object.}
+
+  \item{data}{Not used.  Just for consistency with the
+  fortify method.}
 
   \item{\dots}{Other arguments}
 }

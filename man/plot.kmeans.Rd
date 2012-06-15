@@ -2,7 +2,7 @@
 \alias{plot.kmeans}
 \title{plot.kmeans}
 \usage{
-  \method{plot}{kmeans} (x, data, class = NULL,
+  \method{plot}{kmeans} (x, data = NULL, class = NULL,
     legend.position = c("right", "bottom", "left", "top", "none"),
     title = "K-Means Results",
     xlab = "Principal Component 1",
@@ -36,11 +36,13 @@
 }
 \details{
   Plots the results of k-means with color-coding for the
-  cluster membership.
+  cluster membership.  If \code{data} is not provided, then
+  just the center points are calculated.
 }
 \examples{
 k1 <- kmeans(x=iris[, 1:4], centers=3)
 plot(k1)
+plot(k1, data=iris)
 }
 \author{
   Jared P. Lander

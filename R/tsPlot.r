@@ -7,7 +7,7 @@
 #' @author Jared P. Lander
 #' @aliases vplayout
 #' @export vplayout
-#' @import viewport, pushViewport
+#' @import grid
 #' @return An R object of class viewport.
 #' @param x The x cell of the viewport to push into.
 #' @param y The y cell of the viewport to push into.
@@ -35,30 +35,31 @@ vplayout <- function(x, y)
 #' @S3method fortify ts
 #' @method fortify ts
 #' @return \code{\link{data.frame}} for plotting with ggplot.
-#' @param x A \code{\link{ts}} object.
-#' @param time A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
+#' @param model A \code{\link{ts}} object.
+#' @param data A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
 #' @param name Character specifying the name of x if it is to be different that the variable being inputed.
+#' @param \dots Further arguments.
 #' @examples
 #' 
 #' fortify(sunspot.year)
 #' 
-fortify.ts <- function(x, time=NULL, name=as.character(m[[2]]))
+fortify.ts <- function(model, data=NULL, name=as.character(m[[2]]), ...)
 {
     m <- match.call()
     
     # if time is provided use that as the x values
-    if(!is.null(time))
+    if(!is.null(data))
     {
-        theX <- time
+        theX <- data
     }else
         # otherwise use the built in attributes
     {
-        theTime <- attr(x, which="tsp")
+        theTime <- attr(model, which="tsp")
         theX <- seq(from=theTime[1], to=theTime[2], by=1/theTime[3])
         rm(theTime)
     }
     
-    data <- data.frame(theX, x)
+    data <- data.frame(theX, model)
     names(data) <- c("Time", name)
     return(data)
 }
@@ -74,7 +75,7 @@ fortify.ts <- function(x, time=NULL, name=as.character(m[[2]]))
 #' @export ts.plotter
 #' @aliases ts.plotter
 #' @author Jared P. Lander
-#' @import ggplot
+#' @import ggplot2
 #' @return A ggplot object
 #' @param data A \code{\link{ts}} object to be plotted.
 #' @param time A vector of the same length of \code{data} that specifies the time component of each element of \code{data}.
@@ -90,7 +91,7 @@ ts.plotter <- function(data, time=NULL,
 {
     # grab the name of the ts that was provided    
     # fortify the ts so it is usable in ggplot
-    data <- fortify(data, time=time, name=as.character(match.call()[[2]]))
+    data <- fortify.ts(data, data=time, name=as.character(match.call()[[2]]))
     
     # figure out the names returned by fortifying
     x <- names(data)[1]
@@ -114,23 +115,24 @@ ts.plotter <- function(data, time=NULL,
 #' @S3method fortify acf
 #' @method fortify acf
 #' @return \code{\link{data.frame}} for plotting with ggplot. 
-#' @param x An \code{\link{acf}} object.
+#' @param model An \code{\link{acf}} object.
+#' @param data Not used.  Just for consistency with the fortify method.
 #' @param \dots Other arguments
 #' @examples
 #' 
 #' fortify(acf(sunspot.year, plot=FALSE))
 #' fortify(pacf(sunspot.year, plot=FALSE))
 #' 
-fortify.acf <- function(x, ...)
+fortify.acf <- function(model, data=NULL, ...)
 {
     # the different tpe of acf objects
     theNames <- c(correlation="ACF", covariance="ACF", partial="Partial.ACF")
     
     # build a data.frame consisting the lag number and the acf value
-    data <- data.frame(x$lag, x$acf)
+    data <- data.frame(model$lag, model$acf)
     
     # name the data "Lag" and the appropriate type of acf
-    names(data) <- c("Lag", theNames[x$type])
+    names(data) <- c("Lag", theNames[model$type])
     
     return(data)
 }
@@ -150,20 +152,23 @@ fortify.acf <- function(x, ...)
 #' @return A ggplot object.
 #' @param x An \code{\link{acf}} object.
 #' @param xlab X-axis label.
-#' @param xlab X-axis label.
+#' @param ylab y-axis label.
 #' @param title Graph title.
+#' @param \dots Further arguments.
 #' @examples
 #' 
 #' plot(acf(sunspot.year, plot=FALSE))
 #' plot(pacf(sunspot.year, plot=FALSE))
 #'
 plot.acf <- function(x, 
-                     xlab=x, ylab=sub("\\.", " ", y), 
-                     title=sprintf("%s Plot", sub("\\.", " ", y))
+                     xlab=x, ylab=y,
+                     #xlab=x, ylab=sub("\\.", " ", y), 
+                     title=sprintf("%s Plot", y), ...
+                     #title=sprintf("%s Plot", sub("\\.", " ", y))
                      )
 {
     # fortify the acf object
-    data <- fortify(x)
+    data <- fortify.acf(x)
     
     # get the names we are using
     x <-names(data)[1]
@@ -187,7 +192,7 @@ plot.acf <- function(x,
 #' @export plot.ts
 #' @S3method plot ts
 #' @method plot ts
-#' @import grid.newpage, pushViewport
+#' @import grid
 #' @return A ggplot object if \code{acf} is \code{FALSE}, otherwise \code{TRUE} indicating success.
 #' @param x a \code{\link{ts}} object.
 #' @param time A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
@@ -196,8 +201,9 @@ plot.acf <- function(x,
 #' @param na.action function to be called to handle missing values. na.pass can be used.
 #' @param demean logical. Should the covariances be about the sample means?
 #' @param xlab X-axis label.
-#' @param xlab X-axis label.
+#' @param ylab Y-axis label.
 #' @param title Graph title.
+#' @param \dots Further arguments.
 #' @seealso ts.plotter plot.acf fortify.ts
 #' @examples
 #' 
@@ -206,7 +212,7 @@ plot.acf <- function(x,
 #' 
 plot.ts <- function(x, time=NULL, acf=FALSE,
                     lag.max=NULL, na.action=na.fail, demean=TRUE, 
-                    title=sprintf("%s Plot", name), xlab="Time", ylab=name)
+                    title=sprintf("%s Plot", name), xlab="Time", ylab=name, ...)
 {
     # get real name of x
     name <- as.character(match.call()[[2]])

@@ -2,7 +2,7 @@
 \alias{fortify.kmeans}
 \title{fortify.kmeans}
 \usage{
-  \method{fortify}{kmeans} (model, data, ...)
+  \method{fortify}{kmeans} (model, data = NULL, ...)
 }
 \arguments{
   \item{model}{\code{\link{kmeans}} model}
@@ -23,12 +23,15 @@
 \details{
   Prepares a kmeans object to be plotted using
   \code{\link{cmdscale}} to compute the projected x/y
-  coordinates.
+  coordinates.  If \code{data} is not provided, then just
+  the center points are calculated.
 }
 \examples{
 k1 <- kmeans(x=iris[, 1:4], centers=3)
-hold <- fortify(k1)
-head(k1)
+hold <- fortify(k1, data=iris)
+head(hold)
+hold2 <- fortify(k1)
+head(hold2)
 }
 \author{
   Jared P. Lander

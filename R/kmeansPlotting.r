@@ -4,7 +4,7 @@
 #' 
 #' Fortify a kmeans model with its data
 #' 
-#' Prepares a kmeans object to be plotted using \code{\link{cmdscale}} to compute the projected x/y coordinates.
+#' Prepares a kmeans object to be plotted using \code{\link{cmdscale}} to compute the projected x/y coordinates.  If \code{data} is not provided, then just the center points are calculated.
 #' 
 #' @aliases fortify.kmeans
 #' @export fortify.kmeans
@@ -22,12 +22,25 @@
 #' @examples
 #' 
 #' k1 <- kmeans(x=iris[, 1:4], centers=3)
-#' hold <- fortify(k1)
-#' head(k1)
-fortify.kmeans <- function(model, data, ...)
+#' hold <- fortify(k1, data=iris)
+#' head(hold)
+#' hold2 <- fortify(k1)
+#' head(hold2)
+#' 
+fortify.kmeans <- function(model, data=NULL, ...)
 {
     # get the names of columns used
     usedCols <- colnames(model$centers)
+    
+    if(is.null(data))
+    {
+        # get 2 dimensional scaling of the centers
+        centerPoints <- data.frame(cmdscale(d=dist(model$centers), k=2))
+        names(centerPoints) <- c(".x", ".y")
+        centerPoints$.Cluster <- as.factor(rownames(centerPoints))
+        
+        return(centerPoints)
+    }
     
     # make a 2 dimensional scaling of the data
     points <- data.frame(cmdscale(d=dist(data[, usedCols]), k=2))
@@ -45,7 +58,7 @@ fortify.kmeans <- function(model, data, ...)
 #' 
 #' Plot the results from a k-means object
 #' 
-#' Plots the results of k-means with color-coding for the cluster membership.
+#' Plots the results of k-means with color-coding for the cluster membership.  If \code{data} is not provided, then just the center points are calculated.
 #' 
 #' @aliases plot.kmeans
 #' @export plot.kmeans
@@ -66,7 +79,9 @@ fortify.kmeans <- function(model, data, ...)
 #' 
 #' k1 <- kmeans(x=iris[, 1:4], centers=3)
 #' plot(k1)
-plot.kmeans <- function(x, data, class=NULL, legend.position=c("right", "bottom", "left", "top", "none"), 
+#' plot(k1, data=iris)
+#' 
+plot.kmeans <- function(x, data=NULL, class=NULL, legend.position=c("right", "bottom", "left", "top", "none"), 
                         title="K-Means Results",
                         xlab="Principal Component 1", ylab="Principal Component 2", ...)
 {
