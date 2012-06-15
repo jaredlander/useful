@@ -17,13 +17,8 @@
 #' # none here
 #' 
 knitVector <- Vectorize(FUN=knit, vectorize.args=c("input", "output", "tangle", "text")) 
-# <- function(file.name)
-# {
-#     knit(input=rnw, output=tex)
-# }
 
 
-# if I Vectorize doKnit I can get rid of the loop, but I think that's overkill
 #' do.knit
 #' 
 #' Wrapper for knitr::knit
@@ -49,9 +44,4 @@ do.knit <- function(files)
     toRun <- ifelse(file.exists(rnw) & (!file.exists(tex) | file.info(tex)$mtime < file.info(rnw)$mtime), TRUE, FALSE)
     
     knitVector(input=rnw[toRun], output=tex[toRun])
-    ## loop through and knit each chapter file if the tex file is older
-    #     for(a in files[toRun])
-    #     {
-    #         doKnit(file.name=a)
-    #     }
 }
