@@ -2,7 +2,7 @@ Package: useful
 Type: Package
 Title: A collection of handy, useful functions
 Version: 1.1.5
-Date: 2011-10-02
+Date: 2012-06-15
 Author: Jared P. Lander
 Maintainer: <packages@jaredlander.com>
 Description: A set of little functions that have been found
