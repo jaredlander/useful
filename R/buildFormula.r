@@ -20,6 +20,11 @@
 #'
 build.formula <- function(lhs, rhs)
 {
+    if(is.null(lhs) && is.null(rhs))
+    {
+        return(NULL)
+    }
+    
     # build a formula for aggregation
     theFormula <- as.formula(sprintf("%s ~ %s", paste(lhs, collapse=" + "), paste(rhs, collapse=" + ")))
     return(theFormula)
