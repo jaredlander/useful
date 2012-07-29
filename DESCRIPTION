@@ -9,7 +9,8 @@ Description: A set of little functions that have been found
     useful to do little odds and ends
 License: BSD
 Depends:
-    ggplot2,
+    ggplot2
+Imports:
     plyr
 LazyLoad: yes
 Collate:
@@ -25,3 +26,4 @@ Collate:
     'shiftColumn.r'
     'kmeansPlotting.r'
     'tsPlot.r'
+ByteCompile: TRUE
