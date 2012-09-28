@@ -1,6 +1,6 @@
 \name{MapToInterval}
-\alias{mapping}
 \alias{MapToInterval}
+\alias{mapping}
 \title{Map numbers to interval}
 \usage{
   MapToInterval(nums, start = 1, stop = 10)
