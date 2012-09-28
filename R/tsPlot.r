@@ -99,7 +99,7 @@ ts.plotter <- function(data, time=NULL,
     
     # build the plot
     ggplot(data, aes_string(x=x, y=y)) + geom_line(aes(group=1)) +
-        opts(title=title) + labs(x=xlab, y=ylab)
+        labs(title=title, x=xlab, y=ylab)
 }
 
 
@@ -177,7 +177,7 @@ plot.acf <- function(x,
     # build plot
     ggplot(data, aes_string(x=x)) + 
         geom_linerange(aes_string(ymin=pmin(y, 0), ymax=pmax(y, 0))) +
-        labs(x=xlab, y=ylab) + opts(title=title)
+        labs(title=title, x=xlab, y=ylab)
 }
 
 

@@ -47,7 +47,7 @@ PlotHartigan <- function(hartigan, title="Hartigan's Rule", smooth=FALSE, lineco
         #geom_line() +
         geom_point(aes(colour=AddCluster)) +
         scale_colour_discrete(name="Add Cluster") +
-        opts(title=title) + if(minor) scale_x_continuous(minor_breaks=(1:(max(hartigan$Clusters)+1)))
+        ggtitle(label=title) + if(minor) scale_x_continuous(minor_breaks=(1:(max(hartigan$Clusters)+1)))
     
     if(smooth)
     {

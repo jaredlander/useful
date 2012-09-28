@@ -94,6 +94,6 @@ plot.kmeans <- function(x, data=NULL, class=NULL, legend.position=c("right", "bo
     ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + 
         geom_point(aes_string(shape=class)) + 
         scale_color_discrete("Cluster") +
-        opts(legend.position=legend.position, title=title) +
-        labs(x=xlab, y=ylab)
+        theme(legend.position=legend.position) +
+        labs(title=title, x=xlab, y=ylab)
 }
