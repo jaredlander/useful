@@ -14,9 +14,8 @@
 #' @return Vector indicating which element of \code{times} that row belongs to.  If the row is beyond any element NA is in it's spot.
 #' @examples
 #' 
-#' require(survival)
-#' head(bladder2)
-#' interval.check(bladder2, input="stop", times=seq(min(bladder2$start),max(bladder2$stop),length=6))
+#' head(cars)
+#' interval.check(cars, input="speed", times=seq(min(cars$speed), max(cars$speed), length=10))
 interval.check <- function(data, input="Stop", times, fun="<=")
 {
     # do an outer product seeing which of input is meets the requirement in realtion to each of the times
