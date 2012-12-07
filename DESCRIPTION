@@ -26,4 +26,6 @@ Collate:
     'shiftColumn.r'
     'kmeansPlotting.r'
     'tsPlot.r'
+    'buildMatrix.r'
+    'intervals.r'
 ByteCompile: TRUE
