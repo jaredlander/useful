@@ -5,6 +5,7 @@
 #' Given a formula and a data.frame build the predictor matrix
 #' @author Jared P. Lander
 #' @aliases build.x
+#' @export build.x
 #' @param formula A formula
 #' @param data A data.frame
 #' @return A matrix of the predictor variables specified in the formula
@@ -25,6 +26,7 @@ build.x <- function(formula, data)
 #' Given a formula and a data.frame build the y survival object
 #' @author Jared P. Lander
 #' @aliases build.y
+#' @export build.y
 #' @param formula A formula
 #' @param data A data.frame
 #' @return A surival object for the portion of the formula in Surv
