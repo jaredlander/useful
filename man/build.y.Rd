@@ -1,0 +1,30 @@
+\name{build.y}
+\alias{build.y}
+\title{build.y}
+\usage{
+  build.y(formula, data)
+}
+\arguments{
+  \item{formula}{A formula}
+
+  \item{data}{A data.frame}
+}
+\value{
+  A surival object for the portion of the formula in Surv
+}
+\description{
+  Build the y survival object for a glmnet model
+}
+\details{
+  Given a formula and a data.frame build the y survival
+  object
+}
+\examples{
+require(ggplot2)
+head(mpg)
+head(build.y(hwy ~ class + cyl + year, data=mpg))
+}
+\author{
+  Jared P. Lander
+}
+
