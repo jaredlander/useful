@@ -16,7 +16,7 @@
 #' 
 build.x <- function(formula, data)
 {
-    model.matrix(formula, data=data)
+    model.matrix(formula, data=data)[, -1]
 }
 
 #' build.y
