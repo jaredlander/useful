@@ -1,0 +1,36 @@
+\name{multiple_format}
+\alias{multiple_format}
+\title{multiple_format}
+\usage{
+  multiple_format(...)
+}
+\arguments{
+  \item{\dots}{Arguments to be passed onto
+  \code{\link{multiple}}}
+}
+\value{
+  The function \code{\link{multiple}}.
+}
+\description{
+  Multiple Style Formatting
+}
+\details{
+  Since ggplot requires a function for formatting this
+  allows the user to specify the function's arguments,
+  which will return a function that can be used by ggplot.
+}
+\examples{
+require(scales)
+vect <- c(1000, 1500, 23450, 21784, 875003780)
+multiple_format()(vect)
+multiple_format(extra=dollar)(vect)
+multiple_format(extra=identity)(vect)
+
+require(ggplot2)
+data(diamonds)
+ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple_format(extra=dollar))
+}
+\author{
+  Jared P. Lander
+}
+

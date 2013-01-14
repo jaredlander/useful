@@ -1,0 +1,37 @@
+\name{multiple.comma}
+\alias{multiple.comma}
+\title{multiple.comma}
+\usage{
+  multiple.comma(x, ...)
+}
+\arguments{
+  \item{x}{Vector of numbers to be formatted.}
+
+  \item{\dots}{Further arguments to be passed on to
+  \code{link{multiple}}}
+}
+\value{
+  Character vector of comma formatted numbers.
+}
+\description{
+  Order of Magnitude Formatter
+}
+\details{
+  Simply a wrapper for multiple that prespecifies the extra
+  comma.
+}
+\examples{
+require(scales)
+vect <- c(1000, 1500, 23450, 21784, 875003780)
+multiple.comma(vect)
+multiple.comma(vect, multiple="k")
+multiple.comma(vect, multiple="h")
+
+require(ggplot2)
+data(diamonds)
+ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple.comma)
+}
+\author{
+  Jared P. Lander
+}
+
