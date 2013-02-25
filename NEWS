@@ -3,6 +3,7 @@ Version 1.1.7
 Scale formatters for ggplot2.
 Functions to build x and y matrices based on a formula.
 Functions to build x and y matrices based on a formula.
+Function to ensure data in build.x and build.y is not a matrix or array.
 Function to check interval membership.
 
 Version 1.1.6

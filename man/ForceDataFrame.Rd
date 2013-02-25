@@ -1,0 +1,24 @@
+\name{ForceDataFrame}
+\alias{ForceDataFrame}
+\title{ForceDataFrame}
+\usage{
+  ForceDataFrame(data)
+}
+\arguments{
+  \item{data}{matrix, data.frame, array, list, etc. . .}
+}
+\value{
+  a data.frame of the data
+}
+\description{
+  Force matrix and arrays to data.frame
+}
+\details{
+  This is a helper function for build.x and build.y to
+  convert arrays and matrices--which are not accepted in
+  model.frame--into data.frames
+}
+\author{
+  Jared P. Lander
+}
+
