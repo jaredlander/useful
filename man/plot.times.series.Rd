@@ -1,8 +1,8 @@
-\name{plot.ts}
-\alias{plot.ts}
-\title{plot.ts}
+\name{plot.times.series}
+\alias{plot.times.series}
+\title{plot.times.series}
 \usage{
-  \method{plot}{ts} (x, time = NULL, acf = FALSE,
+  plot.times.series(x, time = NULL, acf = FALSE,
     lag.max = NULL, na.action = na.fail, demean = TRUE,
     title = sprintf("\%s Plot", name), xlab = "Time",
     ylab = name, ...)

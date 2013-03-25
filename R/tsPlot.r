@@ -181,17 +181,17 @@ plot.acf <- function(x,
 }
 
 
-#' plot.ts
+#' plot.times.series
 #' 
 #' Plot ts object
 #' 
 #' Plot a ts object and, if desired, it's acf and pacf.
 #' 
-#' @aliases plot.ts
+#' @aliases plot.times.series
 #' @author Jared P. Lander
 #' @export plot.ts
-#' @S3method plot ts
-#' @method plot ts
+# @S3method plot ts
+# @method plot ts
 #' @import grid
 #' @return A ggplot object if \code{acf} is \code{FALSE}, otherwise \code{TRUE} indicating success.
 #' @param x a \code{\link{ts}} object.
@@ -210,7 +210,7 @@ plot.acf <- function(x,
 #' plot(sunspot.year)
 #' plot(sunspot.year, acf=TRUE)
 #' 
-plot.ts <- function(x, time=NULL, acf=FALSE,
+plot.times.series <- function(x, time=NULL, acf=FALSE,
                     lag.max=NULL, na.action=na.fail, demean=TRUE, 
                     title=sprintf("%s Plot", name), xlab="Time", ylab=name, ...)
 {
