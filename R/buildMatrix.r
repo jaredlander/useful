@@ -42,6 +42,11 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     # also cut down contrasts argument
     # save for another time
     
+    if(length(catIndex) == 0)
+    {
+        return(model.matrix(formula, data=data))
+    }
+    
     # if any of these identified columns is still a character, they need to be changed into a factor
     # find out which columns are characters
     #print(sapply(data[, catIndex], is.character))
