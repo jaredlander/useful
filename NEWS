@@ -1,3 +1,8 @@
+Version 1.1.8
+-----------------------------------------------------------------------------------------------------
+Added functionality to build.x to control contrasts.
+Fixed bug in build.x where it never returned the intercept.
+
 Version 1.1.7
 -----------------------------------------------------------------------------------------------------
 Scale formatters for ggplot2.
