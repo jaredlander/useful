@@ -8,7 +8,7 @@
   \item{x}{Vector of numbers to be formatted.}
 
   \item{\dots}{Further arguments to be passed on to
-  \code{link{multiple}}}
+  \code{\link{multiple}}}
 }
 \value{
   Character vector of dollar formatted numbers.

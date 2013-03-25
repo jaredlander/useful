@@ -86,7 +86,7 @@ multiple_format <- function(...)
 #' @export multiple.dollar
 #' @import scales
 #' @param x Vector of numbers to be formatted.
-#' @param \dots Further arguments to be passed on to \code{link{multiple}}
+#' @param \dots Further arguments to be passed on to \code{\link{multiple}}
 #' @return Character vector of dollar formatted numbers.
 #' @examples
 #' 
