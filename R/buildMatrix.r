@@ -1,8 +1,8 @@
-#' build.x
+#' @title build.x
 #' 
-#' Build the x matrix for a glmnet model
+#' @description Build the x matrix for a glmnet model
 #' 
-#' Given a formula and a data.frame build the predictor matrix
+#' @details Given a formula and a data.frame build the predictor matrix
 #' @author Jared P. Lander
 #' @aliases build.x
 #' @export build.x
