@@ -30,6 +30,10 @@
 #' ## if contrasts is a list then you can specify just certain factors
 build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
 {
+    if(length(contrasts) == 1 && contrasts)
+    {
+        return(model.matrix(formula, data=data))
+    }
     # ensure data is a data.frame
     data <- ForceDataFrame(data)
         
