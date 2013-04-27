@@ -181,7 +181,7 @@ plot.acf <- function(x,
 }
 
 
-#' plot.times.series
+#' plotTimesSeries
 #' 
 #' Plot ts object
 #' 
@@ -189,7 +189,7 @@ plot.acf <- function(x,
 #' 
 #' @aliases plot.times.series
 #' @author Jared P. Lander
-#' @export plot.ts
+#' @export plotTimesSeries
 # @S3method plot ts
 # @method plot ts
 #' @import grid
@@ -210,7 +210,7 @@ plot.acf <- function(x,
 #' plot(sunspot.year)
 #' plot(sunspot.year, acf=TRUE)
 #' 
-plot.times.series <- function(x, time=NULL, acf=FALSE,
+plotTimesSeries <- function(x, time=NULL, acf=FALSE,
                     lag.max=NULL, na.action=na.fail, demean=TRUE, 
                     title=sprintf("%s Plot", name), xlab="Time", ylab=name, ...)
 {

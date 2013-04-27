@@ -1,8 +1,9 @@
-\name{plot.times.series}
+\name{plotTimesSeries}
 \alias{plot.times.series}
-\title{plot.times.series}
+\alias{plotTimesSeries}
+\title{plotTimesSeries}
 \usage{
-  plot.times.series(x, time = NULL, acf = FALSE,
+  plotTimesSeries(x, time = NULL, acf = FALSE,
     lag.max = NULL, na.action = na.fail, demean = TRUE,
     title = sprintf("\%s Plot", name), xlab = "Time",
     ylab = name, ...)
