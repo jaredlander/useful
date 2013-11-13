@@ -30,12 +30,13 @@
 #' ## if contrasts is a list then you can specify just certain factors
 build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
 {
+    # ensure data is a data.frame
+    data <- ForceDataFrame(data)
+    
     if(length(contrasts) == 1 && contrasts)
     {
         return(model.matrix(formula, data=data))
     }
-    # ensure data is a data.frame
-    data <- ForceDataFrame(data)
         
     # make index of factor or character columns
     catIndex <- which(sapply(data, function(x) is.factor(x) | is.character(x)))
@@ -125,5 +126,8 @@ ForceDataFrame <- function(data)
 #' 
 build.y <- function(formula, data)
 {
-    eval(formula[[2]], envir=ForceDataFrame(data))
+    # build a model frame
+    theFrame <- model.frame(formula, data=ForceDataFrame(data))
+    # extract the response
+    theFrame[[1]]
 }
