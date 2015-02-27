@@ -30,4 +30,5 @@ Collate:
     'buildMatrix.r'
     'intervals.r'
     'formatters.r'
+    'time.single.r'
 ByteCompile: TRUE
