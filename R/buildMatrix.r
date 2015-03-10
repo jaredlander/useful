@@ -8,7 +8,7 @@
 #' @export build.x
 #' @param formula A formula
 #' @param data A data.frame
-#' @param contrasts Logical indicating whether a factor's base level is removed.  For now only a single value should be supplied.  In the future it will be either one single value applied to every factor or a value for each factor.  Values will be recycled if necessary.
+#' @param contrasts Logical indicating whether a factor's base level is removed.  Can be either one single value applied to every factor or a value for each factor.  Values will be recycled if necessary.
 #' @param sparse Logical indicating if result should be sparse.  Currently not used.
 #' @return A matrix of the predictor variables specified in the formula
 #' @examples
@@ -16,12 +16,21 @@
 #' head(mpg)
 #' head(build.x(hwy ~ class + cyl + year, data=mpg))
 #' 
-#' testFrame <- data.frame(First=sample(1:10, 20, replace=TRUE), Second=sample(1:20, 20, replace=TRUE), Third=sample(1:10, 20, replace=TRUE), Fourth=factor(rep(c("Alice","Bob","Charlie","David"), 5)), Fifth=ordered(rep(c("Edward","Frank","Georgia","Hank","Isaac"), 4)), Sixth=factor(rep(c("a", "b"), 10)), stringsAsFactors=F)
-#' head(build.x(First ~ Second + Fourth + Sixth, testFrame, contrasts=c("Fourth"=TRUE, "Fifth"=FALSE, "Sixth"=TRUE)))
-#' head(build.x(First ~ Second + Fourth + Fifth + Sixth, testFrame, contrasts=c(Fourth=TRUE, Fifth=FALSE, Sixth=TRUE)))
+#' testFrame <- data.frame(First=sample(1:10, 20, replace=TRUE), 
+#' Second=sample(1:20, 20, replace=TRUE), 
+#' Third=sample(1:10, 20, replace=TRUE), 
+#' Fourth=factor(rep(c("Alice","Bob","Charlie","David"), 5)), 
+#' Fifth=ordered(rep(c("Edward","Frank","Georgia","Hank","Isaac"), 4)), 
+#' Sixth=factor(rep(c("a", "b"), 10)), stringsAsFactors=F)
+#' head(build.x(First ~ Second + Fourth + Sixth, testFrame, 
+#' contrasts=c("Fourth"=TRUE, "Fifth"=FALSE, "Sixth"=TRUE)))
+#' head(build.x(First ~ Second + Fourth + Fifth + Sixth, testFrame, 
+#' contrasts=c(Fourth=TRUE, Fifth=FALSE, Sixth=TRUE)))
 #' head(build.x(First ~ Second + Fourth + Fifth + Sixth, testFrame, contrasts=TRUE))
-#' head(build.x(First ~ Second + Fourth + Fifth + Sixth, testFrame, contrasts=FALSE))
-#' head(build.x(First ~ Second + Fourth + Fifth + Sixth - 1, testFrame, contrasts=TRUE))
+#' head(build.x(First ~ Second + Fourth + Fifth + Sixth, testFrame, 
+#' contrasts=FALSE))
+#' head(build.x(First ~ Second + Fourth + Fifth + Sixth - 1, testFrame, 
+#' contrasts=TRUE))
 #' head(build.x(First ~ Second + Fourth + Fifth + Fourth*Sixth, testFrame, contrasts=TRUE))
 #' head(build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=TRUE))
 #' #' head(build.x(First ~ Second + Fourth + Fifth + Fourth*Sixth, testFrame, contrasts=FALSE))
