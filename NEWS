@@ -1,3 +1,7 @@
+Version 1.1.9
+-----------------------------------------------------------------------------------------------------
+New function for checking the class of each column in a data.frame.
+
 Version 1.1.8
 -----------------------------------------------------------------------------------------------------
 Added functionality to build.x to control contrasts.
