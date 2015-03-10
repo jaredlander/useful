@@ -25,7 +25,8 @@
 #' 
 #' require(ggplot2)
 #' data(diamonds)
-#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple)
+#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
+#' scale_color_gradient2(labels=multiple)
 #' 
 multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), extra=comma, digits=0)
 {
@@ -66,7 +67,8 @@ multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", 
 #' 
 #' require(ggplot2)
 #' data(diamonds)
-#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple_format(extra=dollar))
+#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
+#' scale_color_gradient2(labels=multiple_format(extra=dollar))
 #' 
 multiple_format <- function(...)
 {
@@ -98,7 +100,8 @@ multiple_format <- function(...)
 #' 
 #' require(ggplot2)
 #' data(diamonds)
-#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple.dollar)
+#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
+#' scale_color_gradient2(labels=multiple.dollar)
 #'
 multiple.dollar <- function(x, ...)
 {
@@ -129,7 +132,8 @@ multiple.dollar <- function(x, ...)
 #' 
 #' require(ggplot2)
 #' data(diamonds)
-#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple.comma)
+#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
+#' scale_color_gradient2(labels=multiple.comma)
 #' 
 multiple.comma <- function(x, ...)
 {
@@ -138,7 +142,7 @@ multiple.comma <- function(x, ...)
 
 
 
-#' multiple.comma
+#' multiple.identity
 #' 
 #' Order of Magnitude Formatter
 #' 
@@ -159,7 +163,8 @@ multiple.comma <- function(x, ...)
 #' 
 #' require(ggplot2)
 #' data(diamonds)
-#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + scale_color_gradient2(labels=multiple.identity)
+#' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
+#' scale_color_gradient2(labels=multiple.identity)
 #'
 multiple.identity <- function(x, ...)
 {    

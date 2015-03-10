@@ -74,7 +74,8 @@ subOut <- function(toAlter, specialChars=c("!", "(", ")", "-", "=", "*", "."))
 #' @examples
 #' 
 #' subSpecials(c("Hello", "(parens)", "Excited! Mark"))
-#' subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
+#' subSpecials(c("Hello", "(parens)", "Excited! Mark"), 
+#' c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
 #'
 subSpecials <- function(..., specialChars=c("!", "(", ")", "-", "=", "*", "."))
 {
