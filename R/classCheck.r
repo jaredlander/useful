@@ -8,10 +8,10 @@
 #' @param cols The columns (named or numeric) to be included in the check.
 #' @return A vector detailing the class of each column.
 #' @examples
-#' classDF(CO2)
-#' classDF(iris)
-#' classDF(mtcars)
-classDdf <- function(data, cols)
+#' classdf(CO2)
+#' classdf(iris)
+#' classdf(mtcars)
+classdf <- function(data, cols)
 {
     # stop if it is not a data.frame
     if(!is.data.frame(data))
