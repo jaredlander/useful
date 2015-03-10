@@ -7,27 +7,11 @@ Author: Jared P. Lander
 Maintainer: Jared P. Lander <packages@jaredlander.com>
 Description: A set of little functions that have been found
     useful to do little odds and ends
-License: BSD
+License: BSD_3_clause + file LICENSE
 Depends:
     ggplot2
 Imports:
     plyr,
     scales
 LazyLoad: yes
-Collate:
-    'corner.r'
-    'hartigan.r'
-    'MapToInterval.r'
-    'regex.r'
-    'subspecials.r'
-    'useful-package.r'
-    'comparisons.r'
-    'buildFormula.r'
-    'binary.flip.r'
-    'shiftColumn.r'
-    'kmeansPlotting.r'
-    'tsPlot.r'
-    'buildMatrix.r'
-    'intervals.r'
-    'formatters.r'
 ByteCompile: TRUE
