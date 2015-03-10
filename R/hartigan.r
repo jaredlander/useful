@@ -42,10 +42,10 @@
 #' 
 PlotHartigan <- function(hartigan, title="Hartigan's Rule", smooth=FALSE, linecolor="grey", linetype=2L, linesize=1L, minor=TRUE)
 {
-    thePlot <- ggplot(data=hartigan, aes(x=Clusters, y=Hartigan)) + 
+    thePlot <- ggplot(data=hartigan, aes_string(x="Clusters", y="Hartigan")) + 
         geom_hline(aes(yintercept=10), linetype=linetype, colour=linecolor, size=linesize) + 
         #geom_line() +
-        geom_point(aes(colour=AddCluster)) +
+        geom_point(aes_string(colour="AddCluster")) +
         scale_colour_discrete(name="Add Cluster") +
         ggtitle(label=title) + if(minor) scale_x_continuous(minor_breaks=(1:(max(hartigan$Clusters)+1)))
     

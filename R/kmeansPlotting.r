@@ -94,7 +94,7 @@ plot.kmeans <- function(x, data=NULL, class=NULL, legend.position=c("right", "bo
     # convert class to factor just in case it is not already
     if(!is.null(class)) toPlot[, class] <- factor(toPlot[, class])
     
-    ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + 
+    ggplot(toPlot, aes_string(x=".x", y=".y", colour=".Cluster")) + 
         geom_point(aes_string(shape=class)) + 
         scale_color_discrete("Cluster") +
         theme(legend.position=legend.position) +
