@@ -8,10 +8,13 @@ Maintainer: Jared P. Lander <packages@jaredlander.com>
 Description: A set of little functions that have been found
     useful to do little odds and ends
 License: BSD_3_clause + file LICENSE
-Depends:
+Depends: 
     ggplot2
-Imports:
+Imports: 
     plyr,
-    scales
+    scales,
+    dplyr,
+    magrittr
 LazyLoad: yes
 ByteCompile: TRUE
+Suggests: testthat
