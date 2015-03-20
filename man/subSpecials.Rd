@@ -12,7 +12,7 @@ subSpecials(..., specialChars = c("!", "(", ")", "-", "=", "*", "."))
 \item{\dots}{Character vectors that will be altered by subbing the special characters with their escaped equivalents}
 }
 \value{
-The provided vectors are returned with any of the defined specialChars subbed out for their escaped equivalents
+The provided vectors are returned with any of the defined specialChars subbed out for their escaped equivalents.  Each vector is returned as an element of a list.
 }
 \description{
 Converts each of the special characters to their escaped equivalents in each element of each vector.
@@ -22,8 +22,9 @@ Each element in the specialChar vector is subbed for its escaped equivalent in e
 }
 \examples{
 subSpecials(c("Hello", "(parens)", "Excited! Mark"))
-subSpecials(c("Hello", "(parens)", "Excited! Mark"),
-c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
+subSpecials(c("Hello", "(parens)", "Excited! Mark"), specialChars=c("!", "("))
+subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
+subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "(", "*"))
 }
 \author{
 Jared P. Lander

@@ -62,7 +62,8 @@ simple.impute.default <- function(x, fun=median, ...)
 #' Each column is imputed independently.
 #' @aliases simple.impute.data.frame
 #' @export simple.impute.data.frame
-#' @import dplyr magrittr
+#' @importFrom dplyr mutate_each funs
+#' @importFrom magrittr "%>%"
 #' @author Jared P. Lander
 #' @param x A data.frame
 #' @param fun The function with which to fill in missing values

@@ -64,18 +64,19 @@ subOut <- function(toAlter, specialChars=c("!", "(", ")", "-", "=", "*", "."))
 #' 
 #' @param \dots Character vectors that will be altered by subbing the special characters with their escaped equivalents
 #' @param specialChars The characters to be subbed out
-#' @return The provided vectors are returned with any of the defined specialChars subbed out for their escaped equivalents
+#' @return The provided vectors are returned with any of the defined specialChars subbed out for their escaped equivalents.  Each vector is returned as an element of a list.
 #' @author Jared P. Lander
 #' www.jaredlander.com
 #' @export subSpecials
-#' @import plyr
+#' @importFrom  plyr llply
 #' @seealso \code{\link{sub}} \code{\link{subOut}}
 #' @keywords string text
 #' @examples
 #' 
 #' subSpecials(c("Hello", "(parens)", "Excited! Mark"))
-#' subSpecials(c("Hello", "(parens)", "Excited! Mark"), 
-#' c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
+#' subSpecials(c("Hello", "(parens)", "Excited! Mark"), specialChars=c("!", "("))
+#' subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
+#' subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "(", "*"))
 #'
 subSpecials <- function(..., specialChars=c("!", "(", ")", "-", "=", "*", "."))
 {
