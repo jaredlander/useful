@@ -26,6 +26,6 @@ lower.case(toCheck)
 Jared P. Lander
 }
 \seealso{
-find.case all.upper
+find.case upper.case mixed.case numeric.case
 }
 

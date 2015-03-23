@@ -10,6 +10,7 @@ test_that('The functions return logicals', {
     expect_is(find.case(toCheck, 'upper'), 'logical')
     expect_is(find.case(toCheck, 'lower'), 'logical')
     expect_is(find.case(toCheck, 'mixed'), 'logical')
+    expect_is(find.case(toCheck, 'numeric'), 'logical')
     
     expect_is(upper.case(toCheck), 'logical')
     expect_is(lower.case(toCheck), 'logical')
@@ -20,6 +21,7 @@ test_that('The correct number of elements are returned', {
     expect_equal(length(find.case(toCheck, 'upper')), length(toCheck))
     expect_equal(length(find.case(toCheck, 'lower')), length(toCheck))
     expect_equal(length(find.case(toCheck, 'mixed')), length(toCheck))
+    expect_equal(length(find.case(toCheck, 'numeric')), length(toCheck))
     
     
     expect_equal(length(upper.case(toCheck)), length(toCheck))
@@ -64,4 +66,9 @@ test_that('find.case, upper.case and lower.case work on simple data', {
                                             FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
                                             TRUE, TRUE, TRUE,
                                             FALSE))
+    
+    expect_identical(find.case(toCheck, 'numeric'), c(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+                                                    FALSE, FALSE, FALSE, FALSE, FALSE, FALSE,
+                                                    FALSE, FALSE, FALSE,
+                                                    TRUE))
 })

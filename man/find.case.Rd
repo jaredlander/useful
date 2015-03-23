@@ -4,7 +4,7 @@
 \alias{find.case}
 \title{find.case}
 \usage{
-find.case(string, case = c("upper", "lower", "mixed"))
+find.case(string, case = c("upper", "lower", "mixed", "numeric"))
 }
 \arguments{
 \item{string}{Character vector of strings to check cases}
@@ -29,6 +29,6 @@ find.case(toCheck, 'lower')
 Jared P. Lander
 }
 \seealso{
-all.upper all.lower
+upper.case lower.case numeric.case mixed.case
 }
 
