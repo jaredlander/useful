@@ -2,6 +2,7 @@ Version 1.1.9
 -----------------------------------------------------------------------------------------------------
 New function for checking the class of each column in a data.frame.
 New functions for simple imputation of missing data.
+New functions for check the case of strings.
 
 Version 1.1.8
 -----------------------------------------------------------------------------------------------------
