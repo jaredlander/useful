@@ -70,8 +70,8 @@ test_that('simple.impute.data.frame works as expected', {
                  data.frame(A=simple.impute(theDF$A), 
                             B=simple.impute(theDF$B), 
                             C=simple.impute(theDF$C)
-                            )
                  )
+    )
     expect_equal(simple.impute(theDF, mean), 
                  data.frame(A=simple.impute(theDF$A, mean), 
                             B=simple.impute(theDF$B, mean), 
