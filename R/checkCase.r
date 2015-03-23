@@ -1,41 +1,58 @@
-#' @title all.upper
+#' @title upper.case
 #' @description Checks if strings are all upper case
-#' @details Checks if strings are all upper case.  This is a wrapper for \code{find.case('text', 'upper')}.
-#' @export all.upper
-#' @aliases all.upper
+#' @details Checks if strings are all upper case.  This is a wrapper for \code{find.case('text', 'upper')}.  If string is all numbers it returns TRUE.
+#' @export upper.case
+#' @aliases upper.case
 #' @author Jared P. Lander
 #' @param string Character vector of strings to check cases
 #' @return A vector of TRUE AND FALSE
 #' @seealso find.case all.lower
 #' @examples 
 #'  
-#' all.upper(toCheck)
-all.upper <- function(string)
+#' upper.case(toCheck)
+upper.case <- function(string)
 {
     find.case(string, 'upper')
 }
 
 
-#' @title all.lower
+#' @title lower.case
 #' @description Checks if strings are all lower case
-#' @details Checks if strings are all lower case. This is a wrapper for \code{find.case('text', 'lower')}.
-#' @export all.lower
-#' @aliases all.lower
+#' @details Checks if strings are all lower case. This is a wrapper for \code{find.case('text', 'lower')}.  If string is all numbers it returns TRUE.
+#' @export lower.case
+#' @aliases lower.case
 #' @author Jared P. Lander
 #' @param string Character vector of strings to check cases
 #' @return A vector of TRUE AND FALSE
 #' @seealso find.case all.upper
 #' @examples 
 #' toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
-#' all.lower(toCheck)
-all.lower <- function(string)
+#' lower.case(toCheck)
+lower.case <- function(string)
 {
     find.case(string, 'lower')
 }
 
+#' @title mixed.case
+#' @description Checks if strings are all lower case
+#' @details Checks if strings are a mix of upper and lower case. This is a wrapper for \code{find.case('text', 'mixed')}.  If string is all numbers it returns FALSE.
+#' @export mixed.case
+#' @aliases mixed.case
+#' @author Jared P. Lander
+#' @param string Character vector of strings to check cases
+#' @return A vector of TRUE AND FALSE
+#' @seealso find.case all.upper
+#' @examples 
+#' toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
+#' mixed.case(toCheck)
+mixed.case <- function(string)
+{
+    find.case(string, 'mixed')
+}
+
 #' @title find.case
 #' @description Checks if strings are all upper or all lower case
-#' @details Checks if strings are all upper or all lower case
+#' @details Checks if strings are all upper or all lower case.  If string is all numbers it returns TRUE.
 #' @export find.case
 #' @aliases find.case
 #' @author Jared P. Lander
@@ -47,7 +64,7 @@ all.lower <- function(string)
 #' toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
 #' find.case(toCheck, 'upper')
 #' find.case(toCheck, 'lower')
-find.case <- function(string, case=c('upper', 'lower'))
+find.case <- function(string, case=c('upper', 'lower', 'mixed'))
 {
     # find which case
     case <- match.arg(case)
@@ -56,8 +73,15 @@ find.case <- function(string, case=c('upper', 'lower'))
     string <- as.character(string)
     
     # build patterns
-    # the entire item must be lower or upper
-    patterns <- c(upper='^([A-Z]+| )+$', lower='^([a-z]+| )+$')
+    # the entire item must be lower or upper, or mixed
+    # for mixed we check if it is all upper or lower and then negate the answer
+    patterns <- c(upper='^[A-Z0-9 ]+$', lower='^[a-z0-9 ]+$', mixed='(^[A-Z0-9 ]+$)|(^[a-z0-9 ]+$)|(^[0-9 ]+$)')
     
-    grepl(pattern=patterns[case], x=string)
+    # find answer
+    answer <- grepl(pattern=patterns[case], x=string, perl=TRUE)
+    
+    if(case == 'mixed')
+        return(!answer)
+    
+    return(answer)
 }
