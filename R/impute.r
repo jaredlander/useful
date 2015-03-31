@@ -83,6 +83,32 @@ simple.impute.data.frame <- function(x, fun=median, ...)
     x %>% mutate_each(funs(simple.impute(., fun=fun)))
 }
 
+#' @title  simple.impute.tbl_df
+#' @description Function for imputing a tbl_df with missing data.
+#' @details Provides the ability to simply impute data based on a simple measure such as mean or median.  For more robust imputation see the packages Amelia, mice or mi.
+#' 
+#' Each column is imputed independently.
+#' @aliases simple.impute.tbl_df
+#' @export simple.impute.tbl_df
+#' @author Jared P. Lander
+#' @param x A data.frame
+#' @param fun The function with which to fill in missing values
+#' @param \dots Further arguments
+#' @return A data.frame with the missing values imputed.
+#' @examples 
+#' theDF <- data.frame(A=1:10, B=1:10, C=1:10)
+#' theDF[c(1, 4, 6), c(1)] <- NA
+#' theDF[c(3, 4, 8), c(3)] <- NA
+#' 
+#' simple.impute.data.frame(theDF)
+#' simple.impute.data.frame(theDF, mean)
+#' simple.impute.data.frame(theDF, constant(4))
+#' 
+simple.impute.tbl_df <- function(x, fun=median, ...)
+{
+    simple.impute.data.frame(x=x, fun=fun, ...)
+}
+
 #' @title constant
 #' @description Helper function for imputing contstants
 #' @details Returns a function that always returns the value of n.
