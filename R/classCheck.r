@@ -16,7 +16,7 @@ classdf <- function(data, cols)
     # stop if it is not a data.frame
     if(!is.data.frame(data))
     {
-        stop("data is not a data.frame")
+        stop("data must be a data.frame")
     }
     
     # if cols is not supplied check all columns

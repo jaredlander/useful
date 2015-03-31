@@ -18,3 +18,6 @@ test_that('classdf returns a named object', {
     expect_named(classdf(mtcars))
 })
 
+test_that('classdf returns an error if data is not a data.frame', {
+    expect_error(classdf(list(A=1:3, B=2)))
+})
