@@ -25,6 +25,13 @@ Adds a class to an x.
 \details{
 Adds a class to an x by putting the new class at the front of the vector of classes for the x.
 }
+\examples{
+theDF <- data.frame(A=1:10, B=1:10)
+reclass(theDF) <- 'newclass'
+class(theDF)
+theDF <- reclass(theDF, 'another')
+class(theDF)
+}
 \author{
 Jared P. Lander
 }
