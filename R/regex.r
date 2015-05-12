@@ -63,6 +63,7 @@ OneRegex <- function(text, pattern, ignore.case=FALSE, perl=FALSE, fixed=FALSE, 
 ## @fixed (logical) If TRUE, pattern is a string to be matched as is. Overrides all conflicting arguments.
 ## @useBytes (logical) If TRUE the matching is done byte-by-byte rather than character-by-character.
 ## See ?regexpr for details
+#' @importFrom plyr alply
 gregex <- function(pattern, text, ignore.case=FALSE, perl=FALSE, fixed=FALSE, useBytes=FALSE)
 {
     # get the results from the gregexpr's

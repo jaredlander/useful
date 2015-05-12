@@ -6,6 +6,7 @@
 #' @author Jared P. Lander
 #' @aliases build.x
 #' @export build.x
+#' @importFrom plyr catcolwise
 #' @param formula A formula
 #' @param data A data.frame
 #' @param contrasts Logical indicating whether a factor's base level is removed.  Can be either one single value applied to every factor or a value for each factor.  Values will be recycled if necessary.
