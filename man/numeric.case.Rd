@@ -19,7 +19,8 @@ Checks if strings are all numbers or spaces
 Checks if strings are all numbers and spaces. This is a wrapper for \code{find.case('text', 'numeric')}.
 }
 \examples{
-toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE', '17')
+toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE',
+     'little with space', 'MIXED with SPACE', '17')
 numeric.case(toCheck)
 }
 \author{

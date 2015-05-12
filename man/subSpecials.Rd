@@ -23,8 +23,10 @@ Each element in the specialChar vector is subbed for its escaped equivalent in e
 \examples{
 subSpecials(c("Hello", "(parens)", "Excited! Mark"))
 subSpecials(c("Hello", "(parens)", "Excited! Mark"), specialChars=c("!", "("))
-subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
-subSpecials(c("Hello", "(parens)", "Excited! Mark"), c("This is a period. And this is an asterisk *"), specialChars=c("!", "(", "*"))
+subSpecials(c("Hello", "(parens)", "Excited! Mark"),
+ c("This is a period. And this is an asterisk *"), specialChars=c("!", "("))
+subSpecials(c("Hello", "(parens)", "Excited! Mark"),
+ c("This is a period. And this is an asterisk *"), specialChars=c("!", "(", "*"))
 }
 \author{
 Jared P. Lander

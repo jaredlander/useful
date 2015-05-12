@@ -8,7 +8,7 @@
 #' @return A vector of TRUE AND FALSE
 #' @seealso find.case lower.case mixed.case numeric.case
 #' @examples 
-#'  
+#' toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
 #' upper.case(toCheck)
 upper.case <- function(string)
 {
@@ -60,7 +60,8 @@ mixed.case <- function(string)
 #' @return A vector of TRUE AND FALSE
 #' @seealso find.case upper.case lower.case numeric.case
 #' @examples 
-#' toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE', '17')
+#' toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 
+#'      'little with space', 'MIXED with SPACE', '17')
 #' numeric.case(toCheck)
 numeric.case <- function(string)
 {

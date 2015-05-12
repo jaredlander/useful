@@ -19,6 +19,7 @@ Checks if strings are all upper case
 Checks if strings are all upper case.  This is a wrapper for \code{find.case('text', 'upper')}.  If string is all numbers it returns TRUE.
 }
 \examples{
+toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
 upper.case(toCheck)
 }
 \author{
