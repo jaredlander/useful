@@ -75,8 +75,7 @@ corner <- function(x, ...)
 ## @c (numeric) the number of columns to show
 ## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
 #' @rdname corner
-#' @method corner data.frame
-#' @S3method corner data.frame
+#' @export corner.data.frame
 corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -94,8 +93,7 @@ corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 ## @c (numeric) the number of columns to show
 ## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
 #' @rdname corner
-#' @method corner matrix
-#' @S3method corner matrix
+#' @export corner.matrix
 corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -107,8 +105,7 @@ corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 }
 
 #' @rdname corner
-#' @method corner table
-#' @S3method corner table
+#' @export corner.table
 corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -123,8 +120,7 @@ corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
 ## @x (data) the data
 ## @r (numeric) the number of rows to show
 #' @rdname corner
-#' @method corner default
-#' @S3method corner default
+#' @export corner.default
 corner.default <- function(x, r=5L, ...)
 {
     head(x, n=r, ...)

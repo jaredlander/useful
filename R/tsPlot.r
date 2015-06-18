@@ -32,8 +32,6 @@ vplayout <- function(x, y)
 #' @author Jared P. Lander
 #' @aliases fortify.ts
 #' @export fortify.ts
-#' @S3method fortify ts
-#' @method fortify ts
 #' @return \code{\link{data.frame}} for plotting with ggplot.
 #' @param model A \code{\link{ts}} object.
 #' @param data A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
@@ -112,8 +110,6 @@ ts.plotter <- function(data, time=NULL,
 #' @author Jared P. Lander
 #' @aliases fortify.acf
 #' @export fortify.acf
-#' @S3method fortify acf
-#' @method fortify acf
 #' @return \code{\link{data.frame}} for plotting with ggplot. 
 #' @param model An \code{\link{acf}} object.
 #' @param data Not used.  Just for consistency with the fortify method.
@@ -147,8 +143,6 @@ fortify.acf <- function(model, data=NULL, ...)
 #' @author Jared P. Lander
 #' @aliases plot.acf
 #' @export plot.acf
-#' @S3method plot acf
-#' @method plot acf
 #' @return A ggplot object.
 #' @param x An \code{\link{acf}} object.
 #' @param xlab X-axis label.
