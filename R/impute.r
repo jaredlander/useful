@@ -62,7 +62,7 @@ simple.impute.default <- function(x, fun=median, ...)
 #' Each column is imputed independently.
 #' @aliases simple.impute.data.frame
 #' @export simple.impute.data.frame
-#' @importFrom dplyr mutate_each funs
+#' @importFrom dplyr mutate_each_ funs
 #' @importFrom magrittr "%>%"
 #' @author Jared P. Lander
 #' @param x A data.frame
@@ -80,7 +80,8 @@ simple.impute.default <- function(x, fun=median, ...)
 #' 
 simple.impute.data.frame <- function(x, fun=median, ...)
 {
-    x %>% mutate_each(funs(simple.impute(., fun=fun)))
+    . <- NULL
+    x %>% mutate_each_(funs(simple.impute(., fun=fun)), vars=names(x))
 }
 
 #' @title  simple.impute.tbl_df
