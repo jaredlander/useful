@@ -7,6 +7,7 @@
 #' Prepares a kmeans object to be plotted using \code{\link{cmdscale}} to compute the projected x/y coordinates.  If \code{data} is not provided, then just the center points are calculated.
 #' 
 #' @aliases fortify.kmeans
+#' @export
 #' @export fortify.kmeans
 #' @author Jared P. Lander
 #' @seealso kmeans fortify ggplot plot.kmeans
@@ -59,6 +60,7 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' Plots the results of k-means with color-coding for the cluster membership.  If \code{data} is not provided, then just the center points are calculated.
 #' 
 #' @aliases plot.kmeans
+#' @export
 #' @export plot.kmeans
 #' @author Jared P. Lander
 #' @seealso kmeans fortify ggplot plot.kmeans

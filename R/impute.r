@@ -25,10 +25,11 @@ simple.impute <- function(x, fun=median, ...)
     UseMethod('simple.impute')
 }
 
-#' @title  simple.impute.default
+#' @title simple.impute.default
 #' @description Function for imputing a vector with missing data.
 #' @details Provides the ability to simply impute data based on a simple measure such as mean or median.  For more robust imputation see the packages Amelia, mice or mi.
 #' @aliases simple.impute.default
+#' @export
 #' @export simple.impute.default
 #' @author Jared P. Lander
 #' @param x A numeric or integer vector
@@ -55,12 +56,13 @@ simple.impute.default <- function(x, fun=median, ...)
 }
 
 
-#' @title  simple.impute.data.frame
+#' @title simple.impute.data.frame
 #' @description Function for imputing a data.frame with missing data.
 #' @details Provides the ability to simply impute data based on a simple measure such as mean or median.  For more robust imputation see the packages Amelia, mice or mi.
 #' 
 #' Each column is imputed independently.
 #' @aliases simple.impute.data.frame
+#' @export
 #' @export simple.impute.data.frame
 #' @importFrom dplyr mutate_each_ funs
 #' @importFrom magrittr "%>%"
@@ -90,7 +92,7 @@ simple.impute.data.frame <- function(x, fun=median, ...)
 #' 
 #' Each column is imputed independently.
 #' @aliases simple.impute.tbl_df
-#' @export simple.impute.tbl_df
+#' @export
 #' @author Jared P. Lander
 #' @param x A data.frame
 #' @param fun The function with which to fill in missing values
