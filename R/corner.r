@@ -1,12 +1,42 @@
 ## Functions to grab the corner of data similar to head or tail
 
-## Helper function for getting the indexing for data.frame's, matrices
-## @corner (character) which corner to display c("topleft", "bottomleft", "topright", "bottomright")
-## @r (numeric) the number of rows to show
-## @c (numeric) the number of columns to show
-## @var (character) the name of the data variable that is being shown
-WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
+#' @title WhichCorner
+#' @description Function to build the right row selection depending on the desired corner.
+#' @details Function to build the right row selection depending on the desired corner.  Helper function for getting the indexing for data.frame's, matrices
+#' @author Jared P. Lander
+#' @aliases WhichCorner
+#' @param corner (character) which corner to display c("topleft", "bottomleft", "topright", "bottomright")
+#' @param r (numeric) the number of rows to show
+#' @param c (numeric) the number of columns to show
+#' @param object The name of the object that is being subsetted
+#' @return An expression that is evaluated to return the proper portion of the data
+#' @examples 
+#' \dontrun{
+#' WhichCorner('topleft')
+#' WhichCorner('bottomleft')
+#' WhichCorner('topright')
+#' WhichCorner('bottomright')
+#' 
+#' WhichCorner('topleft', r=6)
+#' WhichCorner('bottomleft', r=6)
+#' WhichCorner('topright', r=6)
+#' WhichCorner('bottomright', r=6)
+#' 
+#' WhichCorner('topleft', c=7)
+#' WhichCorner('bottomleft', c=7)
+#' WhichCorner('topright', c=7)
+#' WhichCorner('bottomright', c=7)
+#' 
+#' WhichCorner('topleft', r=8, c=3)
+#' WhichCorner('bottomleft', r=8, c=3)
+#' WhichCorner('topright', r=8, c=3)
+#' WhichCorner('bottomright', r=8, c=3)
+#' }
+#' 
+WhichCorner <- function(corner=c("topleft", 'bottomleft', 'topright', 'bottomright'), r=5L, c=5L, object="x")
 {
+    corner <- match.arg(corner)
+    
     theCorners <- list(
                     topleft=sprintf("list(rows=1:%s, cols=1:%s)", r, c),
                     bottomleft=sprintf("list(rows=(nrow(%s)-%s+1):nrow(%s), cols=1:%s)", object, r, object, c),
@@ -37,23 +67,19 @@ WhichCorner <- function(corner="topleft", r=5L, c=5L, object="x")
 #' The default method reverts to simply calling \code{\link{head}}
 #' 
 ## @aliases corner corner.default corner.data.frame corner.matrix
+#' @title corner
+#' @description Display a corner section of a rectangular data set
+#' @details corner of a retangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
+#' @author Jared P. Lander
 #' @rdname corner
-#' @usage corner(x, ...)
-#' @usage corner.default(x, r=5L, ...)
-#' @usage corner.data.frame(x, r=5L, c=5L, corner="topleft", ...)
-#' @usage corner.matrix(x, r=5L, c=5L, corner="topleft", ...)
 #' @param x The data
 #' @param r Number of rows to display
 #' @param c Number of columns to show
-#' @param corner Which corner to grab.  Posibble
-#' values are c("topleft", "bottomleft", "topright", "bottomright")
-#' @param \dots Arguments passed on to other
-#' functions
-#' @return ... The part of the data set that was requested.  The size
-#' depends on r and c and the position depends on corner.
-#' @author Jared P. Lander www.jaredlander.com
+#' @param corner Which corner to grab.  Posibble values are c("topleft", "bottomleft", "topright", "bottomright")
+#' @param \dots Arguments passed on to other functions
+#' @return ... The part of the data set that was requested.  The size depends on r and c and the position depends on corner.
 #' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{topleft}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
-#' @export corner corner.default corner.data.frame corner.matrix
+#' @export corner
 #' @keywords corner head tail display subsection view
 #' @examples
 #' 
@@ -75,7 +101,8 @@ corner <- function(x, ...)
 ## @c (numeric) the number of columns to show
 ## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
 #' @rdname corner
-#' @export corner.data.frame
+#' @export
+#'
 corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -93,7 +120,7 @@ corner.data.frame <- function(x, r=5L, c=5L, corner="topleft", ...)
 ## @c (numeric) the number of columns to show
 ## @corner (character) which corner to return, c("topleft", "bottomleft", "topright", "bottomright")
 #' @rdname corner
-#' @export corner.matrix
+#' @export
 corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -105,7 +132,7 @@ corner.matrix <- function(x, r=5L, c=5L, corner="topleft", ...)
 }
 
 #' @rdname corner
-#' @export corner.table
+#' @export
 corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
 {
     r <- if(nrow(x) < r) nrow(x) else r
@@ -120,7 +147,7 @@ corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
 ## @x (data) the data
 ## @r (numeric) the number of rows to show
 #' @rdname corner
-#' @export corner.default
+#' @export
 corner.default <- function(x, r=5L, ...)
 {
     head(x, n=r, ...)
