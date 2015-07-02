@@ -5,7 +5,7 @@ Version: 1.1.9
 Date: 2015-06-21
 Author: Jared P. Lander
 Maintainer: Jared P. Lander <packages@jaredlander.com>
-Description: A set of little functions that have been found useful to do little odds and ends.
+Description: A set of little functions that have been found useful to do little odds and ends such as plotting the results of K-means clustering, substituting special text characters, viewing parts of a data.frame, constructing formulas from text and building design and response matrices.
 License: BSD_3_clause + file LICENSE
 Depends: 
     ggplot2
