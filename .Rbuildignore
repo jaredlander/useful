@@ -5,3 +5,6 @@ test/.
 LISCENSE
 ^NEWS$
 ^cran-comments\.md$
+^\.travis\.yml$
+^README\.Rmd$
+^README-.*\.png$
