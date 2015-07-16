@@ -25,6 +25,7 @@ Converts polar coordinates to caretsian coordinates using a simple conversion.  
 Somewhat inspired by http://www.r-bloggers.com/convert-polar-coordinates-to-cartesian/ and https://www.mathsisfun.com/polar-cartesian-coordinates.html
 }
 \examples{
+library(dplyr)
 x1 <- c(1, sqrt(3)/2, sqrt(2)/2, 1/2, 0)
 y1 <- c(0, 1/2, sqrt(2)/2, sqrt(3)/2, 1)
 d1 <- data_frame(x=x1, y=y1, Q='I')

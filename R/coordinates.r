@@ -13,10 +13,14 @@
 #' @return A data.frame holding the (x,y) coordinates and original polar coordinates
 #' @examples 
 #' 
-#' polarRadPosTop <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), theta=c(0, pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi))
-#' polarRadPosBottom <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), theta=c(pi, 7*pi/6, 5*pi/4, 4*pi/3, 3*pi/2, 5*pi/3, 7*pi/4, 9*pi/6, 2*pi))
-#' polarRadNegTop <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), theta=-1*c(0, pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi))
-#' polarRadNegBottom <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), theta=-1*c(pi, 7*pi/6, 5*pi/4, 4*pi/3, 3*pi/2, 5*pi/3, 7*pi/4, 9*pi/6, 2*pi))
+#' polarRadPosTop <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), 
+#'      theta=c(0, pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi))
+#' polarRadPosBottom <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), 
+#'      theta=c(pi, 7*pi/6, 5*pi/4, 4*pi/3, 3*pi/2, 5*pi/3, 7*pi/4, 9*pi/6, 2*pi))
+#' polarRadNegTop <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), 
+#'      theta=-1*c(0, pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi))
+#' polarRadNegBottom <- data.frame(r=c(3, 5, 3, 5, 4, 6, 4, 6, 2), 
+#'      theta=-1*c(pi, 7*pi/6, 5*pi/4, 4*pi/3, 3*pi/2, 5*pi/3, 7*pi/4, 9*pi/6, 2*pi))
 #' 
 #' pol2cart(polarRadPosTop$r, polarRadPosTop$theta)
 #' pol2cart(polarRadPosBottom$r, polarRadPosBottom$theta)
@@ -57,6 +61,7 @@ pol2cart <- function(r, theta, degrees=FALSE)
 #' @return A data.frame holding the polar coordinates and the original (x,y) coordinates
 #' @examples 
 #' 
+#' library(dplyr)
 #' x1 <- c(1, sqrt(3)/2, sqrt(2)/2, 1/2, 0)
 #' y1 <- c(0, 1/2, sqrt(2)/2, sqrt(3)/2, 1)
 #' d1 <- data_frame(x=x1, y=y1, Q='I')

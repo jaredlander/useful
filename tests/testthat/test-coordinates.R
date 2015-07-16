@@ -65,11 +65,11 @@ test_that('pol2cart maps polar to cartesian correctly when input in degrees', {
                      )
     )
     
-    expect_identical(pol2cart(polarRadPosBottom$r[-8], polarRadPosBottom$theta[-8]*180/pi, degrees=TRUE), 
+    expect_identical(pol2cart(polarRadPosBottom$r[-c(2, 6, 8)], polarRadPosBottom$theta[-c(2, 6, 8)]*180/pi, degrees=TRUE), 
                      data_frame(
-                         x=polarRadPosBottom$r[-8]*cos(polarRadPosBottom$theta[-8]), 
-                         y=polarRadPosBottom$r[-8]*sin(polarRadPosBottom$theta[-8]), 
-                         r=polarRadPosBottom$r[-8], theta=polarRadPosBottom$theta[-8]*180/pi
+                         x=polarRadPosBottom$r[-c(2, 6, 8)]*cos(polarRadPosBottom$theta[-c(2, 6, 8)]), 
+                         y=polarRadPosBottom$r[-c(2, 6, 8)]*sin(polarRadPosBottom$theta[-c(2, 6, 8)]), 
+                         r=polarRadPosBottom$r[-c(2, 6, 8)], theta=polarRadPosBottom$theta[-c(2, 6, 8)]*180/pi
                      )
     )
     
