@@ -9,6 +9,7 @@
 #' @author Jared P. Lander www.jaredlander.com
 #' @aliases build.formula
 #' @export build.formula
+#' @importFrom stats as.formula
 #' @seealso formula as.formula
 #' @return A formula object
 #' @examples

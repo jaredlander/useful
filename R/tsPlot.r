@@ -197,6 +197,7 @@ plot <- function(x, ...)
 #' @aliases plot.times.series
 #' @author Jared P. Lander
 #' @export plotTimesSeries
+#' @importFrom stats na.fail
 # @S3method plot ts
 # @method plot ts
 #' @import grid

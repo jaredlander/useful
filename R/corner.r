@@ -147,6 +147,7 @@ corner.table <- function(x, r=5L, c=5L, corner="topleft", ...)
 ## @x (data) the data
 ## @r (numeric) the number of rows to show
 #' @rdname corner
+#' @importFrom utils head
 #' @export
 corner.default <- function(x, r=5L, ...)
 {

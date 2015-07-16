@@ -13,7 +13,9 @@ Imports:
     plyr,
     scales,
     dplyr,
-    magrittr
+    magrittr,
+    stats,
+    utils
 LazyLoad: yes
 ByteCompile: TRUE
 Suggests: testthat

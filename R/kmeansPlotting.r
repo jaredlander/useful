@@ -9,6 +9,7 @@
 #' @aliases fortify.kmeans
 #' @export
 #' @export fortify.kmeans
+#' @importFrom stats cmdscale dist
 #' @author Jared P. Lander
 #' @seealso kmeans fortify ggplot plot.kmeans
 #' @param model \code{\link{kmeans}} model

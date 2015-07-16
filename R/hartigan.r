@@ -118,6 +118,7 @@ ComputeHartigan <- function(FitActualWSS, FitPlus1WSS, nrow)
 #' @author Jared P. Lander
 #' www.jaredlander.com
 #' @export FitKMeans
+#' @importFrom stats kmeans
 #' @seealso \code{\link{kmeans}} \code{\link{PlotHartigan}}
 #' @references http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
 #' @keywords cluster kmeans hartigan clustering

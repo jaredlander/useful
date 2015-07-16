@@ -3,6 +3,7 @@
 #' @details Provides the ability to simply impute data based on a simple measure such as mean or median.  For more robust imputation see the packages Amelia, mice or mi.
 #' @aliases simple.impute
 #' @export simple.impute
+#' @importFrom stats median
 #' @author Jared P. Lander
 #' @param x An object to be imputed
 #' @param fun The function with which to fill in missing values
@@ -31,6 +32,7 @@ simple.impute <- function(x, fun=median, ...)
 #' @aliases simple.impute.default
 #' @export
 #' @export simple.impute.default
+#' @importFrom stats median
 #' @author Jared P. Lander
 #' @param x A numeric or integer vector
 #' @param fun The function with which to fill in missing values
@@ -66,6 +68,7 @@ simple.impute.default <- function(x, fun=median, ...)
 #' @export simple.impute.data.frame
 #' @importFrom dplyr mutate_each_ funs
 #' @importFrom magrittr "%>%"
+#' @importFrom stats median
 #' @author Jared P. Lander
 #' @param x A data.frame
 #' @param fun The function with which to fill in missing values
@@ -93,6 +96,7 @@ simple.impute.data.frame <- function(x, fun=median, ...)
 #' Each column is imputed independently.
 #' @aliases simple.impute.tbl_df
 #' @export
+#' @importFrom stats median
 #' @author Jared P. Lander
 #' @param x A data.frame
 #' @param fun The function with which to fill in missing values
