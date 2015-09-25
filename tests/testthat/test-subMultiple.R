@@ -10,6 +10,7 @@ subText <- c('Hi Bob and Cooper how is life today',
 
 multiSub <- subMultiple(theText, pattern=c('&', '\\|'), replacement=c('and', 'or'))
 vectSub <- subVector(theText, toSub=c("and"='&', 'or'='\\|'))
+vectSubEmpty <- subVector(theText)
 
 #################
 ## subMultiple
@@ -33,12 +34,15 @@ test_that("subMultiple gets the right results", {
 
 test_that("subVector returns the right class", {
     expect_is(vectSub, 'character')
+    expect_is(vectSubEmpty, 'character')
 })
 
 test_that("subVector returns the right length", {
     expect_equal(length(vectSub), length(theText))
+    expect_equal(length(vectSubEmpty), length(theText))
 })
 
 test_that("subVector gets the right results", {
     expect_identical(vectSub, subText)
+    expect_identical(vectSubEmpty, theText)
 })
