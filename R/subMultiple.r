@@ -7,9 +7,15 @@
 #' 'Anything happening now?', 
 #' 'Sally & Dave are playing with Jess & Julio | with their kids')
 #' subVector(theText, toSub=c("and"='&', 'or'='\\|'))
+#' subVector(theText)
 #' 
 subVector <- function(x, toSub)
 {
+    if(missing(toSub))
+    {
+        return(x)
+    }
+    
     subMultiple(x=x, pattern=toSub, replacement=names(toSub))
 }
 

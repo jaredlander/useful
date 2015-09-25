@@ -1,3 +1,7 @@
+Version 1.2.0
+-----------------------------------------------------------------------------------------------------
+The function subVector now returns the original text x if toSub is not supplied.
+
 Version 1.1.9
 -----------------------------------------------------------------------------------------------------
 New function for checking the class of each column in a data.frame.
