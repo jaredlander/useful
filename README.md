@@ -1,5 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build Status](https://travis-ci.org/jaredlander/useful.svg?branch=master)](https://travis-ci.org/jaredlander/useful)
+[![Travis-CI Build Status](https://travis-ci.org/jaredlander/useful.svg?branch=master)](https://travis-ci.org/jaredlander/useful) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/useful)](http://cran.r-project.org/web/packages/useful)
 
 `Useful` is a collection of handy functions that I have collected over the years but do not have a place in an particular package. More are added as I build.
 
