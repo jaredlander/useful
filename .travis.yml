@@ -4,12 +4,10 @@ language: r
 warnings_are_errors: true
 sudo: required
 
-r_github_packages:
-  - dplyr
-r_binary_packages:
-  - ggplot2
 r_packages:
   - covr
+  - ggplot2
+  - dplyr
 after_success:
   - Rscript -e 'covr::codecov()'
 
