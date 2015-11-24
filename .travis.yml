@@ -4,6 +4,13 @@ language: r
 warnings_are_errors: true
 sudo: required
 
+r_packages:
+  - covr
+  - ggplot2
+  - dplyr
+after_success:
+  - Rscript -e 'covr::codecov()'
+
 env:
  global:
    - CRAN: http://cran.rstudio.com
@@ -12,3 +19,6 @@ notifications:
   email:
     on_success: change
     on_failure: change
+  slack:
+    rooms:
+      - jaredlander:JmKkasgndHisNTtc39uqw2E8#useful
