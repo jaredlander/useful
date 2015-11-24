@@ -1,5 +1,4 @@
-# Version 1.2.0
-
+# Version 1.1.9.9000
 The function subVector now returns the original text x if toSub is not supplied.
 
 # Version 1.1.9

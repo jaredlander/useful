@@ -6,8 +6,10 @@ sudo: required
 
 r_packages:
   - covr
-  - ggplot2
+r_github_packages:
   - dplyr
+r_binary_packages:
+  - ggplot2
 after_success:
   - Rscript -e 'covr::codecov()'
 
