@@ -11,7 +11,7 @@
 #' 
 subVector <- function(x, toSub)
 {
-    if(missing(toSub))
+    if(missing(toSub) || is.null(toSub))
     {
         return(x)
     }
