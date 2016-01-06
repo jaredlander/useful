@@ -22,8 +22,8 @@ Creates viewport for pushing ggplot objects to parts of a console.
 }
 \examples{
 
-require(ggplot2)
-require(grid)
+library(ggplot2)
+library(grid)
 
 }
 \author{

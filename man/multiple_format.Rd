@@ -20,7 +20,7 @@ Since ggplot requires a function for formatting this allows the user to specify 
 }
 \examples{
 
-require(scales)
+library(scales)
 vect <- c(1000, 1500, 23450, 21784, 875003780)
 multiple_format()(vect)
 multiple_format(extra=dollar)(vect)

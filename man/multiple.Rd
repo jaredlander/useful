@@ -5,7 +5,7 @@
 \title{multiple}
 \usage{
 multiple(x, multiple = c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"),
-  extra = comma, digits = 0)
+  extra = scales::comma, digits = 0)
 }
 \arguments{
 \item{x}{Vector of numbers to be formatted.}

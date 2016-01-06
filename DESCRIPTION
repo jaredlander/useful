@@ -14,10 +14,10 @@ Depends:
     ggplot2
 Imports:
     plyr,
-    scales,
     dplyr,
     magrittr,
     stats,
+    scales,
     utils
 LazyLoad: yes
 ByteCompile: TRUE

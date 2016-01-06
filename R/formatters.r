@@ -9,7 +9,6 @@
 #' @author Jared P. Lander
 #' @aliases multiple
 #' @export multiple
-#' @import scales
 #' @param x Vector of numbers to be formatted.
 #' @param multiple The multiple to display numbers in.  This symbol will be added to the end of the numbers.
 #' @param extra Function for perform any further formatting.
@@ -28,7 +27,7 @@
 #' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
 #' scale_color_gradient2(labels=multiple)
 #' 
-multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), extra=comma, digits=0)
+multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), extra=scales::comma, digits=0)
 {
     # get the multiple
     multiple=match.arg(multiple)
@@ -59,7 +58,7 @@ multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", 
 #' @aliases multiple_format
 #' @examples
 #' 
-#' require(scales)
+#' library(scales)
 #' vect <- c(1000, 1500, 23450, 21784, 875003780)
 #' multiple_format()(vect)
 #' multiple_format(extra=dollar)(vect)
@@ -86,7 +85,6 @@ multiple_format <- function(...)
 #' @author Jared P. Lander
 #' @aliases multiple.dollar
 #' @export multiple.dollar
-#' @import scales
 #' @param x Vector of numbers to be formatted.
 #' @param \dots Further arguments to be passed on to \code{\link{multiple}}
 #' @return Character vector of dollar formatted numbers.
@@ -105,7 +103,7 @@ multiple_format <- function(...)
 #'
 multiple.dollar <- function(x, ...)
 {
-    multiple(x=x, extra=dollar, ...)
+    multiple(x=x, extra=scales::dollar, ...)
 }
 
 
@@ -118,7 +116,6 @@ multiple.dollar <- function(x, ...)
 #' @author Jared P. Lander
 #' @aliases multiple.comma
 #' @export multiple.comma
-#' @import scales
 #' @param x Vector of numbers to be formatted.
 #' @param \dots Further arguments to be passed on to \code{link{multiple}}
 #' @return Character vector of comma formatted numbers.
@@ -137,7 +134,7 @@ multiple.dollar <- function(x, ...)
 #' 
 multiple.comma <- function(x, ...)
 {
-    multiple(x=x, extra=comma, ...)
+    multiple(x=x, extra=scales::comma, ...)
 }
 
 

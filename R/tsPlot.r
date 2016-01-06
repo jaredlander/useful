@@ -7,18 +7,17 @@
 #' @author Jared P. Lander
 #' @aliases vplayout
 #' @export vplayout
-#' @import grid
 #' @return An R object of class viewport.
 #' @param x The x cell of the viewport to push into.
 #' @param y The y cell of the viewport to push into.
 #' @examples
 #' 
-#' require(ggplot2)
-#' require(grid)
+#' library(ggplot2)
+#' library(grid)
 #' 
 vplayout <- function(x, y)
 {
-    viewport(layout.pos.row=x, layout.pos.col=y)
+    grid::viewport(layout.pos.row=x, layout.pos.col=y)
 }
 
 
@@ -200,7 +199,6 @@ plot <- function(x, ...)
 #' @importFrom stats na.fail
 # @S3method plot ts
 # @method plot ts
-#' @import grid
 #' @return A ggplot object if \code{acf} is \code{FALSE}, otherwise \code{TRUE} indicating success.
 #' @param x a \code{\link{ts}} object.
 #' @param time A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
@@ -242,8 +240,8 @@ plotTimesSeries <- function(x, time=NULL, acf=FALSE,
     acfPlot <- plot.acf(theAcf, title=NULL)
     pacfPlot <- plot.acf(thePacf, title=NULL)
     
-    grid.newpage()
-    pushViewport(viewport(layout=grid.layout(nrow=2, ncol=2)))
+    grid::grid.newpage()
+    grid::pushViewport(grid::viewport(layout=grid::grid.layout(nrow=2, ncol=2)))
     
     print(tsPlot, vp=vplayout(1, 1:2))
     print(acfPlot, vp=vplayout(2, 1))
