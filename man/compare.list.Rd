@@ -4,7 +4,7 @@
 \alias{compare.list}
 \title{List Comparison}
 \usage{
-\method{compare}{list}(a, b)
+compare.list(a, b)
 }
 \arguments{
 \item{a}{A List}
