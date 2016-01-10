@@ -1,4 +1,4 @@
-# Version 1.1.9.9000
+# Version 1.2.0
 Explicitely calling functions from grid and scales rather than importing the entire packages.
 The function subVector now returns the original text x if toSub is not supplied.
 
