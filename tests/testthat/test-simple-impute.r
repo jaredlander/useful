@@ -29,16 +29,16 @@ test_that('simple.impute.default properly imputes the median', {
 })
 
 test_that('simple.impute.default properly imputes the mean', {
-    expect_output(all.equal(simple.impute.default(theDF$A, mean), c(6.285714, 2.000000, 3.000000, 6.285714, 5.000000, 6.285714, 7.000000, 8.000000, 9.000000, 10.000000)),
+    expect_output(print(all.equal(simple.impute.default(theDF$A, mean), c(6.285714, 2.000000, 3.000000, 6.285714, 5.000000, 6.285714, 7.000000, 8.000000, 9.000000, 10.000000))),
                   "Mean relative difference: 4.545455e-08")
     expect_equal(simple.impute.default(theDF$B), 1:10)
-    expect_output(all.equal(simple.impute.default(theDF$C, mean), c(1.0, 2.0, 5.714286, 5.714286, 5.0, 6.0, 7.0, 5.714286, 9.0, 10.0)), 
+    expect_output(print(all.equal(simple.impute.default(theDF$C, mean), c(1.0, 2.0, 5.714286, 5.714286, 5.0, 6.0, 7.0, 5.714286, 9.0, 10.0))), 
                   "Mean relative difference: 5e-08")
     
-    expect_output(all.equal(simple.impute(theDF$A, mean), c(6.285714, 2.000000, 3.000000, 6.285714, 5.000000, 6.285714, 7.000000, 8.000000, 9.000000, 10.000000)),
+    expect_output(print(all.equal(simple.impute(theDF$A, mean), c(6.285714, 2.000000, 3.000000, 6.285714, 5.000000, 6.285714, 7.000000, 8.000000, 9.000000, 10.000000))),
                   "Mean relative difference: 4.545455e-08")
     expect_equal(simple.impute(theDF$B), 1:10)
-    expect_output(all.equal(simple.impute(theDF$C, mean), c(1.0, 2.0, 5.714286, 5.714286, 5.0, 6.0, 7.0, 5.714286, 9.0, 10.0)), 
+    expect_output(print(all.equal(simple.impute(theDF$C, mean), c(1.0, 2.0, 5.714286, 5.714286, 5.0, 6.0, 7.0, 5.714286, 9.0, 10.0))), 
                   "Mean relative difference: 5e-08")
     
     expect_equal(length(simple.impute(theDF$A, mean)), 10)
