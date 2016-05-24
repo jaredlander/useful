@@ -1,7 +1,7 @@
 Package: useful
 Type: Package
 Title: A Collection of Handy, Useful Functions
-Version: 1.2.0.9000
+Version: 1.2.1
 Date: 2016-01-09
 Author: Jared P. Lander
 Maintainer: Jared P. Lander <packages@jaredlander.com>

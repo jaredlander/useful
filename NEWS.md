@@ -1,5 +1,9 @@
+# Version 1.2.1
+Added function, `uniqueBidirection` to return unique rows of a `data.frame` regardless of their order.
+Fixed test failures due to new version of `testthat`.
+
 # Version 1.2.0
-explicitly calling functions from grid and scales rather than importing the entire packages.
+Explicitly calling functions from grid and scales rather than importing the entire packages.
 The function subVector now returns the original text x if toSub is not supplied.
 
 # Version 1.1.9
