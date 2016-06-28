@@ -4,7 +4,7 @@ ex <- data.frame(One=c('a', 'c', 'a', 'd', 'd', 'c', 'b'),
                  Two=c('b', 'd', 'b', 'e', 'c', 'd', 'a'), 
                  stringsAsFactors=FALSE)
 
-ex3 <- dplyr::bind_cols(ex, data_frame(Three=rep('a', nrow(ex))))
+ex3 <- dplyr::as.tbl(dplyr::bind_cols(ex, data_frame(Three=rep('a', nrow(ex)))))
 
 exMat <- as.matrix(ex)
 
