@@ -1,6 +1,7 @@
 ## Test environments
+- Windows 10, R 3.3.1
 - Windows 10, R 3.3.0
-- travis-ci latest version
+- Ubuntu (travis-ci) latest version
 
 Previous versions tested on with minimal differences to this version
 - Windows 7, R 3.2.1
