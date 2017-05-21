@@ -6,8 +6,6 @@
 #' @author Jared P. Lander
 #' @aliases build.x
 #' @export build.x
-#' @importFrom plyr catcolwise
-#' @importFrom stats model.matrix terms
 #' @param formula A formula
 #' @param data A data.frame
 #' @param contrasts Logical indicating whether a factor's base level is removed.  Can be either one single value applied to every factor or a value for each factor.  Values will be recycled if necessary.
@@ -52,7 +50,7 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     # make index of factor or character columns
     catIndex <- which(sapply(data, function(x) is.factor(x) | is.character(x)))
     # only keep those that also appear in the factors attr of the terms of formula
-    theTerms <- rownames(attr(terms(formula, data=data), "factors"))
+    theTerms <- rownames(attr(stats::terms(formula, data=data), "factors"))
     # new cat index only keeping those variables that are necessary
     catIndex <- catIndex[which(names(data)[catIndex] %in% theTerms)]
     # also cut down contrasts argument
@@ -66,10 +64,11 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     # if any of these identified columns is still a character, they need to be changed into a factor
     # find out which columns are characters
     #print(sapply(data[, catIndex], is.character))
-    charIndex <- catIndex[sapply(data[, catIndex], is.character)]
+    charIndex <- catIndex[sapply(data[, catIndex, drop=FALSE], is.character)]
     
     # convert to factor
-    data[, charIndex] <- catcolwise(as.factor)(data[, charIndex, drop=FALSE])
+    # data[, charIndex] <- plyr::catcolwise(as.factor)(data[, charIndex, drop=FALSE])
+    data <- dplyr::mutate_at(data, .cols=charIndex, as.factor)
     ## now all factors or characters are at least factors (and nothing extraneous was done) and only the appropriate columns will be put into the contrasts argument
     
     # if multiple contrasts are given they must be named
@@ -91,10 +90,11 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     sparse <- FALSE
     # build contrast argument list
     #contrArgs <- lapply(data[, catIndex, drop=FALSE], contrasts, contrasts=contrasts, sparse=sparse)
-    contrArgs <- mapply(contrasts, data[, catIndex, drop=F], contrasts, MoreArgs=list(sparse=sparse))
+    # contrArgs <- mapply(contrasts, data[, catIndex, drop=F], contrasts, MoreArgs=list(sparse=sparse))
+    contrArgs <- purrr::map2(.x=data[, catIndex, drop=FALSE], .y=contrasts, .f=stats::contrasts, sparse=sparse)
     
     # build model.matrix
-    model.matrix(formula, data=data, contrasts.arg=contrArgs)#[, -1])
+    stats::model.matrix(formula, data=data, contrasts.arg=contrArgs)#[, -1])
     #model.matrix(formula, data=data)[, -1]
 }
 #mapply(function(input, contrasts, sparse=FALSE){ contrasts(x=input, contrasts=contrasts, sparse=sparse) }, testFrame[, 4:5, drop=F], c(T), MoreArgs=list(sparse=F))
@@ -112,7 +112,7 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
 #' 
 ForceDataFrame <- function(data)
 {
-    if(class(data) %in% c("matrix", "array"))
+    if(any(class(data) %in% c("matrix", "array")))
     {
         return(as.data.frame(data))
     }
