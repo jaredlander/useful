@@ -66,9 +66,6 @@ simple.impute.default <- function(x, fun=median, ...)
 #' @aliases simple.impute.data.frame
 #' @export
 #' @export simple.impute.data.frame
-#' @importFrom dplyr mutate_each_ funs
-#' @importFrom magrittr "%>%"
-#' @importFrom stats median
 #' @author Jared P. Lander
 #' @param x A data.frame
 #' @param fun The function with which to fill in missing values
@@ -83,10 +80,10 @@ simple.impute.default <- function(x, fun=median, ...)
 #' simple.impute.data.frame(theDF, mean)
 #' simple.impute.data.frame(theDF, constant(4))
 #' 
-simple.impute.data.frame <- function(x, fun=median, ...)
+simple.impute.data.frame <- function(x, fun=stats::median, ...)
 {
     . <- NULL
-    x %>% mutate_each_(funs(simple.impute(., fun=fun)), vars=names(x))
+    dplyr::mutate_at(x, .cols=names(x), .funs=dplyr::funs(simple.impute(., fun=fun)))
 }
 
 #' @title  simple.impute.tbl_df
