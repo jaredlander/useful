@@ -23,4 +23,3 @@ Overwitten plot generic so that plot.acf can be defined in this package
 \author{
 Jared P. Lander
 }
-

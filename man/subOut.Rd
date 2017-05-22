@@ -26,13 +26,12 @@ subOut(c("Hello", "(parens)", "Excited! Mark"))
 subOut(c("Hello", "(parens)", "Excited! Mark"), specialChars=c("!", "("))
 
 }
+\seealso{
+\code{\link{sub}} \code{\link{subSpecials}}
+}
 \author{
 Jared P. Lander
 www.jaredlander.com
 }
-\seealso{
-\code{\link{sub}} \code{\link{subSpecials}}
-}
 \keyword{string}
 \keyword{text}
-

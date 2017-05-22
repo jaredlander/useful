@@ -30,4 +30,3 @@ indexToPosition(c(1, 3, 5, 6, 8, 10, 11, 13, 15), 5)
 \author{
 Jared P. Lander
 }
-

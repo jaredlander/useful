@@ -29,14 +29,13 @@ MapToInterval(1:10, start=0, stop=1)
 mapping(1:10, start=0, stop=1)
 
 }
+\seealso{
+\code{\link{mapping}}
+}
 \author{
 Jared P. Lander
 www.jaredlander.com
 }
-\seealso{
-\code{\link{mapping}}
-}
 \keyword{interval}
 \keyword{mapping}
 \keyword{numbers}
-

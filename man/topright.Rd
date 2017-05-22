@@ -33,11 +33,11 @@ head(diamonds)      # displays all columns
 topright(diamonds)    # displays first 5 rows and only the last 5 columns
 
 }
-\author{
-Jared P. Lander www.jaredlander.com
-}
 \seealso{
 \code{\link{head}} \code{\link{tail}} \code{\link{corner}} \code{\link{topleft}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
+}
+\author{
+Jared P. Lander www.jaredlander.com
 }
 \keyword{corner}
 \keyword{display}
@@ -45,4 +45,3 @@ Jared P. Lander www.jaredlander.com
 \keyword{subsection}
 \keyword{tail}
 \keyword{view}
-

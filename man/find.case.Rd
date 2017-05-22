@@ -25,10 +25,9 @@ toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'M
 find.case(toCheck, 'upper')
 find.case(toCheck, 'lower')
 }
-\author{
-Jared P. Lander
-}
 \seealso{
 upper.case lower.case numeric.case mixed.case
 }
-
+\author{
+Jared P. Lander
+}

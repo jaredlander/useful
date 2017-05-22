@@ -42,4 +42,3 @@ scale_color_gradient2(labels=multiple)
 \author{
 Jared P. Lander
 }
-

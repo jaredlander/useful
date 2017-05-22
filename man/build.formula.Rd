@@ -28,10 +28,9 @@ build.formula("Z", c("X", "Q"))
 build.formula(c("Y", "Z"), c("X", "Q"))
 
 }
-\author{
-Jared P. Lander www.jaredlander.com
-}
 \seealso{
 formula as.formula
 }
-
+\author{
+Jared P. Lander www.jaredlander.com
+}

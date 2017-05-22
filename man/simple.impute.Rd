@@ -38,4 +38,3 @@ simple.impute(theDF, constant(4))
 \author{
 Jared P. Lander
 }
-

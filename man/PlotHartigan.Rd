@@ -40,18 +40,17 @@ hartiganResults <- FitKMeans(iris[, -ncol(iris)])
 PlotHartigan(hartiganResults)
 
 }
-\author{
-Jared P. Lander
-www.jaredlander.com
-}
 \references{
 #' http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
 }
 \seealso{
 \code{\link{kmeans}} \code{\link{FitKMeans}}
 }
+\author{
+Jared P. Lander
+www.jaredlander.com
+}
 \keyword{cluster}
 \keyword{clustering}
 \keyword{hartigan}
 \keyword{kmeans}
-

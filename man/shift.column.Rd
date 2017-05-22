@@ -37,4 +37,3 @@ shift.column(data=myData, columns="lower", len=2)
 \author{
 Jared P. Lander
 }
-

@@ -43,4 +43,3 @@ uniqueBidirection(ex3)
 \author{
 Jared P. Lander
 }
-

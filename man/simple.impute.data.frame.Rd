@@ -4,7 +4,7 @@
 \alias{simple.impute.data.frame}
 \title{simple.impute.data.frame}
 \usage{
-\method{simple.impute}{data.frame}(x, fun = median, ...)
+\method{simple.impute}{data.frame}(x, fun = stats::median, ...)
 }
 \arguments{
 \item{x}{A data.frame}
@@ -37,4 +37,3 @@ simple.impute.data.frame(theDF, constant(4))
 \author{
 Jared P. Lander
 }
-

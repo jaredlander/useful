@@ -35,4 +35,3 @@ simple.impute.default(theDF$A, constant(4))
 \author{
 Jared P. Lander
 }
-

@@ -52,4 +52,3 @@ cart2pol(dAll$x, dAll$y, degrees=TRUE)
 \author{
 Jared P. Lander
 }
-

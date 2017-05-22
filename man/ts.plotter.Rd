@@ -35,4 +35,3 @@ ts.plotter(sunspot.year)
 \author{
 Jared P. Lander
 }
-

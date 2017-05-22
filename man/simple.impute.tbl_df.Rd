@@ -37,4 +37,3 @@ simple.impute.data.frame(theDF, constant(4))
 \author{
 Jared P. Lander
 }
-

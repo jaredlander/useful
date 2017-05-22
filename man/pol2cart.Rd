@@ -44,4 +44,3 @@ pol2cart(polarRadNegBottom$r, polarRadNegBottom$theta)
 \author{
 Jared P. Lander
 }
-

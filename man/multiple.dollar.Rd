@@ -37,4 +37,3 @@ scale_color_gradient2(labels=multiple.dollar)
 \author{
 Jared P. Lander
 }
-

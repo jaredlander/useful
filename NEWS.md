@@ -1,3 +1,8 @@
+# Version 1.2.2
+Adjusted `build.x` so that it works appropriately when only one categorical variable is specified.
+Added tests for building matrices.
+Changed code to accomodate new changes in `dplyr`.
+
 # Version 1.2.1
 Added function, `uniqueBidirection` to return unique rows of a `data.frame` regardless of their order.
 Fixed test failures due to new version of `testthat`.

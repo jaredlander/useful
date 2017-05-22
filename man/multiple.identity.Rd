@@ -36,4 +36,3 @@ scale_color_gradient2(labels=multiple.identity)
 \author{
 Jared P. Lander
 }
-

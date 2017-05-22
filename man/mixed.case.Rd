@@ -22,10 +22,9 @@ Checks if strings are a mix of upper and lower case. This is a wrapper for \code
 toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
 mixed.case(toCheck)
 }
-\author{
-Jared P. Lander
-}
 \seealso{
 find.case all.upper
 }
-
+\author{
+Jared P. Lander
+}

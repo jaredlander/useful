@@ -42,10 +42,9 @@ plot(k1)
 plot(k1, data=iris)
 
 }
-\author{
-Jared P. Lander
-}
 \seealso{
 kmeans fortify ggplot plot.kmeans
 }
-
+\author{
+Jared P. Lander
+}

@@ -54,4 +54,3 @@ head(build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts
 \author{
 Jared P. Lander
 }
-

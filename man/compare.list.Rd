@@ -4,7 +4,7 @@
 \alias{compare.list}
 \title{List Comparison}
 \usage{
-compare.list(a, b)
+\method{compare}{list}(a, b)
 }
 \arguments{
 \item{a}{A List}
@@ -32,4 +32,3 @@ tryCatch(compare.list(vect, vect3), error=function(e) print("Caught error"))
 
 }
 \keyword{list}
-

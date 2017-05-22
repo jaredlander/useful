@@ -52,4 +52,3 @@ WhichCorner('bottomright', r=8, c=3)
 \author{
 Jared P. Lander
 }
-

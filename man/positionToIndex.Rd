@@ -32,4 +32,3 @@ positionToIndex(rep(c(1, 3, 5), 3), rep(1:3, each=3), nrow=5)
 \author{
 Jared P. Lander
 }
-

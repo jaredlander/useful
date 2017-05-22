@@ -31,4 +31,3 @@ fortify(pacf(sunspot.year, plot=FALSE))
 \author{
 Jared P. Lander
 }
-

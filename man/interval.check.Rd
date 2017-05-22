@@ -32,4 +32,3 @@ interval.check(cars, input="speed", times=seq(min(cars$speed), max(cars$speed), 
 \author{
 Jared P. Lander
 }
-

@@ -28,4 +28,3 @@ classdf(mtcars)
 \author{
 Jared P. Lander
 }
-

@@ -3,9 +3,9 @@
 \name{corner}
 \alias{corner}
 \alias{corner.data.frame}
-\alias{corner.default}
 \alias{corner.matrix}
 \alias{corner.table}
+\alias{corner.default}
 \title{corner}
 \usage{
 corner(x, ...)
@@ -21,13 +21,13 @@ corner(x, ...)
 \arguments{
 \item{x}{The data}
 
+\item{\dots}{Arguments passed on to other functions}
+
 \item{r}{Number of rows to display}
 
 \item{c}{Number of columns to show}
 
 \item{corner}{Which corner to grab.  Posibble values are c("topleft", "bottomleft", "topright", "bottomright")}
-
-\item{\dots}{Arguments passed on to other functions}
 }
 \value{
 ... The part of the data set that was requested.  The size depends on r and c and the position depends on corner.
@@ -57,11 +57,11 @@ corner(diamonds, corner="bottomleft")       # displays the last 5 rows and the f
 corner(diamonds, corner="topright")       # displays the first 5 rows and the last 5 columns
 
 }
-\author{
-Jared P. Lander
-}
 \seealso{
 \code{\link{head}} \code{\link{tail}} \code{\link{topleft}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
+}
+\author{
+Jared P. Lander
 }
 \keyword{corner}
 \keyword{display}
@@ -69,4 +69,3 @@ Jared P. Lander
 \keyword{subsection}
 \keyword{tail}
 \keyword{view}
-

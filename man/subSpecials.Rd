@@ -7,9 +7,9 @@
 subSpecials(..., specialChars = c("!", "(", ")", "-", "=", "*", "."))
 }
 \arguments{
-\item{specialChars}{The characters to be subbed out}
-
 \item{\dots}{Character vectors that will be altered by subbing the special characters with their escaped equivalents}
+
+\item{specialChars}{The characters to be subbed out}
 }
 \value{
 The provided vectors are returned with any of the defined specialChars subbed out for their escaped equivalents.  Each vector is returned as an element of a list.
@@ -30,13 +30,12 @@ subSpecials(c("Hello", "(parens)", "Excited! Mark"),
  c("This is a period. And this is an asterisk *"), specialChars=c("!", "(", "*"))
 
 }
+\seealso{
+\code{\link{sub}} \code{\link{subOut}}
+}
 \author{
 Jared P. Lander
 www.jaredlander.com
 }
-\seealso{
-\code{\link{sub}} \code{\link{subOut}}
-}
 \keyword{string}
 \keyword{text}
-

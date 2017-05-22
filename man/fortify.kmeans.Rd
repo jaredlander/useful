@@ -34,10 +34,9 @@ hold2 <- fortify(k1)
 head(hold2)
 
 }
-\author{
-Jared P. Lander
-}
 \seealso{
 kmeans fortify ggplot plot.kmeans
 }
-
+\author{
+Jared P. Lander
+}

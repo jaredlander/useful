@@ -22,10 +22,9 @@ Checks if strings are all lower case. This is a wrapper for \code{find.case('tex
 toCheck <- c('BIG', 'little', 'Mixed', 'BIG WITH SPACE', 'little with space', 'MIXED with SPACE')
 lower.case(toCheck)
 }
-\author{
-Jared P. Lander
-}
 \seealso{
 find.case upper.case mixed.case numeric.case
 }
-
+\author{
+Jared P. Lander
+}

@@ -29,4 +29,3 @@ head(build.y(hwy ~ class + cyl + year, data=mpg))
 \author{
 Jared P. Lander
 }
-
