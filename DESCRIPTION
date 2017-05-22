@@ -14,9 +14,9 @@ Depends:
     ggplot2
 Imports:
     plyr,
-    dplyr,
+    dplyr (>= 0.5.0),
     magrittr,
-    purrr,
+    purrr (>= 0.1.0),
     stats,
     scales,
     utils
