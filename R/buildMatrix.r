@@ -44,7 +44,7 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     
     if(length(contrasts) == 1 && contrasts)
     {
-        return(model.matrix(formula, data=data))
+        return(stats::model.matrix(formula, data=data))
     }
         
     # make index of factor or character columns
@@ -58,7 +58,7 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     
     if(length(catIndex) == 0)
     {
-        return(model.matrix(formula, data=data))
+        return(stats::model.matrix(formula, data=data))
     }
     
     # if any of these identified columns is still a character, they need to be changed into a factor
