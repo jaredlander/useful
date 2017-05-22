@@ -22,7 +22,7 @@ bottomright(x, r = 5L, c = 5L, ...)
 Display the bottom right corner of a rectangular data set
 }
 \details{
-Displays the bottom right corner of a retangular data set.
+Displays the bottom right corner of a rectangular data set.
 
 This is a wrapper function for \code{\link{corner}}
 }

@@ -5,7 +5,7 @@
 #' @rdname uniqueBidirection
 #' @export uniqueBidirection
 #' @param x a data.frame
-#' @return A data.frame that is unique reggardless of direction
+#' @return A data.frame that is unique regardless of direction
 #' @examples 
 #' 
 #' ex <- data.frame(One=c('a', 'c', 'a', 'd', 'd', 'c', 'b'), 

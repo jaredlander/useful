@@ -4,7 +4,7 @@
 #' 
 #' Order of Magnitude Formatter
 #' 
-#' This divides the number by the apropriate amount and adds on the corresponding symbol at the end of the number.
+#' This divides the number by the appropriate amount and adds on the corresponding symbol at the end of the number.
 #' 
 #' @author Jared P. Lander
 #' @aliases multiple

@@ -22,7 +22,7 @@ topleft(x, r = 5L, c = 5L, ...)
 Display the top left corner of a rectangular data set
 }
 \details{
-Displays the top left corner of a retangular data set.
+Displays the top left corner of a rectangular data set.
 
 This is a wrapper function for \code{\link{corner}}
 }

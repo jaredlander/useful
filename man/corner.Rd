@@ -27,7 +27,7 @@ corner(x, ...)
 
 \item{c}{Number of columns to show}
 
-\item{corner}{Which corner to grab.  Posibble values are c("topleft", "bottomleft", "topright", "bottomright")}
+\item{corner}{Which corner to grab.  Possible values are c("topleft", "bottomleft", "topright", "bottomright")}
 }
 \value{
 ... The part of the data set that was requested.  The size depends on r and c and the position depends on corner.
@@ -41,12 +41,12 @@ Grabs a corner of a data set
 Display a corner section of a rectangular data set
 
 Displays a
-corner of a retangular data set such as a data.frame, martrix or table.  If showing
+corner of a rectangular data set such as a data.frame, martrix or table.  If showing
 the right side or bottom, the order of the data is preserved.
 
 The default method reverts to simply calling \code{\link{head}}
 
-corner of a retangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
+corner of a rectangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
 }
 \examples{
 

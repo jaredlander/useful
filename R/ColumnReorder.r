@@ -1,6 +1,6 @@
 #' @title colsToFront
-#' @description Moves column names to the fron or back of the names
-#' @details Moves column names to the fron or back of the names
+#' @description Moves column names to the front or back of the names
+#' @details Moves column names to the front or back of the names
 #' @author Jared P. Lander
 #' @export colsToFront
 #' @param data data.frame or tbl
@@ -41,8 +41,8 @@ colsToBack <- function(data, cols=names(data))
 }
 
 #' @title moveToFront
-#' @description Rearranges column order by moving specified columns to the fron or back.
-#' @details Rearranges column order by moving specified columns to the fron or back.
+#' @description Rearranges column order by moving specified columns to the front or back.
+#' @details Rearranges column order by moving specified columns to the front or back.
 #' @export moveToFront
 #' @author Jared P. Lander
 #' @importFrom dplyr select_

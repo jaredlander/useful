@@ -23,7 +23,7 @@ Character vector of formatted numbers.
 Order of Magnitude Formatter
 }
 \details{
-This divides the number by the apropriate amount and adds on the corresponding symbol at the end of the number.
+This divides the number by the appropriate amount and adds on the corresponding symbol at the end of the number.
 }
 \examples{
 

@@ -21,7 +21,7 @@ subVector <- function(x, toSub)
 
 #' @title subMultiple
 #' @description Substitutes multiple patterns and corresponding replacements
-#' @details Given a vector of text replaces all paterns each each element
+#' @details Given a vector of text replaces all patterns each each element
 #' @author Jared P. Lander
 #' @rdname subMultiple
 #' @export subMultiple

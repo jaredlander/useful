@@ -121,16 +121,16 @@ ForceDataFrame <- function(data)
 
 #' build.y
 #' 
-#' Build the y survival object for a glmnet model
+#' Build the y object from a formula and data
 #' 
-#' Given a formula and a data.frame build the y survival object
+#' Given a formula and a data.frame build the y object
 #' @author Jared P. Lander
 #' @aliases build.y
 #' @export build.y
 #' @importFrom stats model.frame
 #' @param formula A formula
 #' @param data A data.frame
-#' @return A surival object for the portion of the formula in Surv
+#' @return The y object from a formula and data
 #' @examples
 #' require(ggplot2)
 #' head(mpg)

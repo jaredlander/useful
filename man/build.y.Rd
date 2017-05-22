@@ -12,13 +12,13 @@ build.y(formula, data)
 \item{data}{A data.frame}
 }
 \value{
-A surival object for the portion of the formula in Surv
+The y object from a formula and data
 }
 \description{
-Build the y survival object for a glmnet model
+Build the y object from a formula and data
 }
 \details{
-Given a formula and a data.frame build the y survival object
+Given a formula and a data.frame build the y object
 }
 \examples{
 require(ggplot2)

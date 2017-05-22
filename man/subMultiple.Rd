@@ -25,7 +25,7 @@ The text in x with substitutions made
 Substitutes multiple patterns and corresponding replacements
 }
 \details{
-Given a vector of text replaces all paterns each each element
+Given a vector of text replaces all patterns each each element
 }
 \examples{
 theText <- c('Hi Bob & Cooper how is life today', 

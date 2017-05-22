@@ -10,7 +10,7 @@
 #' @param data data.frame
 #' @param input character name of column we wish to compare
 #' @param times vector in ascending order where the differences between sequential elements are the intervals
-#' @param fun character containing compator
+#' @param fun character containing comparator
 #' @return Vector indicating which element of \code{times} that row belongs to.  If the row is beyond any element NA is in it's spot.
 #' @examples
 #' 

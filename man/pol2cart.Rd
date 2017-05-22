@@ -17,10 +17,10 @@ pol2cart(r, theta, degrees = FALSE)
 A data.frame holding the (x,y) coordinates and original polar coordinates
 }
 \description{
-Converts polar coordinates to caretsian coordinates
+Converts polar coordinates to cartesian coordinates
 }
 \details{
-Converts polar coordinates to caretsian coordinates using a simple conversion.  The angle, \code{theta} must be in radians.
+Converts polar coordinates to cartesian coordinates using a simple conversion.  The angle, \code{theta} must be in radians.
 
 Somewhat inspired by http://www.r-bloggers.com/convert-polar-coordinates-to-cartesian/ and https://www.mathsisfun.com/polar-cartesian-coordinates.html
 }

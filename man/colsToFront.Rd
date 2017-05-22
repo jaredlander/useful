@@ -18,10 +18,10 @@ colsToBack(data, cols = names(data))
 Character vector of column names
 }
 \description{
-Moves column names to the fron or back of the names
+Moves column names to the front or back of the names
 }
 \details{
-Moves column names to the fron or back of the names
+Moves column names to the front or back of the names
 }
 \examples{
 theDF <- data.frame(A=1:10, B=11:20, C=1:10, D=11:20)

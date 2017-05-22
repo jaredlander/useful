@@ -175,8 +175,8 @@ plot.acf <- function(x,
 }
 
 #' @title plot
-#' @description Overwitten plot generic so that plot.acf can be defined in this package
-#' @details Overwitten plot generic so that plot.acf can be defined in this package
+#' @description Overwritten plot generic so that plot.acf can be defined in this package
+#' @details Overwritten plot generic so that plot.acf can be defined in this package
 #' @author Jared P. Lander
 #' @param x Object to be plotted
 #' @param \dots Further arguments

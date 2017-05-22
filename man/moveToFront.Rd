@@ -18,10 +18,10 @@ moveToBack(data, cols)
 A data.frame with the columns in the right order
 }
 \description{
-Rearranges column order by moving specified columns to the fron or back.
+Rearranges column order by moving specified columns to the front or back.
 }
 \details{
-Rearranges column order by moving specified columns to the fron or back.
+Rearranges column order by moving specified columns to the front or back.
 }
 \examples{
 theDF <- data.frame(A=1:10, B=11:20, C=1:10, D=11:20)

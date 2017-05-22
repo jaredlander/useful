@@ -61,7 +61,7 @@ WhichCorner <- function(corner=c("topleft", 'bottomleft', 'topright', 'bottomrig
 #' Display a corner section of a rectangular data set
 #' 
 #' Displays a
-#' corner of a retangular data set such as a data.frame, martrix or table.  If showing
+#' corner of a rectangular data set such as a data.frame, martrix or table.  If showing
 #' the right side or bottom, the order of the data is preserved.
 #' 
 #' The default method reverts to simply calling \code{\link{head}}
@@ -69,13 +69,13 @@ WhichCorner <- function(corner=c("topleft", 'bottomleft', 'topright', 'bottomrig
 ## @aliases corner corner.default corner.data.frame corner.matrix
 #' @title corner
 #' @description Display a corner section of a rectangular data set
-#' @details corner of a retangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
+#' @details corner of a rectangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
 #' @author Jared P. Lander
 #' @rdname corner
 #' @param x The data
 #' @param r Number of rows to display
 #' @param c Number of columns to show
-#' @param corner Which corner to grab.  Posibble values are c("topleft", "bottomleft", "topright", "bottomright")
+#' @param corner Which corner to grab.  Possible values are c("topleft", "bottomleft", "topright", "bottomright")
 #' @param \dots Arguments passed on to other functions
 #' @return ... The part of the data set that was requested.  The size depends on r and c and the position depends on corner.
 #' @seealso \code{\link{head}} \code{\link{tail}} \code{\link{topleft}} \code{\link{topright}} \code{\link{bottomleft}} \code{\link{bottomright}} \code{\link{left}} \code{\link{right}}
@@ -159,7 +159,7 @@ corner.default <- function(x, r=5L, ...)
 #' 
 #' Display the top left corner of a rectangular data set
 #' 
-#' Displays the top left corner of a retangular data set.
+#' Displays the top left corner of a rectangular data set.
 #'
 #' This is a wrapper function for \code{\link{corner}}
 #' 
@@ -191,7 +191,7 @@ topleft <- function(x, r=5L, c=5L, ...)
 #' 
 #' Display the top right corner of a rectangular data set
 #' 
-#' Displays the top right corner of a retangular data set.
+#' Displays the top right corner of a rectangular data set.
 #'
 #' This is a wrapper function for \code{\link{corner}}
 #' 
@@ -223,7 +223,7 @@ topright <- function(x, r=5L, c=5L, ...)
 #' 
 #' Display the bottom left corner of a rectangular data set
 #' 
-#' Displays the bottom left corner of a retangular data set.
+#' Displays the bottom left corner of a rectangular data set.
 #'
 #' This is a wrapper function for \code{\link{corner}}
 #' 
@@ -255,7 +255,7 @@ bottomleft <- function(x, r=5L, c=5L, ...)
 #' 
 #' Display the bottom right corner of a rectangular data set
 #' 
-#' Displays the bottom right corner of a retangular data set.
+#' Displays the bottom right corner of a rectangular data set.
 #'
 #' This is a wrapper function for \code{\link{corner}}
 #' 
@@ -287,7 +287,7 @@ bottomright <- function(x, r=5L, c=5L, ...)
 #' 
 #' Display the left side of a rectangular data set
 #' 
-#' Displays the left side of a retangular data set.
+#' Displays the left side of a rectangular data set.
 #'
 #' This is a wrapper function for \code{\link{corner}}
 #' 
@@ -317,7 +317,7 @@ left <- function(x, c=5L, ...)
 #' 
 #' Display the right side of a rectangular data set
 #' 
-#' Displays the right side of a retangular data set.
+#' Displays the right side of a rectangular data set.
 #'
 #' This is a wrapper function for \code{\link{corner}}
 #' 

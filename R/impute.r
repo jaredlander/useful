@@ -114,7 +114,7 @@ simple.impute.tbl_df <- function(x, fun=median, ...)
 }
 
 #' @title constant
-#' @description Helper function for imputing contstants
+#' @description Helper function for imputing constants
 #' @details Returns a function that always returns the value of n.
 #' @export constant
 #' @aliases constant

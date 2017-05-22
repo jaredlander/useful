@@ -13,7 +13,7 @@ constant(n = 1)
 A function that when used simply returns n.
 }
 \description{
-Helper function for imputing contstants
+Helper function for imputing constants
 }
 \details{
 Returns a function that always returns the value of n.

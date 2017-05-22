@@ -10,7 +10,7 @@ uniqueBidirection(x)
 \item{x}{a data.frame}
 }
 \value{
-A data.frame that is unique reggardless of direction
+A data.frame that is unique regardless of direction
 }
 \description{
 Find unique rows of a data.frame regardless of the order they appear

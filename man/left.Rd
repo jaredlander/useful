@@ -20,7 +20,7 @@ left(x, c = 5L, ...)
 Display the left side of a rectangular data set
 }
 \details{
-Displays the left side of a retangular data set.
+Displays the left side of a rectangular data set.
 
 This is a wrapper function for \code{\link{corner}}
 }

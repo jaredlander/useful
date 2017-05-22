@@ -13,7 +13,7 @@ interval.check(data, input = "Stop", times, fun = "<=")
 
 \item{times}{vector in ascending order where the differences between sequential elements are the intervals}
 
-\item{fun}{character containing compator}
+\item{fun}{character containing comparator}
 }
 \value{
 Vector indicating which element of \code{times} that row belongs to.  If the row is beyond any element NA is in it's spot.

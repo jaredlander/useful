@@ -1,6 +1,6 @@
 #' @title pol2cart
-#' @description Converts polar coordinates to caretsian coordinates
-#' @details Converts polar coordinates to caretsian coordinates using a simple conversion.  The angle, \code{theta} must be in radians.
+#' @description Converts polar coordinates to cartesian coordinates
+#' @details Converts polar coordinates to cartesian coordinates using a simple conversion.  The angle, \code{theta} must be in radians.
 #' 
 #' Somewhat inspired by http://www.r-bloggers.com/convert-polar-coordinates-to-cartesian/ and https://www.mathsisfun.com/polar-cartesian-coordinates.html
 #' @export pol2cart
@@ -46,8 +46,8 @@ pol2cart <- function(r, theta, degrees=FALSE)
 
 
 #' @title cart2pol
-#' @description Converts polar coordinates to caretsian coordinates
-#' @details Converts polar coordinates to caretsian coordinates using a simple conversion.  The angle, \code{theta} must be in radians.
+#' @description Converts polar coordinates to cartesian coordinates
+#' @details Converts polar coordinates to cartesian coordinates using a simple conversion.  The angle, \code{theta} must be in radians.
 #' 
 #' Somewhat inspired by http://www.r-bloggers.com/convert-polar-coordinates-to-cartesian/ and https://www.mathsisfun.com/polar-cartesian-coordinates.html
 #' @export cart2pol
