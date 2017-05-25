@@ -68,7 +68,13 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     
     # convert to factor
     # data[, charIndex] <- plyr::catcolwise(as.factor)(data[, charIndex, drop=FALSE])
-    data <- dplyr::mutate_at(data, .cols=charIndex, as.factor)
+    if(packageVersion('dplyr') <= '0.5.0')
+    {
+        data <- dplyr::mutate_at(data, .cols=charIndex, as.factor)
+    } else if(packageVersion('dplyr') >= '0.6.0')
+    {
+        data <- dplyr::mutate_at(data, .vars=charIndex, as.factor)
+    }
     ## now all factors or characters are at least factors (and nothing extraneous was done) and only the appropriate columns will be put into the contrasts argument
     
     # if multiple contrasts are given they must be named
