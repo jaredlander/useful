@@ -1,8 +1,12 @@
 # Sample .travis.yml for R projects
 
 language: r
+r:
+  - release
+  - devel
 warnings_are_errors: true
-sudo: required
+sudo: false
+cache: packages
 
 r_packages:
   - covr
@@ -13,7 +17,7 @@ after_success:
 
 env:
  global:
-   - CRAN: http://cran.rstudio.com
+   - cran: http://cran.rstudio.com
 
 notifications:
   email:
