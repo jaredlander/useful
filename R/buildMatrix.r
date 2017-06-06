@@ -9,7 +9,7 @@
 #' @param formula A formula
 #' @param data A data.frame
 #' @param contrasts Logical indicating whether a factor's base level is removed.  Can be either one single value applied to every factor or a value for each factor.  Values will be recycled if necessary.
-#' @param sparse Logical indicating if result should be sparse.  Currently not used.
+#' @param sparse Logical indicating if result should be sparse.
 #' @return A matrix of the predictor variables specified in the formula
 #' @examples
 #' require(ggplot2)
@@ -31,10 +31,13 @@
 #' contrasts=FALSE))
 #' head(build.x(First ~ Second + Fourth + Fifth + Sixth - 1, testFrame, 
 #' contrasts=TRUE))
+#' build.x(First ~ Second + Fourth + Fifth + Sixth - 1, testFrame, 
+#' contrasts=TRUE, sparse=TRUE)
 #' head(build.x(First ~ Second + Fourth + Fifth + Fourth*Sixth, testFrame, contrasts=TRUE))
 #' head(build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=TRUE))
 #' #' head(build.x(First ~ Second + Fourth + Fifth + Fourth*Sixth, testFrame, contrasts=FALSE))
 #' head(build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=FALSE))
+#' build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=FALSE, sparse=TRUE)
 #' 
 #' ## if contrasts is a list then you can specify just certain factors
 build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
@@ -42,9 +45,17 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     # ensure data is a data.frame
     data <- ForceDataFrame(data)
     
+    if(sparse)
+    {
+        matFun <- Matrix::sparse.model.matrix
+    } else
+    {
+        matFun <- stats::model.matrix
+    }
+    
     if(length(contrasts) == 1 && contrasts)
     {
-        return(stats::model.matrix(formula, data=data))
+        return(matFun(formula, data=data))
     }
         
     # make index of factor or character columns
@@ -58,7 +69,7 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     
     if(length(catIndex) == 0)
     {
-        return(stats::model.matrix(formula, data=data))
+        return(matFun(formula, data=data))
     }
     
     # if any of these identified columns is still a character, they need to be changed into a factor
@@ -66,16 +77,19 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     #print(sapply(data[, catIndex], is.character))
     charIndex <- catIndex[sapply(data[, catIndex, drop=FALSE], is.character)]
     
-    # convert to factor
-    # data[, charIndex] <- plyr::catcolwise(as.factor)(data[, charIndex, drop=FALSE])
-    if(utils::packageVersion('dplyr') <= '0.5.0')
+    if(length(charIndex))
     {
-        data <- dplyr::mutate_at(data, .cols=charIndex, as.factor)
-    } else if(utils::packageVersion('dplyr') >= '0.6.0')
-    {
-        data <- dplyr::mutate_at(data, .vars=charIndex, as.factor)
+        # convert to factor
+        # data[, charIndex] <- plyr::catcolwise(as.factor)(data[, charIndex, drop=FALSE])
+        if(utils::packageVersion('dplyr') <= '0.5.0')
+        {
+            data <- dplyr::mutate_at(data, .cols=charIndex, as.factor)
+        } else if(utils::packageVersion('dplyr') >= '0.6.0')
+        {
+            data <- dplyr::mutate_at(data, .vars=charIndex, as.factor)
+        }
+        ## now all factors or characters are at least factors (and nothing extraneous was done) and only the appropriate columns will be put into the contrasts argument
     }
-    ## now all factors or characters are at least factors (and nothing extraneous was done) and only the appropriate columns will be put into the contrasts argument
     
     # if multiple contrasts are given they must be named
     contrNames <- names(contrasts)
@@ -93,14 +107,15 @@ build.x <- function(formula, data, contrasts=TRUE, sparse=FALSE)
     }
     
     # only non sparse is allowed for now
-    sparse <- FALSE
+    # sparse <- FALSE
     # build contrast argument list
     #contrArgs <- lapply(data[, catIndex, drop=FALSE], contrasts, contrasts=contrasts, sparse=sparse)
     # contrArgs <- mapply(contrasts, data[, catIndex, drop=F], contrasts, MoreArgs=list(sparse=sparse))
-    contrArgs <- purrr::map2(.x=data[, catIndex, drop=FALSE], .y=contrasts, .f=stats::contrasts, sparse=sparse)
+    contrArgs <- purrr::map2(.x=data[, catIndex, drop=FALSE], .y=contrasts, .f=stats::contrasts, sparse=FALSE)
     
     # build model.matrix
-    stats::model.matrix(formula, data=data, contrasts.arg=contrArgs)#[, -1])
+    matFun(formula, data=data, contrasts.arg=contrArgs)
+    
     #model.matrix(formula, data=data)[, -1]
 }
 #mapply(function(input, contrasts, sparse=FALSE){ contrasts(x=input, contrasts=contrasts, sparse=sparse) }, testFrame[, 4:5, drop=F], c(T), MoreArgs=list(sparse=F))

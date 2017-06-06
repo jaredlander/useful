@@ -13,7 +13,7 @@ build.x(formula, data, contrasts = TRUE, sparse = FALSE)
 
 \item{contrasts}{Logical indicating whether a factor's base level is removed.  Can be either one single value applied to every factor or a value for each factor.  Values will be recycled if necessary.}
 
-\item{sparse}{Logical indicating if result should be sparse.  Currently not used.}
+\item{sparse}{Logical indicating if result should be sparse.}
 }
 \value{
 A matrix of the predictor variables specified in the formula
@@ -44,10 +44,13 @@ head(build.x(First ~ Second + Fourth + Fifth + Sixth, testFrame,
 contrasts=FALSE))
 head(build.x(First ~ Second + Fourth + Fifth + Sixth - 1, testFrame, 
 contrasts=TRUE))
+build.x(First ~ Second + Fourth + Fifth + Sixth - 1, testFrame, 
+contrasts=TRUE, sparse=TRUE)
 head(build.x(First ~ Second + Fourth + Fifth + Fourth*Sixth, testFrame, contrasts=TRUE))
 head(build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=TRUE))
 #' head(build.x(First ~ Second + Fourth + Fifth + Fourth*Sixth, testFrame, contrasts=FALSE))
 head(build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=FALSE))
+build.x(First ~ Second + Fourth + Fifth + Third*Sixth, testFrame, contrasts=FALSE, sparse=TRUE)
 
 ## if contrasts is a list then you can specify just certain factors
 }
