@@ -1,8 +1,8 @@
 Package: useful
 Type: Package
 Title: A Collection of Handy, Useful Functions
-Version: 1.2.2
-Date: 2017-05-21
+Version: 1.2.3
+Date: 2017-06-06
 Author: Jared P. Lander
 Maintainer: Jared P. Lander <packages@jaredlander.com>
 Description: A set of little functions that have been found useful to do little
@@ -19,7 +19,8 @@ Imports:
     purrr (>= 0.1.0),
     stats,
     scales,
-    utils
+    utils,
+    Matrix
 LazyLoad: yes
 ByteCompile: TRUE
 Suggests:
