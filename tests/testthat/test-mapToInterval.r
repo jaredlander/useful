@@ -56,5 +56,3 @@ test_that('MapToInterval returns correct numerical output', {
                                  4.3157895, 4.4105263, 4.4578947,
                                  6.2105263, 7.1578947, 10))
 })
-
-# All these tests pass, will likely add more
