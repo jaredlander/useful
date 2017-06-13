@@ -1,5 +1,7 @@
 context('Check that all the functions in formatters work correctly')
 
+vect <- c(1000, 1500, 23450, 21784, 875003780)
+
 test_that('All functions return correct types', {
   expect_is(multiple(vect), 'character')
   expect_is(multiple(vect, extra=dollar), 'character')
