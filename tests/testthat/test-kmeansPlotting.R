@@ -5,9 +5,13 @@ k1 <- kmeans(x=iris[, 1:4], centers=3)
 test_that('fortify returns dataframes and plot returns plots', {
   expect_is(fortify(k1), 'data.frame')
   expect_is(fortify(k1, data=iris), 'data.frame')
+  expect_is(fortify.kmeans(k1), 'data.frame')
+  expect_is(fortify.kmeans(k1, data=iris), 'data.frame')
   expect_is(plot(k1), 'ggplot')
   expect_is(plot(k1, data=iris), 'ggplot')
-  expect_error(plot(k1, legend.position='lol'), "'arg' should be one of "right", "bottom", "left", "top", "none"")
+  expect_error(plot(k1, legend.position='lol'), cat("'arg' should be one of \"right\", \"bottom\", \"left\", \"top\", \"none\"", '\n'))
+  expect_is(plot.kmeans(k1), 'ggplot')
+  expect_is(plot.kmeans(k1, data=iris), 'ggplot')
 })
 
 test_that('the inputs do what we expect them to do',{
