@@ -1,3 +1,6 @@
+# Version 1.2.3
+Complete unit test coverage.
+
 # Version 1.2.2
 Adjusted `build.x` so that it works appropriately when only one categorical variable is specified.
 Added tests for building matrices.
