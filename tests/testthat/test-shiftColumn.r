@@ -7,7 +7,7 @@ test_that('shift.column returns data.frames (or appropriate errors)', {
   expect_is(shift.column(data=myData, columns="lower", len=3), "data.frame")
   expect_is(shift.column(data=myData, columns="lower", up=FALSE), "data.frame")
   expect_is(shift.column(data=myData, columns="lower", len=3, up=FALSE), "data.frame")
-  expect_error(shift.column(data=myData, columns="lower", len=30), "length must be non-negative number")
+  expect_error(shift.column(data=myData, columns="lower", len=30), "'length.out' must be a non-negative number")
   expect_error(shift.column(data=myData, columns="lower", newNames=c("a", "b")), "columns and newNames must be the same length")
 })
 
