@@ -1,4 +1,5 @@
 # Version 1.2.3
+Complete unit test coverage.
 Added support for sparce matrices in `build.x`
 
 # Version 1.2.2
