@@ -20,7 +20,8 @@ Imports:
     purrr (>= 0.1.0),
     stats,
     scales,
-    utils
+    utils,
+    Matrix
 LazyLoad: yes
 ByteCompile: TRUE
 Suggests:

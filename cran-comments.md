@@ -1,7 +1,12 @@
+This is a short gap between updates because the previous one was to account for a change in a dependency package and then for this one I finally figured out how to add a feature I had wanted to for a while.
+
 ## Test environments
 - Windows 10, R 3.5.0 (devel)
 - Windows 10, R 3.4.0patched
-- Ubuntu (travis-ci) latest version
+- Ubuntu (travis-ci) R-Release
+- Ubuntu (travis-ci) R-Devel
+- Win-Builder
+    - Still does not work with the codecov badge, but I removed that for release
 
 Previous versions tested on with minimal differences to this version
 - Windows 10, R 3.3.1

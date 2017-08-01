@@ -161,3 +161,119 @@ test_that('The x matrix is built without contrasts with two categorical variable
     
     expect_equal(ncol(build.x(form1, mat1, contrasts=FALSE)), 1 + 1 + 1)
 })
+
+###################################
+## Sparse Tests
+###################################
+
+
+test_that('The sparse x matrix is built with contrasts with one categorical variable', {
+    # df1
+    expect_is(build.x(form1, df1, sparse=TRUE), 'dgCMatrix')
+    expect_is(build.x(form1, df1, contrasts=TRUE, sparse=TRUE), 'dgCMatrix')
+
+    expect_equal(nrow(build.x(form1, df1, sparse=TRUE)), nrow(df1))
+    expect_equal(nrow(build.x(form1, df1, contrasts=TRUE, sparse=TRUE)), nrow(df1))
+
+    expect_equal(ncol(build.x(form1, df1, sparse=TRUE)), 1 + 1 + length(unique(df1$C)) - 1)
+    expect_equal(ncol(build.x(form1, df1, contrasts=TRUE, sparse=TRUE)), 1 + 1 + length(unique(df1$C)) - 1)
+
+    # df2
+    expect_is(build.x(form1, df2, sparse=TRUE), 'dgCMatrix')
+    expect_is(build.x(form1, df2, contrasts=TRUE, sparse=TRUE), 'dgCMatrix')
+
+    expect_equal(nrow(build.x(form1, df2, sparse=TRUE)), nrow(df2))
+    expect_equal(nrow(build.x(form1, df2, contrasts=TRUE, sparse=TRUE)), nrow(df2))
+
+    expect_equal(ncol(build.x(form1, df2, sparse=TRUE)), 1 + 1 + length(unique(df2$C)) - 1)
+    expect_equal(ncol(build.x(form1, df2, contrasts=TRUE, sparse=TRUE)), 1 + 1 + length(unique(df2$C)) - 1)
+
+    # mat1
+    expect_is(build.x(form1, mat1, sparse=TRUE), 'dgCMatrix')
+    expect_is(build.x(form1, mat1, contrasts=TRUE, sparse=TRUE), 'dgCMatrix')
+
+    expect_equal(nrow(build.x(form1, mat1, sparse=TRUE)), nrow(mat1))
+    expect_equal(nrow(build.x(form1, mat1, contrasts=TRUE, sparse=TRUE)), nrow(mat1))
+
+    expect_equal(ncol(build.x(form1, mat1, sparse=TRUE)), 1 + 1 + 1)
+    expect_equal(ncol(build.x(form1, mat1, contrasts=TRUE, sparse=TRUE)), 1 + 1 + 1)
+})
+
+test_that('The sparse x matrix is built without contrasts with one categorical variable', {
+    # df1
+    expect_is(build.x(form1, df1, contrasts=FALSE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form1, df1, contrasts=FALSE, sparse=TRUE)), nrow(df1))
+    
+    expect_equal(ncol(build.x(form1, df1, contrasts=FALSE, sparse=TRUE)), 1 + 1 + length(unique(df1$C)))
+    
+    # df2
+    expect_is(build.x(form1, df2, contrasts=FALSE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form1, df2, contrasts=FALSE, sparse=TRUE)), nrow(df2))
+    
+    expect_equal(ncol(build.x(form1, df2, contrasts=FALSE, sparse=TRUE)), 1 + 1 + length(unique(df2$C)))
+    
+    # mat1
+    expect_is(build.x(form1, mat1, contrasts=FALSE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form1, mat1, contrasts=FALSE, sparse=TRUE)), nrow(mat1))
+    
+    expect_equal(ncol(build.x(form1, mat1, contrasts=FALSE, sparse=TRUE)), 1 + 1 + 1)
+})
+
+test_that('The sparse x matrix is built with contrasts with two categorical variables', {
+    # df1
+    expect_is(build.x(form2, df1, sparse=TRUE), 'dgCMatrix')
+    expect_is(build.x(form2, df1, contrasts=TRUE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form2, df1, sparse=TRUE)), nrow(df1))
+    expect_equal(nrow(build.x(form2, df1, contrasts=TRUE, sparse=TRUE)), nrow(df1))
+    
+    expect_equal(ncol(build.x(form2, df1, sparse=TRUE)), 1 + 1 + length(unique(df1$C)) - 1 + length(unique(df1$D)) - 1)
+    expect_equal(ncol(build.x(form2, df1, contrasts=TRUE, sparse=TRUE)), 1 + 1 + length(unique(df1$C)) - 1 + length(unique(df1$D)) - 1)
+    
+    # df2
+    expect_is(build.x(form2, df2, sparse=TRUE), 'dgCMatrix')
+    expect_is(build.x(form2, df2, contrasts=TRUE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form2, df2, sparse=TRUE)), nrow(df2))
+    expect_equal(nrow(build.x(form2, df2, contrasts=TRUE, sparse=TRUE)), nrow(df2))
+    
+    expect_equal(ncol(build.x(form2, df2, sparse=TRUE)), 1 + 1 + length(unique(df2$C)) - 1 + length(unique(df2$D)) - 1)
+    expect_equal(ncol(build.x(form2, df2, contrasts=TRUE, sparse=TRUE)), 1 + 1 + length(unique(df2$C)) - 1 + length(unique(df2$D)) - 1)
+    
+    # mat1
+    expect_is(build.x(form2, mat1, sparse=TRUE), 'dgCMatrix')
+    expect_is(build.x(form2, mat1, contrasts=TRUE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form2, mat1, sparse=TRUE)), nrow(mat1))
+    expect_equal(nrow(build.x(form2, mat1, contrasts=TRUE, sparse=TRUE)), nrow(mat1))
+    
+    expect_equal(ncol(build.x(form2, mat1, sparse=TRUE)), 1 + 1 + 1 + 1)
+    expect_equal(ncol(build.x(form2, mat1, contrasts=TRUE, sparse=TRUE)), 1 + 1 + 1 + 1)
+})
+
+
+test_that('The sparse x matrix is built without contrasts with two categorical variables', {
+    # df1
+    expect_is(build.x(form2, df1, contrasts=FALSE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form2, df1, contrasts=FALSE, sparse=TRUE)), nrow(df1))
+    
+    expect_equal(ncol(build.x(form2, df1, contrasts=FALSE, sparse=TRUE)), 1 + 1 + length(unique(df1$C)) + length(unique(df2$D)))
+    
+    # df2
+    expect_is(build.x(form1, df2, contrasts=FALSE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form2, df2, contrasts=FALSE, sparse=TRUE)), nrow(df2))
+    
+    expect_equal(ncol(build.x(form2, df2, contrasts=FALSE, sparse=TRUE)), 1 + 1 + length(unique(df2$C)) + length(unique(df2$D)))
+    
+    # mat1
+    expect_is(build.x(form1, mat1, contrasts=FALSE, sparse=TRUE), 'dgCMatrix')
+    
+    expect_equal(nrow(build.x(form1, mat1, contrasts=FALSE, sparse=TRUE)), nrow(mat1))
+    
+    expect_equal(ncol(build.x(form1, mat1, contrasts=FALSE, sparse=TRUE)), 1 + 1 + 1)
+})
