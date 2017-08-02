@@ -69,7 +69,7 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' @param x A \code{\link{kmeans}} object.
 #' @param data The data used to kit the \code{\link{kmeans}} object.
 #' @param class Character name of the "true" classes of the data.
-#' @param PtSize Numeric size of ggplot points
+#' @param size Numeric size of ggplot points
 #' @param legend.position Character indicating where the legend should be placed.
 #' @param title Title for the plot.
 #' @param xlab Label for the x-axis.
@@ -83,7 +83,7 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' plot(k1, data=iris)
 #' 
 plot.kmeans <-
-    function(x, data=NULL, class=NULL, PtSize=2, legend.position=c("right", "bottom", "left", "top", "none"), 
+    function(x, data=NULL, class=NULL, size=2, legend.position=c("right", "bottom", "left", "top", "none"), 
                           title="K-Means Results",
                           xlab="Principal Component 1", ylab="Principal Component 2", ...)
 {
@@ -97,7 +97,7 @@ plot.kmeans <-
       if(!is.null(class)) toPlot[, class] <- factor(toPlot[, class])
     
       ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + 
-          geom_point(aes_string(shape=class), size = PtSize) + 
+          geom_point(aes_string(shape=class), size = size) + 
           scale_color_discrete("Cluster") +
           theme(legend.position=legend.position) +
           labs(title=title, x=xlab, y=ylab)
