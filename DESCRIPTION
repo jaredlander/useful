@@ -5,8 +5,9 @@ Version: 1.2.4
 Date: 2017-08-04
 Authors@R: c(
     person("Jared", "Lander", email = "packages@jaredlander.com", role = c("cre", "aut")),
-    person("Nicholas", "Galasinao", email = "nicholas.galasinao@gmail.com", role = "ctb"))
-    person("Joshua", "Kraut", email = "joshua.kraut@gmail.com", role = "ctb"))
+    person("Nicholas", "Galasinao", email = "nicholas.galasinao@gmail.com", role = "ctb"),
+    person("Joshua", "Kraut", email = "joshua.kraut@gmail.com", role = "ctb"),
+    person("Daniel", "Chen", email = "dan dcheny@gmail.com", role = "ctb"))
 Description: A set of little functions that have been found useful to do little
     odds and ends such as plotting the results of K-means clustering, substituting
     special text characters, viewing parts of a data.frame, constructing formulas
@@ -22,7 +23,8 @@ Imports:
     stats,
     scales,
     utils,
-    Matrix
+    Matrix,
+    assertthat
 LazyLoad: yes
 ByteCompile: TRUE
 Suggests:
