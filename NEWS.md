@@ -1,5 +1,8 @@
-# Version 1.2.3
+# Version 1.2.4
 Complete unit test coverage.
+Added point size option in `plot.kmeans`.
+
+# Version 1.2.3
 Added support for sparce matrices in `build.x`
 
 # Version 1.2.2
