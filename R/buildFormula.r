@@ -27,6 +27,10 @@ build.formula <- function(lhs, rhs)
     }
     
     # build a formula for aggregation
-    theFormula <- as.formula(sprintf("%s ~ %s", paste(lhs, collapse=" + "), paste(rhs, collapse=" + ")))
+    theFormula <- as.formula(
+        sprintf("%s ~ %s", 
+                paste(lhs, collapse=" + "), 
+                paste(sprintf("`%s`", rhs), collapse=" + "))
+    )
     return(theFormula)
 }
