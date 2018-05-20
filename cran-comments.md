@@ -24,7 +24,4 @@ Previous versions tested on with minimal differences to this version
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-I added my middle initial so that is triggering a note as a new maintainer.
-
+0 errors | 0 warnings | 0 notes
