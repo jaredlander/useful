@@ -54,15 +54,11 @@ fortify.kmeans <- function(model, data=NULL, ...)
     return(data)
 }
 
-#' plot.kmeans
-#' 
-#' Plot the results from a k-means object
-#' 
-#' Plots the results of k-means with color-coding for the cluster membership.  If \code{data} is not provided, then just the center points are calculated.
-#' 
+#' @title plot.kmeans
+#' @description Plot the results from a k-means object
+#' @details Plots the results of k-means with color-coding for the cluster membership.  If \code{data} is not provided, then just the center points are calculated.
 #' @aliases plot.kmeans
 #' @export
-#' @export plot.kmeans
 #' @author Jared P. Lander
 #' @seealso kmeans fortify ggplot plot.kmeans
 #' @param x A \code{\link{kmeans}} object.
@@ -83,8 +79,8 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' 
 plot.kmeans <-
     function(x, data=NULL, class=NULL, size=2, legend.position=c("right", "bottom", "left", "top", "none"), 
-                          title="K-Means Results",
-                          xlab="Principal Component 1", ylab="Principal Component 2", ...)
+             title="K-Means Results",
+             xlab="Principal Component 1", ylab="Principal Component 2", ...)
 {
       # fortify the model and data so it is convenient to plot in ggplot
       toPlot <- fortify(model=x, data=data)
@@ -95,7 +91,7 @@ plot.kmeans <-
       # convert class to factor just in case it is not already
       if(!is.null(class)) toPlot[, class] <- factor(toPlot[, class])
       
-      ggplot(toPlot, aes(x=.x, y=.y, colour=.Cluster)) + 
+      ggplot(toPlot, aes_string(x='.x', y='.y', colour='.Cluster')) + 
           geom_point(aes_string(shape=class), size=size) + 
           scale_color_discrete("Cluster") +
           theme(legend.position=legend.position) +

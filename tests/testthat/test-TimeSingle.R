@@ -4,17 +4,17 @@ now <- Sys.time()
 Sys.sleep(time=2)
 then <- Sys.time()
 
-nowBlank <- time.single(startTime=Sys.time())
+nowBlank <- timeSingle(startTime=Sys.time())
 
-nowThen <- time.single(startTime=now, endTime=then)
-thenNow <- time.single(startTime=then, endTime=now)
+nowThen <- timeSingle(startTime=now, endTime=then)
+thenNow <- timeSingle(startTime=then, endTime=now)
 
-nowMessage <- time.single('Time goes by', startTime=Sys.time())
-nowThenMessage <- time.single('Time goes by', startTime=now, endTime=then)
+nowMessage <- timeSingle('Time goes by', startTime=Sys.time())
+nowThenMessage <- timeSingle('Time goes by', startTime=now, endTime=then)
 
-nowSep <- time.single(startTime=Sys.time(), sep='|')
-nowSepMessage <- time.single('Time slips away', startTime=Sys.time(), sep='|')
-nowSepMessageThen <- time.single('Time slips away', startTime=now, endTime=then, sep='|')
+nowSep <- timeSingle(startTime=Sys.time(), sep='|')
+nowSepMessage <- timeSingle('Time slips away', startTime=Sys.time(), sep='|')
+nowSepMessageThen <- timeSingle('Time slips away', startTime=now, endTime=then, sep='|')
 
 test_that('A character is returned', {
     expect_is(nowBlank, 'character')
@@ -28,9 +28,9 @@ test_that('A character is returned', {
 })
 
 test_that("There are errors for non-time entries", {
-    expect_error(time.single(startTime=4))
-    expect_error(time.single(startTime=Sys.time(), endTime=4))
-    expect_error(time.single(startTime=5, endTime=Sys.time()))
+    expect_error(timeSingle(startTime=4))
+    expect_error(timeSingle(startTime=Sys.time(), endTime=4))
+    expect_error(timeSingle(startTime=5, endTime=Sys.time()))
 })
 
 test_that('Check for the correct text', {

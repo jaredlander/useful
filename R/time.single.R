@@ -1,13 +1,13 @@
 # time single
 
-#' time.single
+#' timeSingle
 #'
 #' Convenience function that takes in a time object and calculates a difference
 #' with a user specified prompt
 #'
-#' @export time.single
+#' @export
 #' @author Daniel Y. Chen
-#' @aliases time.single
+#' @aliases timeSingle
 #' @param string string of what was timed
 #' @param startTime "POSIXct" "POSIXt" object, usually from \code{\link{Sys.time}}
 #' @param endTime "POSIXct" "POSIXt" object, usually from \code{\link{Sys.time}}
@@ -18,9 +18,9 @@
 #' x <- 3.14
 #' strt <- Sys.time()
 #' sq <- x ** 2
-#' time.single('Squaring value', strt)
+#' timeSingle('Squaring value', strt)
 #'
-time.single <- function(string='Time difference', startTime,
+timeSingle <- function(string='Time difference', startTime,
                         endTime=Sys.time(), sep=':')
 {
     assertthat::assert_that(assertthat::is.time(startTime))

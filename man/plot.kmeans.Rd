@@ -4,7 +4,7 @@
 \alias{plot.kmeans}
 \title{plot.kmeans}
 \usage{
-\method{plot}{kmeans}(x, data = NULL, class = NULL,
+\method{plot}{kmeans}(x, data = NULL, class = NULL, size = 2,
   legend.position = c("right", "bottom", "left", "top", "none"),
   title = "K-Means Results", xlab = "Principal Component 1",
   ylab = "Principal Component 2", ...)
@@ -15,6 +15,8 @@
 \item{data}{The data used to kit the \code{\link{kmeans}} object.}
 
 \item{class}{Character name of the "true" classes of the data.}
+
+\item{size}{Numeric size of points}
 
 \item{legend.position}{Character indicating where the legend should be placed.}
 
