@@ -41,7 +41,7 @@ Grabs a corner of a data set
 Display a corner section of a rectangular data set
 
 Displays a
-corner of a rectangular data set such as a data.frame, martrix or table.  If showing
+corner of a rectangular data set such as a data.frame, matrix or table.  If showing
 the right side or bottom, the order of the data is preserved.
 
 The default method reverts to simply calling \code{\link{head}}
