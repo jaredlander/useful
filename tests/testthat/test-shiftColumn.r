@@ -3,12 +3,13 @@ context('Test that shiftColumn returns the correct output in all cases')
 myData <- data.frame(Upper=LETTERS, lower=letters)
 
 test_that('shift.column returns data.frames (or appropriate errors)', {
-  expect_is(shift.column(data=myData, columns="lower"), "data.frame")
-  expect_is(shift.column(data=myData, columns="lower", len=3), "data.frame")
-  expect_is(shift.column(data=myData, columns="lower", up=FALSE), "data.frame")
-  expect_is(shift.column(data=myData, columns="lower", len=3, up=FALSE), "data.frame")
-  expect_error(shift.column(data=myData, columns="lower", len=30), "'length.out' must be a non-negative number")
-  expect_error(shift.column(data=myData, columns="lower", newNames=c("a", "b")), "columns and newNames must be the same length")
+    skip_if(getRversion() <= 3.4)
+    expect_is(shift.column(data=myData, columns="lower"), "data.frame")
+    expect_is(shift.column(data=myData, columns="lower", len=3), "data.frame")
+    expect_is(shift.column(data=myData, columns="lower", up=FALSE), "data.frame")
+    expect_is(shift.column(data=myData, columns="lower", len=3, up=FALSE), "data.frame")
+    expect_error(shift.column(data=myData, columns="lower", len=30), "'length.out' must be a non-negative number")
+    expect_error(shift.column(data=myData, columns="lower", newNames=c("a", "b")), "columns and newNames must be the same length")
 })
 
 test_that('shift.column returns the correct number of rows and columns', {
