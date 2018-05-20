@@ -2,7 +2,7 @@ Package: useful
 Type: Package
 Title: A Collection of Handy, Useful Functions
 Version: 1.2.4
-Date: 2017-08-04
+Date: 2018-05-20
 Authors@R: c(
     person("Jared", "Lander", email = "packages@jaredlander.com", role = c("cre", "aut")),
     person("Nicholas", "Galasinao", email = "nicholas.galasinao@gmail.com", role = "ctb"),
@@ -31,4 +31,6 @@ Suggests:
     testthat,
     tibble,
     covr
+URL: https://github.com/jaredlander/useful
+BugReports: https://github.com/jaredlander/useful/issues
 RoxygenNote: 6.0.1

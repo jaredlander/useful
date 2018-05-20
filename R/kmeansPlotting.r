@@ -58,6 +58,8 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' @description Plot the results from a k-means object
 #' @details Plots the results of k-means with color-coding for the cluster membership.  If \code{data} is not provided, then just the center points are calculated.
 #' @aliases plot.kmeans
+#' @method plot kmeans
+#' @export plot.kmeans
 #' @export
 #' @author Jared P. Lander
 #' @seealso kmeans fortify ggplot plot.kmeans
@@ -78,7 +80,8 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' plot(k1, data=iris)
 #' 
 plot.kmeans <-
-    function(x, data=NULL, class=NULL, size=2, legend.position=c("right", "bottom", "left", "top", "none"), 
+    function(x, data=NULL, class=NULL, size=2, 
+             legend.position=c("right", "bottom", "left", "top", "none"), 
              title="K-Means Results",
              xlab="Principal Component 1", ylab="Principal Component 2", ...)
 {
