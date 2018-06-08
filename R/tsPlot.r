@@ -132,40 +132,48 @@ fortify.acf <- function(model, data=NULL, ...)
     return(data)
 }
 
-
-#' plot.acf
-#' 
-#' Plot acf objects
-#' 
-#' Plot acf (and pacf) objects.
-#' 
+#' @title plot.acf
+#' @description Plotting an ACF object
+#' @details This function has been deprecated in favor of autoplot
 #' @author Jared P. Lander
-#' @aliases plot.acf
-#' @export plot.acf
+#' @param x An ACF object
+#' @param \dots Arguments passed on to autoplot
+#' @return A ggplot2 object
+#' 
+plot.acf <- function(x, ...)
+{
+    .Deprecated(new='autoplot.acf', package='useful', msg='Please use autoplot(x) instead')
+    autoplot(x, ...)
+}
+
+#' @title autoplot.acf
+#' @description Plot acf objects
+#' @details Plot acf (and pacf) objects.
+#' @author Jared P. Lander
 #' @export
 #' @return A ggplot object.
-#' @param x An \code{\link{acf}} object.
+#' @param object An \code{\link{acf}} object.
 #' @param xlab X-axis label.
 #' @param ylab y-axis label.
 #' @param title Graph title.
 #' @param \dots Further arguments.
 #' @examples
 #' 
-#' plot(acf(sunspot.year, plot=FALSE))
-#' plot(pacf(sunspot.year, plot=FALSE))
+#' autoplot(acf(sunspot.year, plot=FALSE))
+#' autoplot(pacf(sunspot.year, plot=FALSE))
 #'
-plot.acf <- function(x, 
-                     xlab=x, ylab=y,
-                     #xlab=x, ylab=sub("\\.", " ", y), 
-                     title=sprintf("%s Plot", y), ...
-                     #title=sprintf("%s Plot", sub("\\.", " ", y))
-                     )
+autoplot.acf <- function(object, 
+                         xlab=x, ylab=y,
+                         #xlab=x, ylab=sub("\\.", " ", y), 
+                         title=sprintf("%s Plot", y), ...
+                         #title=sprintf("%s Plot", sub("\\.", " ", y))
+)
 {
     # fortify the acf object
-    data <- fortify.acf(x)
+    data <- fortify.acf(object)
     
     # get the names we are using
-    x <-names(data)[1]
+    x <- names(data)[1]
     y <- names(data)[2]
     
     # build plot
@@ -174,18 +182,20 @@ plot.acf <- function(x,
         labs(title=title, x=xlab, y=ylab)
 }
 
-#' @title plot
-#' @description Overwritten plot generic so that plot.acf can be defined in this package
-#' @details Overwritten plot generic so that plot.acf can be defined in this package
-#' @author Jared P. Lander
-#' @param x Object to be plotted
-#' @param \dots Further arguments
-#' @return A plot
-#' 
-plot <- function(x, ...)
-{
-    UseMethod('plot')
-}
+
+# # @title plot
+# # @description Overwritten plot generic so that plot.acf can be defined in this package
+# # @details Overwritten plot generic so that plot.acf can be defined in this package
+# # @author Jared P. Lander
+# # @export
+# # @param x Object to be plotted
+# # @param \dots Further arguments
+# # @return A plot
+# #
+# plot <- function(x, ...)
+# {
+#     UseMethod('plot')
+# }
 
 #' plotTimesSeries
 #' 

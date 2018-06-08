@@ -1,7 +1,7 @@
 Package: useful
 Type: Package
 Title: A Collection of Handy, Useful Functions
-Version: 1.2.4
+Version: 1.2.5
 Date: 2018-05-20
 Authors@R: c(
     person(c("Jared", "P."), "Lander", email = "packages@jaredlander.com", role = c("cre", "aut")),

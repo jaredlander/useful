@@ -1,4 +1,7 @@
 # Version 1.2.4
+Using `autoplot` to plot `acf` objects.
+
+# Version 1.2.4
 Complete unit test coverage.
 Added point size option in `plot.kmeans`.
 Added function for computing a single time difference with an informative message.

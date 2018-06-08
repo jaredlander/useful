@@ -4,34 +4,21 @@
 \alias{plot.acf}
 \title{plot.acf}
 \usage{
-\method{plot}{acf}(x, xlab = x, ylab = y, title = sprintf("\%s Plot", y),
-  ...)
+\method{plot}{acf}(x, ...)
 }
 \arguments{
-\item{x}{An \code{\link{acf}} object.}
+\item{x}{An ACF object}
 
-\item{xlab}{X-axis label.}
-
-\item{ylab}{y-axis label.}
-
-\item{title}{Graph title.}
-
-\item{\dots}{Further arguments.}
+\item{\dots}{Arguments passed on to autoplot}
 }
 \value{
-A ggplot object.
+A ggplot2 object
 }
 \description{
-Plot acf objects
+Plotting an ACF object
 }
 \details{
-Plot acf (and pacf) objects.
-}
-\examples{
-
-plot(acf(sunspot.year, plot=FALSE))
-plot(pacf(sunspot.year, plot=FALSE))
-
+This function has been deprecated in favor of autoplot
 }
 \author{
 Jared P. Lander
