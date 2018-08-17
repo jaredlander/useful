@@ -69,7 +69,7 @@ WhichCorner <- function(corner=c("topleft", 'bottomleft', 'topright', 'bottomrig
 ## @aliases corner corner.default corner.data.frame corner.matrix
 #' @title corner
 #' @description Display a corner section of a rectangular data set
-#' @details corner of a rectangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
+#' @details corner of a rectangular data set such as a data.frame, matrix or table.  If showing the right side or bottom, the order of the data is preserved.
 #' @author Jared P. Lander
 #' @rdname corner
 #' @param x The data

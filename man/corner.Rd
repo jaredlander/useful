@@ -46,7 +46,7 @@ the right side or bottom, the order of the data is preserved.
 
 The default method reverts to simply calling \code{\link{head}}
 
-corner of a rectangular data set such as a data.frame, martrix or table.  If showing the right side or bottom, the order of the data is preserved.
+corner of a rectangular data set such as a data.frame, matrix or table.  If showing the right side or bottom, the order of the data is preserved.
 }
 \examples{
 

@@ -25,3 +25,7 @@ Previous versions tested on with minimal differences to this version
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
+
+## Comments
+
+Replaced plot.acf with autoplot.acf to fix issue with the plot generic
