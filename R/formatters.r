@@ -27,8 +27,27 @@
 #' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
 #' scale_color_gradient2(labels=multiple)
 #' 
-multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), extra=scales::comma, digits=0)
+multiple <- function(x, 
+                     multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), 
+                     big.mark=',',
+                     extra, digits=0,
+                     prefix='',
+                     scientific=FALSE)
 {
+    if(!missing(extra) && is.function(extra))
+    {
+        big.mark <- dplyr::case_when(
+            identical(extra, scales::comma) ~ ',',
+            identical(extra, identity) ~ '',
+            TRUE ~ big.mark
+        )
+        
+        prefix <- dplyr::case_when(
+            identical(extra, scales::dollar) ~ '$',
+            TRUE ~ prefix
+        )
+    }
+    
     # get the multiple
     multiple=match.arg(multiple)
     
@@ -38,10 +57,11 @@ multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", 
     # get what we're dividing by
     divider <- dividers[toupper(multiple)]
     
-    x <- round(x / divider, digits=digits)
+    x <- purrr::map_dbl(x, ~ round(.x / divider, digits=digits))
+    # x <- format(x, digits=digits, big.mark=big.mark, scientific=scientific, trim=TRUE)
+    x <- purrr::map_chr(x, ~ format(.x, big.mark=big.mark, scientific=scientific, trim=TRUE))
     
-    x <- do.call(extra, args=list(x))
-    sprintf("%s%s", x, multiple)
+    sprintf("%s%s%s", prefix, x, multiple)
 }
 
 
