@@ -16,7 +16,7 @@ load_packages <- function(packages)
     
     ## check that the packages are installed
     # get list of installed packages
-    installedPackages <- rownames(installed.packages())
+    installedPackages <- rownames(utils::installed.packages())
     # see which of our packages are installed
     installedIndex <- packages %in% installedPackages
     # get the installed ones
