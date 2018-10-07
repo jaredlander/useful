@@ -4,7 +4,8 @@
 \alias{fortify.ts}
 \title{fortify.ts}
 \usage{
-\method{fortify}{ts}(model, data = NULL, name = as.character(m[[2]]), ...)
+\method{fortify}{ts}(model, data = NULL, name = as.character(m[[2]]),
+  ...)
 }
 \arguments{
 \item{model}{A \code{\link{ts}} object.}

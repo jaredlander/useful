@@ -6,8 +6,8 @@
 \title{plotTimesSeries}
 \usage{
 plotTimesSeries(x, time = NULL, acf = FALSE, lag.max = NULL,
-  na.action = na.fail, demean = TRUE, title = sprintf("\%s Plot", name),
-  xlab = "Time", ylab = name, ...)
+  na.action = na.fail, demean = TRUE, title = sprintf("\%s Plot",
+  name), xlab = "Time", ylab = name, ...)
 }
 \arguments{
 \item{x}{a \code{\link{ts}} object.}

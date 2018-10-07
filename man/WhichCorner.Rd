@@ -4,8 +4,8 @@
 \alias{WhichCorner}
 \title{WhichCorner}
 \usage{
-WhichCorner(corner = c("topleft", "bottomleft", "topright", "bottomright"),
-  r = 5L, c = 5L, object = "x")
+WhichCorner(corner = c("topleft", "bottomleft", "topright",
+  "bottomright"), r = 5L, c = 5L, object = "x")
 }
 \arguments{
 \item{corner}{(character) which corner to display c("topleft", "bottomleft", "topright", "bottomright")}
