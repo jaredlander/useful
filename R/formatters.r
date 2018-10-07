@@ -11,9 +11,13 @@
 #' @export multiple
 #' @param x Vector of numbers to be formatted.
 #' @param multiple The multiple to display numbers in.  This symbol will be added to the end of the numbers.
-#' @param extra Function for perform any further formatting.
+#' @param big.mark Character specifying the thousands separator
+#' @param extra DEPRECATED, use `big.mark` and `prefix` instead: Function for perform any further formatting.
 #' @param digits Number of decimal places for rounding.
+#' @param prefix Symbol to put in front of the numbers such as a dollar sign.
+#' @param scientific Logical (default: `FALSE`) indicating if the numbers should be returned in scientific notation.
 #' @return Character vector of formatted numbers.
+#' @md
 #' @examples
 #' 
 #' require(scales)
@@ -34,6 +38,8 @@ multiple <- function(x,
                      prefix='',
                      scientific=FALSE)
 {
+    assertthat::assert_that(is.numeric(x))
+    
     if(!missing(extra) && is.function(extra))
     {
         big.mark <- dplyr::case_when(
