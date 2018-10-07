@@ -1,26 +1,30 @@
-# Version 1.2.4
-Using `autoplot` to plot `acf` objects.
+# Version 1.2.6
+Changed `multiple` to no longer depend on the `scales` package since its behavior changed.
+Added `load_packages()` so that people can load multiple packages with one line of code.
+
+# Version 1.2.5
+Using `autoplot()` to plot `acf` objects.
 
 # Version 1.2.4
 Complete unit test coverage.
-Added point size option in `plot.kmeans`.
+Added point size option in `plot.kmeans()`.
 Added function for computing a single time difference with an informative message.
 
 # Version 1.2.3
-Added support for sparce matrices in `build.x`
+Added support for sparce matrices in `build.x()`
 
 # Version 1.2.2
-Adjusted `build.x` so that it works appropriately when only one categorical variable is specified.
+Adjusted `build.x()` so that it works appropriately when only one categorical variable is specified.
 Added tests for building matrices.
 Changed code to accomodate new changes in `dplyr`.
 
 # Version 1.2.1
-Added function, `uniqueBidirection` to return unique rows of a `data.frame` regardless of their order.
+Added function, `uniqueBidirection()` to return unique rows of a `data.frame` regardless of their order.
 Fixed test failures due to new version of `testthat`.
 
 # Version 1.2.0
-Explicitly calling functions from grid and scales rather than importing the entire packages.
-The function subVector now returns the original text x if toSub is not supplied.
+Explicitly calling functions from `grid` and `scales` rather than importing the entire packages.
+The function `subVector()` now returns the original text `x` if `toSub` is not supplied.
 
 # Version 1.1.9
 New function for checking the class of each column in a data.frame.
@@ -32,14 +36,13 @@ New functions for mapping matrix index to position and position to index.
 New functions for regex substitution of multiple items.
 
 # Version 1.1.8
-Added functionality to build.x to control contrasts.
-Fixed bug in build.x where it never returned the intercept.
+Added functionality to `build.x()` to control contrasts.
+Fixed bug in `build.x()` where it never returned the intercept.
 
 # Version 1.1.7
 Scale formatters for ggplot2.
 Functions to build x and y matrices based on a formula.
-Functions to build x and y matrices based on a formula.
-Function to ensure data in build.x and build.y is not a matrix or array.
+Function to ensure data in `build.x()` and `build.y()` is not a matrix or array.
 Function to check interval membership.
 
 # Version 1.1.6

@@ -1,8 +1,8 @@
 Package: useful
 Type: Package
 Title: A Collection of Handy, Useful Functions
-Version: 1.2.5
-Date: 2018-05-20
+Version: 1.2.6
+Date: 2018-10-07
 Authors@R: c(
     person(c("Jared", "P."), "Lander", email = "packages@jaredlander.com", role = c("cre", "aut")),
     person("Nicholas", "Galasinao", email = "nicholas.galasinao@gmail.com", role = "ctb"),
@@ -33,4 +33,4 @@ Suggests:
     covr
 URL: https://github.com/jaredlander/useful
 BugReports: https://github.com/jaredlander/useful/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
