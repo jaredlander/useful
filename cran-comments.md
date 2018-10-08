@@ -1,7 +1,6 @@
 ## Test environments
 - Windows 10
-    - R 3.5.0
-    - R 3.4.3
+    - R 3.5.1
 - Ubuntu 14.04 (on travis-ci)
     - oldrel
     - release
@@ -12,6 +11,7 @@
 Previous versions tested on with minimal differences to this version
 - Windows 10
     - R 3.5.0 (devel)
+    - R 3.4.3
     - R 3.4.0patched
     - R 3.3.1
     - R 3.3.0
@@ -28,4 +28,4 @@ Previous versions tested on with minimal differences to this version
 
 ## Comments
 
-Replaced plot.acf with autoplot.acf to fix issue with the plot generic
+This update fixes the broken tests caused by the update to the scales package
