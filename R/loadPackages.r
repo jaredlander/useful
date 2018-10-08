@@ -1,8 +1,8 @@
-#' @title load_pacakges
+#' @title load_packages
 #' @description Loads multiple packages
 #' @details Allows the user to load multiple packages with one line of code. Delivers a message saying which packages have been loaded. If a user requests packages that are not installed there is an error.
 #' @author Jared P. Lander
-#' @param packages A `charcter` vector of packages to be installed
+#' @param packages A `character` vector of packages to be installed
 #' @return Nothing, loads packages
 #' @export
 #' @examples 

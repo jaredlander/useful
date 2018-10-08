@@ -2,12 +2,12 @@
 % Please edit documentation in R/loadPackages.r
 \name{load_packages}
 \alias{load_packages}
-\title{load_pacakges}
+\title{load_packages}
 \usage{
 load_packages(packages)
 }
 \arguments{
-\item{packages}{A `charcter` vector of packages to be installed}
+\item{packages}{A `character` vector of packages to be installed}
 }
 \value{
 Nothing, loads packages

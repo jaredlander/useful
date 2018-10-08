@@ -34,7 +34,7 @@ vplayout <- function(x, y)
 #' @return \code{\link{data.frame}} for plotting with ggplot.
 #' @param model A \code{\link{ts}} object.
 #' @param data A vector of the same length of \code{x} that specifies the time component of each element of \code{x}.
-#' @param name Character specifying the name of x if it is to be different that the variable being inputed.
+#' @param name Character specifying the name of x if it is to be different than the variable being inputed.
 #' @param \dots Further arguments.
 #' @examples
 #' 
