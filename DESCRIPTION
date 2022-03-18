@@ -4,7 +4,7 @@ Title: A Collection of Handy, Useful Functions
 Version: 1.2.6
 Date: 2018-10-07
 Authors@R: c(
-    person(c("Jared", "P."), "Lander", email = "packages@jaredlander.com", role = c("cre", "aut")),
+    person(c("Jared", "P."), "Lander", email = "packages@jaredlander.com", role = c("cre", "aut"), comment = c(ORCID = "0000-0002-7291-726X")),
     person("Nicholas", "Galasinao", email = "nicholas.galasinao@gmail.com", role = "ctb"),
     person("Joshua", "Kraut", email = "joshua.kraut@gmail.com", role = "ctb"),
     person("Daniel", "Chen", email = "dan dcheny@gmail.com", role = "ctb"))
