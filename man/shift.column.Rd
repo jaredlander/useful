@@ -4,8 +4,13 @@
 \alias{shift.column}
 \title{shift.column}
 \usage{
-shift.column(data, columns, newNames = sprintf("\%s.Shifted", columns),
-  len = 1L, up = TRUE)
+shift.column(
+  data,
+  columns,
+  newNames = sprintf("\%s.Shifted", columns),
+  len = 1L,
+  up = TRUE
+)
 }
 \arguments{
 \item{data}{\code{\link{data.frame}}}

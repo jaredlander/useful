@@ -4,8 +4,13 @@
 \alias{ts.plotter}
 \title{ts.plotter}
 \usage{
-ts.plotter(data, time = NULL, title = "Series Plot", xlab = "Time",
-  ylab = "Rate")
+ts.plotter(
+  data,
+  time = NULL,
+  title = "Series Plot",
+  xlab = "Time",
+  ylab = "Rate"
+)
 }
 \arguments{
 \item{data}{A \code{\link{ts}} object to be plotted.}

@@ -24,7 +24,7 @@
 #' uniqueBidirection(ex)
 #' uniqueBidirection(exBig)
 #' 
-#' ex3 <- dplyr::bind_cols(ex, dplyr::data_frame(Three=rep('a', nrow(ex))))
+#' ex3 <- dplyr::bind_cols(ex, tibble::tibble(Three=rep('a', nrow(ex))))
 #' uniqueBidirection(ex3)
 #' 
 uniqueBidirection <- function(x)
@@ -50,7 +50,7 @@ uniqueBidirection <- function(x)
     
     if('tbl' %in% theClass)
     {
-        res <- dplyr::as.tbl(res)
+        res <- tibble::as_tibble(res)
     }
     
     # set names and return

@@ -30,6 +30,7 @@
 #' @author Jared P. Lander
 #' www.jaredlander.com
 #' @import ggplot2
+#' @importFrom rlang .data
 #' @export PlotHartigan
 #' @seealso \code{\link{kmeans}} \code{\link{FitKMeans}}
 #' @references #' http://www.stat.columbia.edu/~madigan/DM08/descriptive.ppt.pdf
@@ -42,7 +43,7 @@
 #' 
 PlotHartigan <- function(hartigan, title="Hartigan's Rule", smooth=FALSE, linecolor="grey", linetype=2L, linesize=1L, minor=TRUE)
 {
-    thePlot <- ggplot(data=hartigan, aes_string(x="Clusters", y="Hartigan")) + 
+    thePlot <- ggplot(data=hartigan, aes(x=.data[['Clusters']], y=.data[['Hartigan']])) + 
         geom_hline(aes(yintercept=10), linetype=linetype, colour=linecolor, size=linesize) + 
         #geom_line() +
         geom_point(aes_string(colour="AddCluster")) +

@@ -4,10 +4,17 @@
 \alias{plot.kmeans}
 \title{plot.kmeans}
 \usage{
-\method{plot}{kmeans}(x, data = NULL, class = NULL, size = 2,
+\method{plot}{kmeans}(
+  x,
+  data = NULL,
+  class = NULL,
+  size = 2,
   legend.position = c("right", "bottom", "left", "top", "none"),
-  title = "K-Means Results", xlab = "Principal Component 1",
-  ylab = "Principal Component 2", ...)
+  title = "K-Means Results",
+  xlab = "Principal Component 1",
+  ylab = "Principal Component 2",
+  ...
+)
 }
 \arguments{
 \item{x}{A \code{\link{kmeans}} object.}

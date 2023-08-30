@@ -4,7 +4,7 @@ ex <- data.frame(One=c('a', 'c', 'a', 'd', 'd', 'c', 'b'),
                  Two=c('b', 'd', 'b', 'e', 'c', 'd', 'a'), 
                  stringsAsFactors=FALSE)
 
-ex3 <- dplyr::as.tbl(dplyr::bind_cols(ex, data_frame(Three=rep('a', nrow(ex)))))
+ex3 <- tibble::tibble(dplyr::bind_cols(ex, tibble::tibble(Three=rep('a', nrow(ex)))))
 
 exMat <- as.matrix(ex)
 
@@ -30,5 +30,5 @@ test_that('The correct results are returned', {
     expect_equal(uniqueBidirection(ex), 
                  data.frame(One=c('a', 'c', 'd'), Two=c('b', 'd', 'e'), stringsAsFactors=FALSE, row.names=c(1, 2, 4)))
     expect_equal(uniqueBidirection(ex3), 
-                 dplyr::data_frame(One=c('a', 'a', 'a'), Two=c('a', 'c', 'd'), Three=c('b', 'd', 'e')))
+                 tibble::tibble(One=c('a', 'a', 'a'), Two=c('a', 'c', 'd'), Three=c('b', 'd', 'e')))
 })

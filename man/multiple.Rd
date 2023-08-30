@@ -4,8 +4,12 @@
 \alias{multiple}
 \title{multiple}
 \usage{
-multiple(x, multiple = c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"),
-  extra = scales::comma, digits = 0)
+multiple(
+  x,
+  multiple = c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"),
+  extra = scales::comma,
+  digits = 0
+)
 }
 \arguments{
 \item{x}{Vector of numbers to be formatted.}

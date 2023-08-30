@@ -4,8 +4,7 @@
 \alias{autoplot.acf}
 \title{autoplot.acf}
 \usage{
-\method{autoplot}{acf}(object, xlab = x, ylab = y,
-  title = sprintf("\%s Plot", y), ...)
+\method{autoplot}{acf}(object, xlab = x, ylab = y, title = sprintf("\%s Plot", y), ...)
 }
 \arguments{
 \item{object}{An \code{\link{acf}} object.}

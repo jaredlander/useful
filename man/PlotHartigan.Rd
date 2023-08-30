@@ -4,8 +4,15 @@
 \alias{PlotHartigan}
 \title{Plot a series of Hartigan's Numbers}
 \usage{
-PlotHartigan(hartigan, title = "Hartigan's Rule", smooth = FALSE,
-  linecolor = "grey", linetype = 2L, linesize = 1L, minor = TRUE)
+PlotHartigan(
+  hartigan,
+  title = "Hartigan's Rule",
+  smooth = FALSE,
+  linecolor = "grey",
+  linetype = 2L,
+  linesize = 1L,
+  minor = TRUE
+)
 }
 \arguments{
 \item{hartigan}{The results from

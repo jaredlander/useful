@@ -36,7 +36,7 @@ dim(exBig)
 uniqueBidirection(ex)
 uniqueBidirection(exBig)
 
-ex3 <- dplyr::bind_cols(ex, dplyr::data_frame(Three=rep('a', nrow(ex))))
+ex3 <- dplyr::bind_cols(ex, tibble::tibble(Three=rep('a', nrow(ex))))
 uniqueBidirection(ex3)
 
 }

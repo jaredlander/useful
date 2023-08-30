@@ -28,7 +28,7 @@ colsToFront <- function(data, cols=names(data))
 #' @title colsToBack
 #' @rdname colsToFront
 #' @export colsToBack
-#' @inheritParams colsToFront
+# @inheritParams colsToFront
 #' 
 colsToBack <- function(data, cols=names(data))
 {
@@ -45,8 +45,6 @@ colsToBack <- function(data, cols=names(data))
 #' @details Rearranges column order by moving specified columns to the front or back.
 #' @export moveToFront
 #' @author Jared P. Lander
-#' @importFrom dplyr select_
-#' @importFrom magrittr "%>%"
 #' @param data data.frame
 #' @param cols Character vector specifying the columns to be moved to the front or back
 #' @return A data.frame with the columns in the right order
@@ -63,17 +61,17 @@ moveToFront <- function(data, cols)
 {
     colOrder <- colsToFront(data, cols)
     
-    data %>% select_(.dots=colOrder)
+    dplyr::select(data, dplyr::all_of(colOrder))
 }
 
 #' @title moveToBack
 #' @rdname moveToFront
 #' @export moveToBack
-#' @inheritParams moveToFront
+# @inheritParams moveToFront
 #' 
 moveToBack <- function(data, cols)
 {
     colOrder <- colsToBack(data, cols)
     
-    data %>% select_(.dots=colOrder)
+    dplyr::select(data, dplyr::all_of(colOrder))
 }

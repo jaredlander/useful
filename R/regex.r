@@ -3,7 +3,7 @@
 ## make getting regex results easier
 ## looks like Hadley's stringr pretty much does this already, but ok
 
-## takes the result of a regex and extracts the desired tect
+## takes the result of a regex and extracts the desired text
 ## @results () the return of either regexpr or gregexpr
 ## @text (character) the the text being substr'd
 ProcessRegex <- function(results, text)

@@ -4,8 +4,12 @@
 \alias{timeSingle}
 \title{timeSingle}
 \usage{
-timeSingle(string = "Time difference", startTime, endTime = Sys.time(),
-  sep = ":")
+timeSingle(
+  string = "Time difference",
+  startTime,
+  endTime = Sys.time(),
+  sep = ":"
+)
 }
 \arguments{
 \item{string}{string of what was timed}

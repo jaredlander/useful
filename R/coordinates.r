@@ -4,7 +4,6 @@
 #' 
 #' Somewhat inspired by http://www.r-bloggers.com/convert-polar-coordinates-to-cartesian/ and https://www.mathsisfun.com/polar-cartesian-coordinates.html
 #' @export pol2cart
-#' @importFrom dplyr data_frame
 #' @aliases pol2cart
 #' @author Jared P. Lander
 #' @param r The radius of the point
@@ -41,7 +40,7 @@ pol2cart <- function(r, theta, degrees=FALSE)
     # compute y
     y <- r*sin(theta)
     
-    data_frame(x=x, y=y, r=r, theta=origTheta)
+    tibble::tibble(x=x, y=y, r=r, theta=origTheta)
 }
 
 
@@ -51,8 +50,6 @@ pol2cart <- function(r, theta, degrees=FALSE)
 #' 
 #' Somewhat inspired by http://www.r-bloggers.com/convert-polar-coordinates-to-cartesian/ and https://www.mathsisfun.com/polar-cartesian-coordinates.html
 #' @export cart2pol
-#' @importFrom magrittr "%<>%"
-#' @importFrom dplyr mutate data_frame
 #' @aliases cart2pol
 #' @author Jared P. Lander
 #' @param x The x-coordinate of the point
@@ -64,19 +61,19 @@ pol2cart <- function(r, theta, degrees=FALSE)
 #' library(dplyr)
 #' x1 <- c(1, sqrt(3)/2, sqrt(2)/2, 1/2, 0)
 #' y1 <- c(0, 1/2, sqrt(2)/2, sqrt(3)/2, 1)
-#' d1 <- data_frame(x=x1, y=y1, Q='I')
+#' d1 <- tibble::tibble(x=x1, y=y1, Q='I')
 #' 
 #' x2 <- c(0, -1/2, -sqrt(2)/2, -sqrt(3)/2, -1)
 #' y2 <- c(1, sqrt(3)/2, sqrt(2)/2, 1/2, 0)
-#' d2 <- data_frame(x=x2, y=y2, Q='II')
+#' d2 <- tibble::tibble(x=x2, y=y2, Q='II')
 #' 
 #' x3 <- c(-1, -sqrt(3)/2, -sqrt(2)/2, -1/2, 0)
 #' y3 <- c(0, -1/2, -sqrt(2)/2, -sqrt(3)/2, -1)
-#' d3 <- data_frame(x=x3, y=y3, Q='III')
+#' d3 <- tibble::tibble(x=x3, y=y3, Q='III')
 #' 
 #' x4 <- c(0, 1/2, sqrt(2)/2, sqrt(3)/2, 1)
 #' y4 <- c(-1, -sqrt(3)/2, -sqrt(2)/2, -1/2, 0)
-#' d4 <- data_frame(x=x4, y=y4, Q='IV')
+#' d4 <- tibble::tibble(x=x4, y=y4, Q='IV')
 #' 
 #' dAll <- bind_rows(d1, d2, d3, d4)
 #' 
@@ -90,17 +87,17 @@ cart2pol <- function(x, y, degrees=FALSE)
     # calculate theta with arctan
     theta <- atan2(y, x)
     
-    result <- data_frame(r=r, theta=theta, x=x, y=y)
+    result <- tibble::tibble(r=r, theta=theta, x=x, y=y)
     
     ## adjust angle for appropriate quadrant
     ## quadrants I and II need no adjustment
     ## quadrant III and IV, add 360
-    result %<>% mutate(theta=theta + (y < 0)*2*pi)
+    result <- dplyr::mutate(result, theta=theta + (y < 0)*2*pi)
     
     # return as degrees if requested
     if(degrees)
     {
-        result %<>% mutate(theta=theta*180/pi)
+        result <- dplyr::mutate(result, theta=theta*180/pi)
     }
     
     return(result)

@@ -3,7 +3,7 @@ context('Test that shiftColumn returns the correct output in all cases')
 myData <- data.frame(Upper=LETTERS, lower=letters)
 
 test_that('shift.column returns data.frames (or appropriate errors)', {
-    skip_if(getRversion() <= 3.4)
+    skip_if(getRversion() <= '3.4')
     expect_is(shift.column(data=myData, columns="lower"), "data.frame")
     expect_is(shift.column(data=myData, columns="lower", len=3), "data.frame")
     expect_is(shift.column(data=myData, columns="lower", up=FALSE), "data.frame")
