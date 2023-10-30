@@ -99,9 +99,9 @@ test_that('All functions return correct output', {
   expect_equal(multiple.dollar(vect, multiple="h", digits=5), c('$10h', '$15h', '$234h', '$218h', '$8,750,038h'))
   
   expect_equal(multiple.comma(vect), c('1K', '2K', '23K', '22K', '875,004K'))
-  expect_equal(multiple.comma(vect, digits=5), c('1.000K', '1.500K', '23.450K', '21.784K', '875,003.780K'))
+  expect_equal(multiple.comma(vect, digits=5), c('1.00000K', '1.50000K', '23.45000K', '21.78400K', '875,003.78000K'))
   expect_equal(multiple.comma(vect, multiple="h"), c('10h', '15h', '234h', '218h', '8,750,038h'))
-  expect_equal(multiple.comma(vect, multiple="h", digits=5), c('10.00h', '15.00h', '234.50h', '217.84h', '8,750,037.80h'))
+  expect_equal(multiple.comma(vect, multiple="h", digits=5), c('10.00000h', '15.00000h', '234.50000h', '217.84000h', '8,750,037.80000h'))
   
   expect_equal(multiple.identity(vect), c('1K', '2K', '23K', '22K', '875004K'))
   expect_equal(multiple.identity(vect, digits=5), c('1K', '1.5K', '23.45K', '21.784K', '875003.78K'))

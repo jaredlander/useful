@@ -10,7 +10,7 @@
 #' @aliases multiple
 #' @export multiple
 #' @param x Vector of numbers to be formatted.
-#' @param multiple The multiple to display numbers in.  This symbol will be added to the end of the numbers.
+#' @param multiple The multiple to display numbers in. This symbol will be added to the end of the numbers.
 #' @param extra Function for perform any further formatting.
 #' @param digits Number of decimal places for rounding.
 #' @return Character vector of formatted numbers.
@@ -27,7 +27,7 @@
 #' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
 #' scale_color_gradient2(labels=multiple)
 #' 
-multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), extra=scales::comma, digits=0)
+multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"), extra=scales::comma, digits=0, ...)
 {
     # get the multiple
     multiple=match.arg(multiple)
@@ -40,7 +40,13 @@ multiple <- function(x, multiple=c("K", "M", "B", "T", "H", "k", "m", "b", "t", 
     
     x <- round(x / divider, digits=digits)
     
-    x <- do.call(extra, args=list(x))
+    # for some reason round no longer shows decimals if the number is an integer
+    # or it won't show 3 decimal places if the number only has 1
+    # so we need to pass the accuracy argument to the extra function
+    # if that argument even exists
+    # this won't work for things like identity
+    # so the special case of comma will just use format()
+    x <- do.call(extra, args=list(x, ...))
     sprintf("%s%s", x, multiple)
 }
 
@@ -117,24 +123,25 @@ multiple.dollar <- function(x, ...)
 #' @aliases multiple.comma
 #' @export multiple.comma
 #' @param x Vector of numbers to be formatted.
-#' @param \dots Further arguments to be passed on to \code{link{multiple}}
+#' @param digits Number of decimal places for rounding.
+#' @param \dots Further arguments to be passed on to \code{\link{multiple}}
 #' @return Character vector of comma formatted numbers.
 #' @examples
 #' 
-#' require(scales)
+#' library(scales)
 #' vect <- c(1000, 1500, 23450, 21784, 875003780)
 #' multiple.comma(vect)
 #' multiple.comma(vect, multiple="k")
 #' multiple.comma(vect, multiple="h")
 #' 
-#' require(ggplot2)
+#' library(ggplot2)
 #' data(diamonds)
 #' ggplot(diamonds, aes(x=x, y=y, color=price*100)) + geom_point() + 
 #' scale_color_gradient2(labels=multiple.comma)
 #' 
-multiple.comma <- function(x, ...)
+multiple.comma <- function(x, digits=0, ...)
 {
-    multiple(x=x, extra=scales::comma, ...)
+    multiple(x=x, extra=scales::comma, accuracy=0.1^digits, ...)
 }
 
 
