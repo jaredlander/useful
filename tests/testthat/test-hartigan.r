@@ -17,9 +17,9 @@ FitPlus1 <- kmeans(hartiganResults[, 1:(nColX - (nColX-(2+0))*spectral)], center
 test_that('All functions return the correct type', {
   expect_is(FitKMeans(iris[, -ncol(iris)]), 'data.frame')
   #expect_is(FitKMeans(iris[, -ncol(iris)], spectral=TRUE), 'data.frame')
-  expect_is(FitKMeans(iris[, -ncol(iris)], iter.max=20L, algorithm='Lloyd'), 'data.frame')
-  expect_is(FitKMeans(iris[, -ncol(iris)], iter.max=20L, algorithm='Forgy'), 'data.frame')
-  expect_is(FitKMeans(iris[, -ncol(iris)], iter.max=20L, algorithm='MacQueen'), 'data.frame')
+  expect_is(FitKMeans(iris[, -ncol(iris)], iter.max=30L, algorithm='Lloyd'), 'data.frame')
+  expect_is(FitKMeans(iris[, -ncol(iris)], iter.max=30L, algorithm='Forgy'), 'data.frame')
+  expect_is(FitKMeans(iris[, -ncol(iris)], iter.max=30L, algorithm='MacQueen'), 'data.frame')
   #expect_is(FitKMeans(iris[, -ncol(iris)], spectral=TRUE, algorithm='Lloyd'), 'data.frame')
   expect_error(FitKMeans(iris[, -ncol(iris)], algorithm='lol'), regexp="Hartigan-Wong")
   expect_error(FitKMeans(iris[, -ncol(iris)], algorithm='lol'), regexp="Lloyd")

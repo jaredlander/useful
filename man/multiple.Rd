@@ -8,17 +8,22 @@ multiple(
   x,
   multiple = c("K", "M", "B", "T", "H", "k", "m", "b", "t", "h"),
   extra = scales::comma,
-  digits = 0
+  digits = 0,
+  ...
 )
 }
 \arguments{
 \item{x}{Vector of numbers to be formatted.}
 
-\item{multiple}{The multiple to display numbers in.  This symbol will be added to the end of the numbers.}
+\item{multiple}{The multiple to display numbers in. This symbol will be added to the end of the numbers.}
 
 \item{extra}{Function for perform any further formatting.}
 
-\item{digits}{Number of decimal places for rounding.}
+\item{digits}{Number of decimal places for rounding. This does not 
+necessarily affect the number digits displayed, for this, supply 
+\code{accuracy} in the form of \code{accuracy=0.00001}.}
+
+\item{\dots}{Extra arguments passed to \code{extra}, such as \code{accuracy}.}
 }
 \value{
 Character vector of formatted numbers.

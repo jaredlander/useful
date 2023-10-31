@@ -12,7 +12,10 @@
 #' @param x Vector of numbers to be formatted.
 #' @param multiple The multiple to display numbers in. This symbol will be added to the end of the numbers.
 #' @param extra Function for perform any further formatting.
-#' @param digits Number of decimal places for rounding.
+#' @param digits Number of decimal places for rounding. This does not 
+#' necessarily affect the number digits displayed, for this, supply 
+#' \code{accuracy} in the form of \code{accuracy=0.00001}.
+#' @param \dots Extra arguments passed to \code{extra}, such as \code{accuracy}.
 #' @return Character vector of formatted numbers.
 #' @examples
 #' 
@@ -141,7 +144,7 @@ multiple.dollar <- function(x, ...)
 #' 
 multiple.comma <- function(x, digits=0, ...)
 {
-    multiple(x=x, extra=scales::comma, accuracy=0.1^digits, ...)
+    multiple(x=x, extra=scales::comma, digits=digits, accuracy=0.1^digits, ...)
 }
 
 

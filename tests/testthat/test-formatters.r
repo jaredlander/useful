@@ -77,7 +77,12 @@ test_that('All functions return lists of proper length', {
 test_that('All functions return correct output', {
   expect_equal(multiple(vect), c('1K', '2K', '23K', '22K', '875,004K'))
   expect_equal(multiple(vect, extra=dollar), c('$1K', '$2K', '$23K', '$22K', '$875,004K'))
-  expect_equal(multiple(vect, digits=5), c('1.000K', '1.500K', '23.450K', '21.784K', '875,003.780K'))
+  # digits now has zero effect when the default extra=scales::comma is used
+  # in fact, it will just go to however many decimal places comes out of round()
+  expect_equal(multiple(vect, digits=5), c('1.00K', '1.50K', '23.45K', '21.78K', '875,003.78K'))
+  # digits controls rounding, accuracy controlls display
+  expect_equal(multiple(vect, accuracy=0.1^5), c('1.00000K', '2.00000K', '23.00000K', '22.00000K', '875,004.00000K'))
+  expect_equal(multiple(vect, digits=5, accuracy=0.1^5), c('1.00000K', '1.50000K', '23.45000K', '21.78400K', '875,003.78000K'))
   expect_equal(multiple(vect, extra=identity, digits=5), c('1K', '1.5K', '23.45K', '21.784K', '875003.78K'))
   expect_equal(multiple(vect, multiple='M'), c('0M', '0M', '0M', '0M', '875M'))
   expect_equal(multiple(vect, multiple='M', extra=dollar), c('$0M', '$0M', '$0M', '$0M', '$875M'))
@@ -86,7 +91,9 @@ test_that('All functions return correct output', {
   
   expect_equal(multiple_format()(vect), c('1K', '2K', '23K', '22K', '875,004K'))
   expect_equal(multiple_format(extra=dollar)(vect), c('$1K', '$2K', '$23K', '$22K', '$875,004K'))
-  expect_equal(multiple_format(digits=5)(vect), c('1.000K', '1.500K', '23.450K', '21.784K', '875,003.780K'))
+  expect_equal(multiple_format(digits=5)(vect), c('1.00K', '1.50K', '23.45K', '21.78K', '875,003.78K'))
+  expect_equal(multiple_format(accuracy=0.1^5)(vect), c('1.00000K', '2.00000K', '23.00000K', '22.00000K', '875,004.00000K'))
+  expect_equal(multiple_format(digits=5, accuracy=0.1^5)(vect), c('1.00000K', '1.50000K', '23.45000K', '21.78400K', '875,003.78000K'))
   expect_equal(multiple_format(extra=identity, digits=5)(vect), c('1K', '1.5K', '23.45K', '21.784K', '875003.78K'))
   expect_equal(multiple_format(multiple='M')(vect), c('0M', '0M', '0M', '0M', '875M'))
   expect_equal(multiple_format(multiple='M', extra=dollar)(vect), c('$0M', '$0M', '$0M', '$0M', '$875M'))
