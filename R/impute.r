@@ -82,8 +82,7 @@ simple.impute.default <- function(x, fun=median, ...)
 #' 
 simple.impute.data.frame <- function(x, fun=stats::median, ...)
 {
-    . <- NULL
-    dplyr::mutate_at(x, .cols=names(x), .funs=~simple.impute(., fun=fun))
+    dplyr::mutate(x, dplyr::across(dplyr::everything(), ~simple.impute(.x, fun=fun)))
 }
 
 #' @title  simple.impute.tbl_df
