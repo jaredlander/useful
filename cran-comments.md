@@ -1,26 +1,15 @@
 ## Test environments
-- Windows 10
-    - R 3.5.0
-    - R 3.4.3
-- Ubuntu 14.04 (on travis-ci)
-    - oldrel
+- Windows Latest
+    - R Release
+- MacOS Latest
+    - R Release
+- Ubuntu Latest
+    - oldrel-1
     - release
     - devel
-- Ubuntu 16.04 (WSL), R 3.4.3
-- Win-Builder
-
-Previous versions tested on with minimal differences to this version
-- Windows 10
-    - R 3.5.0 (devel)
-    - R 3.4.0patched
-    - R 3.3.1
-    - R 3.3.0
-- Windows 7, R 3.2.1
-- Windows 7, R 3.3.0
-- Windows 8.1, R 3.2.3
-- Windows 8.1, R 3.3.0
-- Ubuntu 14.04, R 3.2.2
-- travis-ci latest version
+- Ubuntu 22.04 (WSL2)
+    - R 4.5.1
+    - R 4.4.3
 
 ## R CMD check results
 
@@ -28,4 +17,4 @@ Previous versions tested on with minimal differences to this version
 
 ## Comments
 
-Replaced plot.acf with autoplot.acf to fix issue with the plot generic
+Updating to remove deprectaed dplyr and ggplot2 functions.
