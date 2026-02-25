@@ -7,12 +7,12 @@ Added point size option in `plot.kmeans`.
 Added function for computing a single time difference with an informative message.
 
 # Version 1.2.3
-Added support for sparce matrices in `build.x`
+Added support for sparse matrices in `build.x`
 
 # Version 1.2.2
 Adjusted `build.x` so that it works appropriately when only one categorical variable is specified.
 Added tests for building matrices.
-Changed code to accomodate new changes in `dplyr`.
+Changed code to accommodate new changes in `dplyr`.
 
 # Version 1.2.1
 Added function, `uniqueBidirection` to return unique rows of a `data.frame` regardless of their order.
@@ -59,7 +59,7 @@ New function for building formulas from vectors of characters.
 Added function for comparing two lists element by element.
 
 # Version 1.1.2
-FitKMeans uses match.arg for determing algorithmchoice.
+FitKMeans uses match.arg for determining algorithm choice.
 The loop in FitKMeans now fits each partitioning once and reuses it rather than calculating twice.
 
 # Version 1.1.1
