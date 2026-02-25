@@ -78,6 +78,7 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' k1 <- kmeans(x=iris[, 1:4], centers=3)
 #' plot(k1)
 #' plot(k1, data=iris)
+#' plot(k1, data=iris, class=Species)
 #' 
 plot.kmeans <-
     function(x, data=NULL, class=NULL, size=2, 
@@ -94,8 +95,9 @@ plot.kmeans <-
       # convert class to factor just in case it is not already
       if(!is.null(class)) toPlot[, class] <- factor(toPlot[, class])
       
-      ggplot(toPlot, aes_string(x='.x', y='.y', colour='.Cluster')) + 
-          geom_point(aes_string(shape=class), size=size) + 
+      ggplot(toPlot, aes(x=.data[['.x']], y=.data[['.y']], colour=.data[['.Cluster']])) + 
+          # geom_point(aes_string(shape='class'), size=size) + 
+          geom_point(aes(shape={{class}}), size=size) +
           scale_color_discrete("Cluster") +
           theme(legend.position=legend.position) +
           labs(title=title, x=xlab, y=ylab)
