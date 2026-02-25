@@ -1,4 +1,4 @@
-# Version 1.2.4
+# Version 1.2.7
 Using `autoplot` to plot `acf` objects.
 
 # Version 1.2.4

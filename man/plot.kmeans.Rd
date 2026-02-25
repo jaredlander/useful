@@ -49,6 +49,7 @@ Plots the results of k-means with color-coding for the cluster membership.  If \
 k1 <- kmeans(x=iris[, 1:4], centers=3)
 plot(k1)
 plot(k1, data=iris)
+plot(k1, data=iris, class=Species)
 
 }
 \seealso{

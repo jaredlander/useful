@@ -72,6 +72,7 @@ fortify.kmeans <- function(model, data=NULL, ...)
 #' @param xlab Label for the x-axis.
 #' @param ylab Label for the y-axis.
 #' @param \dots Not Used.
+#' @importFrom rlang :=
 #' @return A ggplot object
 #' @examples
 #' 
@@ -93,10 +94,15 @@ plot.kmeans <-
       legend.position <- match.arg(legend.position)
     
       # convert class to factor just in case it is not already
-      if(!is.null(class)) toPlot[, class] <- factor(toPlot[, class])
+      # if(!is.null(class)) toPlot[, class] <- factor(toPlot[, class])
+      if(!is.null(rlang::enexpr(class)))
+      {
+        class <- rlang::ensym(class)
+        dplyr::mutate(toPlot, {{class}} := factor({{class}}))
+      }
       
       ggplot(toPlot, aes(x=.data[['.x']], y=.data[['.y']], colour=.data[['.Cluster']])) + 
-          # geom_point(aes_string(shape='class'), size=size) + 
+          # geom_point(aes_string(shape='class'), size=size) +
           geom_point(aes(shape={{class}}), size=size) +
           scale_color_discrete("Cluster") +
           theme(legend.position=legend.position) +

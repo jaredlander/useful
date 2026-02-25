@@ -9,3 +9,5 @@
 .git\.
 ^codecov\.yml$
 ^\.github$
+.claude/*
+CLAUDE.md
